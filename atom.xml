@@ -181,6 +181,35 @@
   </entry>
   
   <entry>
+    <title>nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</title>
+    <link href="https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/"/>
+    <id>https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/</id>
+    <published>2019-10-20T16:00:00.000Z</published>
+    <updated>2019-11-18T12:36:12.373Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;假设访问路径是 &lt;code&gt;/test/a.html&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;请看以下两种情况：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. proxy_pass 加 / 斜线的情况&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location /test/ {
+   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://feichaoyu.com/categories/nginx/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Vue路由history模式刷新后退出现404或500的解决方案</title>
     <link href="https://feichaoyu.com/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/"/>
     <id>https://feichaoyu.com/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/</id>
@@ -208,35 +237,6 @@
       <category term="nginx" scheme="https://feichaoyu.com/categories/nginx/"/>
     
       <category term="vue" scheme="https://feichaoyu.com/categories/nginx/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</title>
-    <link href="https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/"/>
-    <id>https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/</id>
-    <published>2019-10-20T16:00:00.000Z</published>
-    <updated>2019-11-18T12:36:12.373Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;假设访问路径是 &lt;code&gt;/test/a.html&lt;/code&gt; &lt;/p&gt;
-&lt;p&gt;请看以下两种情况：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. proxy_pass 加 / 斜线的情况&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;location /test/ {
-   
-        
-      
-    
-    </summary>
-    
-    
-      <category term="nginx" scheme="https://feichaoyu.com/categories/nginx/"/>
     
     
   </entry>
@@ -326,11 +326,11 @@
   </entry>
   
   <entry>
-    <title>7.MySQL分页查询</title>
-    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/"/>
-    <id>https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/</id>
+    <title>8.MySQL子查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2019-09-28T08:32:02.320Z</updated>
+    <updated>2019-09-28T08:32:04.342Z</updated>
     
     <summary type="html">
     
@@ -338,67 +338,7 @@
       
         
         
-          &lt;p&gt;&lt;code&gt;offset&lt;/code&gt; 要显示条目的起始索引（起始索引从0开始）&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;size&lt;/code&gt; 要显示的条目个数&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;limit&lt;/code&gt; 语句放在查询语句的最后&lt;/p&gt;
-&lt;p&gt;如果要显示的页数为
-        
-      
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL行列转换</title>
-    <link href="https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/"/>
-    <id>https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/</id>
-    <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2019-09-28T08:32:10.765Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;有如下 t_score 表：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;CREATE TABLE t_score (
-    id INT PRIMARY KEY auto_increment,
-    name VARCHAR ( 20 ) NOT NULL,       
-        
-      
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>3.MySQL排序查询</title>
-    <link href="https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/"/>
-    <id>https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/</id>
-    <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2019-09-28T08:32:07.989Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;按单个字段排序&quot;&gt;&lt;a href=&quot;#按单个字段排序&quot; class=&quot;headerlink&quot; title=&quot;按单个字段排序&quot;&gt;&lt;/a&gt;按单个字段排序&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;SELECT
-    * 
-FROM
-    employees 
-ORDER
+          &lt;h2 id=&quot;标量子查询&quot;&gt;&lt;a href=&quot;#标量子查询&quot; class=&quot;headerlink&quot;
         
       
     
@@ -438,11 +378,11 @@ ORDER
   </entry>
   
   <entry>
-    <title>8.MySQL子查询</title>
-    <link href="https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/"/>
-    <id>https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/</id>
+    <title>7.MySQL分页查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/</id>
     <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2019-09-28T08:32:04.342Z</updated>
+    <updated>2019-09-28T08:32:02.320Z</updated>
     
     <summary type="html">
     
@@ -450,35 +390,10 @@ ORDER
       
         
         
-          &lt;h2 id=&quot;标量子查询&quot;&gt;&lt;a href=&quot;#标量子查询&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>5.MySQL分组查询</title>
-    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/"/>
-    <id>https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/</id>
-    <published>2019-09-24T16:00:00.000Z</published>
-    <updated>2019-09-28T08:32:00.954Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;简单的分组&quot;&gt;&lt;a href=&quot;#简单的分组&quot; class=&quot;headerlink&quot; title=&quot;简单的分组&quot;&gt;&lt;/a&gt;简单的分组&lt;/h2&gt;&lt;p&gt;查询每个工种的员工平均工资&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SELECT
-    AVG( salary ),
-  
+          &lt;p&gt;&lt;code&gt;offset&lt;/code&gt; 要显示条目的起始索引（起始索引从0开始）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;size&lt;/code&gt; 要显示的条目个数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;limit&lt;/code&gt; 语句放在查询语句的最后&lt;/p&gt;
+&lt;p&gt;如果要显示的页数为
         
       
     
@@ -529,6 +444,91 @@ ORDER
         
         
           &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;导入表 &lt;a href=&quot;https://www.lanzous.com/i6eag1c&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL行列转换</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:10.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有如下 t_score 表：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CREATE TABLE t_score (
+    id INT PRIMARY KEY auto_increment,
+    name VARCHAR ( 20 ) NOT NULL,       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>5.MySQL分组查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:00.954Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简单的分组&quot;&gt;&lt;a href=&quot;#简单的分组&quot; class=&quot;headerlink&quot; title=&quot;简单的分组&quot;&gt;&lt;/a&gt;简单的分组&lt;/h2&gt;&lt;p&gt;查询每个工种的员工平均工资&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT
+    AVG( salary ),
+  
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>3.MySQL排序查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:07.989Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;按单个字段排序&quot;&gt;&lt;a href=&quot;#按单个字段排序&quot; class=&quot;headerlink&quot; title=&quot;按单个字段排序&quot;&gt;&lt;/a&gt;按单个字段排序&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;SELECT
+    * 
+FROM
+    employees 
+ORDER
         
       
     

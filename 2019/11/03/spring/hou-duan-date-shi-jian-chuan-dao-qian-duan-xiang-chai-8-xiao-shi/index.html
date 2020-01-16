@@ -738,7 +738,7 @@
     let gitalk = new Gitalk({
         clientID: '5d532a15ac3d0c7b3a64',
         clientSecret: '572d78e2f0d397d21bb65eddd0ffcc740197553d',
-        repo: 'https://github.com/FeiChaoyu/comments',
+        repo: 'feichaoyu.github.io',
         owner: 'feichaoyu',
         admin: ["feichaoyu"],
         id: '2019-11-03T00-00-00',
@@ -807,24 +807,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/">
+                <a href="/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Vue路由history模式刷新后退出现404或500的解决方案">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别">
                         
-                        <span class="card-title">Vue路由history模式刷新后退出现404或500的解决方案</span>
+                        <span class="card-title">nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            nginx 的配置文件部分如下：
-server {
-        listen       80;
-        server_name  localhost;
-        root   html/dist;
-        #ch
+                            假设访问路径是 /test/a.html 
+请看以下两种情况：
+1. proxy_pass 加 / 斜线的情况
+location /test/ {
+    proxy_pass http://127.0.0.1:8080/;
+} 被代理的真
                         
                     </div>
                     <div class="publish-info">
@@ -837,10 +837,6 @@ server {
                             
                             <a href="/categories/nginx/" class="post-category">
                                     nginx
-                                </a>
-                            
-                            <a href="/categories/nginx/vue/" class="post-category">
-                                    vue
                                 </a>
                             
                             

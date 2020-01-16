@@ -124,6 +124,25 @@
     
     
     <entry>
+      <title>nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</title>
+      <link href="/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/"/>
+      <url>/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/</url>
+      
+        <content type="html"><![CDATA[<p>假设访问路径是 <code>/test/a.html</code> </p><p>请看以下两种情况：</p><p><strong>1. proxy_pass 加 / 斜线的情况</strong></p><pre><code>location /test/ {    proxy_pass http://127.0.0.1:8080/;}</code></pre><p> 被代理的真实访问路径为：<a href="http://127.0.0.1:8080/a.html" target="_blank" rel="noopener">http://127.0.0.1:8080/a.html</a></p><p><strong>2. proxy_pass 不加 / 斜线的情况</strong> </p><pre><code>location /test/ {    proxy_pass http://127.0.0.1:8080;}</code></pre><p>  被代理的真实访问路径为：<a href="http://127.0.0.1:8080/test/a.html" target="_blank" rel="noopener">http://127.0.0.1:8080/test/a.html</a> </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> nginx </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue路由history模式刷新后退出现404或500的解决方案</title>
       <link href="/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/"/>
       <url>/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/</url>
@@ -136,25 +155,6 @@
           <category> nginx </category>
           
           <category> vue </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</title>
-      <link href="/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/"/>
-      <url>/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/</url>
-      
-        <content type="html"><![CDATA[<p>假设访问路径是 <code>/test/a.html</code> </p><p>请看以下两种情况：</p><p><strong>1. proxy_pass 加 / 斜线的情况</strong></p><pre><code>location /test/ {    proxy_pass http://127.0.0.1:8080/;}</code></pre><p> 被代理的真实访问路径为：<a href="http://127.0.0.1:8080/a.html" target="_blank" rel="noopener">http://127.0.0.1:8080/a.html</a></p><p><strong>2. proxy_pass 不加 / 斜线的情况</strong> </p><pre><code>location /test/ {    proxy_pass http://127.0.0.1:8080;}</code></pre><p>  被代理的真实访问路径为：<a href="http://127.0.0.1:8080/test/a.html" target="_blank" rel="noopener">http://127.0.0.1:8080/test/a.html</a> </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> nginx </category>
           
       </categories>
       
@@ -221,49 +221,11 @@
     
     
     <entry>
-      <title>7.MySQL分页查询</title>
-      <link href="/2019/09/25/mysql/fen-ye-cha-xun/"/>
-      <url>/2019/09/25/mysql/fen-ye-cha-xun/</url>
+      <title>8.MySQL子查询</title>
+      <link href="/2019/09/25/mysql/zi-cha-xun/"/>
+      <url>/2019/09/25/mysql/zi-cha-xun/</url>
       
-        <content type="html"><![CDATA[<p><code>offset</code> 要显示条目的起始索引（起始索引从0开始）</p><p><code>size</code> 要显示的条目个数</p><p><code>limit</code> 语句放在查询语句的最后</p><p>如果要显示的页数为 <code>page</code>，每页的条目数为 <code>size</code>，那么当前页的公式为：</p><pre><code>select 查询列表from 表limit (page-1)*size,size;</code></pre><p>查询前五条员工信息</p><pre><code>SELECT    * FROM    employees     LIMIT 5;</code></pre><p>查询第11条记录到第25条记录</p><pre><code>SELECT    * FROM    employees     LIMIT 10,    15;</code></pre><p>查询有奖金的员工信息，并且工资较高的前10名显示出来</p><pre><code>SELECT    * FROM    employees WHERE    commission_pct IS NOT NULL ORDER BY    salary DESC     LIMIT 10;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> MySQL </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>MySQL行列转换</title>
-      <link href="/2019/09/25/mysql/xing-lie-zhuan-huan/"/>
-      <url>/2019/09/25/mysql/xing-lie-zhuan-huan/</url>
-      
-        <content type="html"><![CDATA[<p>有如下 t_score 表：</p><pre><code>CREATE TABLE t_score (    id INT PRIMARY KEY auto_increment,    name VARCHAR ( 20 ) NOT NULL,        #名字    subject VARCHAR ( 10 ) NOT NULL,    #科目    score DOUBLE DEFAULT 0                 #分数);</code></pre><p>我们插入几条数据：</p><pre><code>INSERT INTO `t_score` ( name, subject, score )VALUES    ( '张三', '语文', 86 ),    ( '张三', '数学', 83 ),    ( '张三', '英语', 93 ),    ( '李四', '语文', 88 ),    ( '李四', '数学', 84 ),    ( '李四', '英语', 94 ),    ( '王五', '语文', 80 ),    ( '王五', '数学', 86 ),    ( '王五', '英语', 88 ),    ( '赵六', '语文', 89 ),    ( '赵六', '数学', 80 ),    ( '赵六', '英语', 87 );</code></pre><p>原来的表格是这样的：</p><table><thead><tr><th>id</th><th>name</th><th>subject</th><th>score</th></tr></thead><tbody><tr><td>1</td><td>张三</td><td>语文</td><td>86</td></tr><tr><td>2</td><td>张三</td><td>数学</td><td>83</td></tr></tbody></table><p>希望转换成这样的：</p><table><thead><tr><th>姓名</th><th>语文</th><th>数学</th><th>英文</th><th>总分</th></tr></thead><tbody><tr><td>张三</td><td>86</td><td>83</td><td>93</td><td></td></tr><tr><td>李四</td><td>88</td><td>84</td><td>94</td><td></td></tr><tr><td>科目平均分</td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code>SELECT     name AS 姓名,    sum( IF ( subject = '语文', score, 0 ) ) AS 语文,    sum( IF ( subject = '数学', score, 0 ) ) AS 数学,    sum( IF ( subject = '英语', score, 0 ) ) AS 英语,    sum( score ) AS 总分 FROM    t_score GROUP BY name UNIONSELECT     name AS 姓名,    round( AVG( chinese ), 2 ),    round( AVG( math ), 2 ),    round( AVG( english ), 2 ),    "" FROM    (    SELECT        '科目平均分' AS NAME,        sum( IF ( subject = '语文', score, 0 ) ) AS chinese,        sum( IF ( subject = '数学', score, 0 ) ) AS math,        sum( IF ( subject = '英语', score, 0 ) ) AS english,        sum( score ) AS 总分     FROM        t_score     GROUP BY subject     ) t</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> MySQL </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>3.MySQL排序查询</title>
-      <link href="/2019/09/25/mysql/pai-xu-cha-xun/"/>
-      <url>/2019/09/25/mysql/pai-xu-cha-xun/</url>
-      
-        <content type="html"><![CDATA[<h2 id="按单个字段排序"><a href="#按单个字段排序" class="headerlink" title="按单个字段排序"></a>按单个字段排序</h2><pre><code>SELECT    * FROM    employees ORDER BY    salary DESC;</code></pre><h2 id="添加筛选条件再排序"><a href="#添加筛选条件再排序" class="headerlink" title="添加筛选条件再排序"></a>添加筛选条件再排序</h2><p>查询部门编号&gt;=90的员工信息，并按员工编号降序</p><pre><code>SELECT    * FROM    employees WHERE    department_id &gt;= 90 ORDER BY    employee_id DESC;</code></pre><h2 id="按表达式排序"><a href="#按表达式排序" class="headerlink" title="按表达式排序"></a>按表达式排序</h2><p>查询员工信息，按年薪降序</p><pre><code>SELECT    *,    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) FROM    employees ORDER BY    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) DESC;</code></pre><h2 id="按别名排序"><a href="#按别名排序" class="headerlink" title="按别名排序"></a>按别名排序</h2><p>查询员工信息，按年薪升序</p><pre><code>SELECT    *,    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) 年薪 FROM    employees ORDER BY    年薪 ASC;</code></pre><h2 id="按函数排序"><a href="#按函数排序" class="headerlink" title="按函数排序"></a>按函数排序</h2><p>查询员工名，并且按名字的长度降序</p><pre><code>SELECT    LENGTH( last_name ),    last_name FROM    employees ORDER BY    LENGTH( last_name ) DESC;</code></pre><h2 id="按多个字段排序"><a href="#按多个字段排序" class="headerlink" title="按多个字段排序"></a>按多个字段排序</h2><p>查询员工信息，要求先按工资降序，再按 employee_id 升序</p><pre><code>SELECT    * FROM    employees ORDER BY    salary DESC,    employee_id ASC;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h2 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h2><p>标量子查询是指子查询返回的是单一值的标量，如一个数字或一个字符串，也是子查询中最简单的返回形式。</p><p>返回 job_id 与141号员工相同，salary 比143号员工多的员工姓名、job_id 和工资</p><pre><code>SELECT    last_name,    job_id,    salary FROM    employees WHERE    job_id = ( SELECT job_id FROM employees WHERE employee_id = 141 )     AND salary &gt; ( SELECT salary FROM employees WHERE employee_id = 143 );</code></pre><p>返回大于50号部门最低工资的部门 id 和其最低工资</p><pre><code>SELECT    MIN( salary ),    department_id FROM    employees GROUP BY    department_id HAVING    MIN( salary ) &gt; ( SELECT MIN( salary ) FROM employees WHERE department_id = 50 );</code></pre><p>select 后面仅仅支持标量子查询，比如查询每个部门的员工个数</p><pre><code>SELECT    d.*,    ( SELECT COUNT( * ) FROM employees e WHERE e.department_id = d.`department_id` ) 个数 FROM    departments d;</code></pre><h2 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h2><p>列子查询是指子查询返回的结果集是 N 行一列，该结果通常来自对表的某个字段查询返回。</p><p>返回 location_id 是1400或1700的部门中的所有员工姓名</p><pre><code>SELECT    last_name FROM    employees WHERE    department_id IN ( SELECT DISTINCT department_id FROM departments WHERE location_id IN ( 1400, 1700 ) );</code></pre><h2 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h2><p>行子查询是指子查询返回的结果集是一行 N 列，该子查询的结果通常是对表的某行数据进行查询而返回的结果集。</p><p>查询员工编号最小并且工资最高的员工信息</p><pre><code>SELECT    * FROM    employees WHERE    employee_id = ( SELECT MIN( employee_id ) FROM employees )     AND salary = ( SELECT MAX( salary ) FROM employees );</code></pre><h2 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h2><p>表子查询是指子查询返回的结果是多行多列的二维表。</p><p>查询每个部门的平均工资的工资等级</p><pre><code>SELECT    ag_dep.*,    g.`grade_level` FROM    ( SELECT AVG( salary ) ag, department_id FROM employees GROUP BY department_id ) ag_dep    INNER JOIN job_grades g ON ag_dep.ag BETWEEN lowest_sal     AND highest_sal;</code></pre><h2 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h2><p>相关子查询是指内部查询的执行依赖于外部查询的数据，外部查询每执行一次，内部查询也会执行一次。</p><p>查询有员工的部门名</p><pre><code>SELECT    department_name FROM    departments d WHERE    d.`department_id` IN ( SELECT department_id FROM employees )</code></pre><pre><code>SELECT    department_name FROM    departments d WHERE    EXISTS ( SELECT * FROM employees e WHERE d.`department_id` = e.`department_id` );</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -297,30 +259,11 @@
     
     
     <entry>
-      <title>8.MySQL子查询</title>
-      <link href="/2019/09/25/mysql/zi-cha-xun/"/>
-      <url>/2019/09/25/mysql/zi-cha-xun/</url>
+      <title>7.MySQL分页查询</title>
+      <link href="/2019/09/25/mysql/fen-ye-cha-xun/"/>
+      <url>/2019/09/25/mysql/fen-ye-cha-xun/</url>
       
-        <content type="html"><![CDATA[<h2 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h2><p>标量子查询是指子查询返回的是单一值的标量，如一个数字或一个字符串，也是子查询中最简单的返回形式。</p><p>返回 job_id 与141号员工相同，salary 比143号员工多的员工姓名、job_id 和工资</p><pre><code>SELECT    last_name,    job_id,    salary FROM    employees WHERE    job_id = ( SELECT job_id FROM employees WHERE employee_id = 141 )     AND salary &gt; ( SELECT salary FROM employees WHERE employee_id = 143 );</code></pre><p>返回大于50号部门最低工资的部门 id 和其最低工资</p><pre><code>SELECT    MIN( salary ),    department_id FROM    employees GROUP BY    department_id HAVING    MIN( salary ) &gt; ( SELECT MIN( salary ) FROM employees WHERE department_id = 50 );</code></pre><p>select 后面仅仅支持标量子查询，比如查询每个部门的员工个数</p><pre><code>SELECT    d.*,    ( SELECT COUNT( * ) FROM employees e WHERE e.department_id = d.`department_id` ) 个数 FROM    departments d;</code></pre><h2 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h2><p>列子查询是指子查询返回的结果集是 N 行一列，该结果通常来自对表的某个字段查询返回。</p><p>返回 location_id 是1400或1700的部门中的所有员工姓名</p><pre><code>SELECT    last_name FROM    employees WHERE    department_id IN ( SELECT DISTINCT department_id FROM departments WHERE location_id IN ( 1400, 1700 ) );</code></pre><h2 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h2><p>行子查询是指子查询返回的结果集是一行 N 列，该子查询的结果通常是对表的某行数据进行查询而返回的结果集。</p><p>查询员工编号最小并且工资最高的员工信息</p><pre><code>SELECT    * FROM    employees WHERE    employee_id = ( SELECT MIN( employee_id ) FROM employees )     AND salary = ( SELECT MAX( salary ) FROM employees );</code></pre><h2 id="表子查询"><a href="#表子查询" class="headerlink" title="表子查询"></a>表子查询</h2><p>表子查询是指子查询返回的结果是多行多列的二维表。</p><p>查询每个部门的平均工资的工资等级</p><pre><code>SELECT    ag_dep.*,    g.`grade_level` FROM    ( SELECT AVG( salary ) ag, department_id FROM employees GROUP BY department_id ) ag_dep    INNER JOIN job_grades g ON ag_dep.ag BETWEEN lowest_sal     AND highest_sal;</code></pre><h2 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h2><p>相关子查询是指内部查询的执行依赖于外部查询的数据，外部查询每执行一次，内部查询也会执行一次。</p><p>查询有员工的部门名</p><pre><code>SELECT    department_name FROM    departments d WHERE    d.`department_id` IN ( SELECT department_id FROM employees )</code></pre><pre><code>SELECT    department_name FROM    departments d WHERE    EXISTS ( SELECT * FROM employees e WHERE d.`department_id` = e.`department_id` );</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> MySQL </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>5.MySQL分组查询</title>
-      <link href="/2019/09/25/mysql/fen-zu-cha-xun/"/>
-      <url>/2019/09/25/mysql/fen-zu-cha-xun/</url>
-      
-        <content type="html"><![CDATA[<h2 id="简单的分组"><a href="#简单的分组" class="headerlink" title="简单的分组"></a>简单的分组</h2><p>查询每个工种的员工平均工资</p><pre><code>SELECT    AVG( salary ),    job_id FROM    employees GROUP BY    job_id;</code></pre><p>查询每个位置的部门个数</p><pre><code>SELECT    COUNT( * ),    location_id FROM    departments GROUP BY    location_id;</code></pre><h2 id="分组前的筛选"><a href="#分组前的筛选" class="headerlink" title="分组前的筛选"></a>分组前的筛选</h2><p>查询邮箱中包含 a 字符的每个部门的最高工资</p><pre><code>SELECT    MAX( salary ),    department_id FROM    employees WHERE    email LIKE '%a%' GROUP BY    department_id;</code></pre><p>查询有奖金的每个领导手下员工的平均工资</p><pre><code>SELECT    AVG( salary ),    manager_id FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    manager_id;</code></pre><h2 id="分组后的筛选"><a href="#分组后的筛选" class="headerlink" title="分组后的筛选"></a>分组后的筛选</h2><p>查询员工个数 &gt;5 的部门并统计员工个数</p><pre><code>SELECT    COUNT( * ),    department_id FROM    employees GROUP BY    department_id HAVING    COUNT( * ) &gt; 5;</code></pre><p>查询有奖金员工并且最高工资 &gt;12000 的员工并统计工种编号和最高工资</p><pre><code>SELECT    job_id,    MAX( salary ) FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    job_id HAVING    MAX( salary ) &gt; 12000;</code></pre><h2 id="添加排序"><a href="#添加排序" class="headerlink" title="添加排序"></a>添加排序</h2><p>统计每个工种有奖金员工的最高工资 &gt;6000 的工种编号和最高工资，按最高工资升序</p><pre><code>SELECT    job_id,    MAX( salary ) m FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    job_id HAVING    m &gt; 6000 ORDER BY    m;</code></pre><h2 id="按多个字段分组"><a href="#按多个字段分组" class="headerlink" title="按多个字段分组"></a>按多个字段分组</h2><p>查询每个工种每个部门的最低工资，并按最低工资降序</p><pre><code>SELECT    MIN( salary ),    job_id,    department_id FROM    employees GROUP BY    department_id,    job_id ORDER BY    MIN( salary ) DESC;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<p><code>offset</code> 要显示条目的起始索引（起始索引从0开始）</p><p><code>size</code> 要显示的条目个数</p><p><code>limit</code> 语句放在查询语句的最后</p><p>如果要显示的页数为 <code>page</code>，每页的条目数为 <code>size</code>，那么当前页的公式为：</p><pre><code>select 查询列表from 表limit (page-1)*size,size;</code></pre><p>查询前五条员工信息</p><pre><code>SELECT    * FROM    employees     LIMIT 5;</code></pre><p>查询第11条记录到第25条记录</p><pre><code>SELECT    * FROM    employees     LIMIT 10,    15;</code></pre><p>查询有奖金的员工信息，并且工资较高的前10名显示出来</p><pre><code>SELECT    * FROM    employees WHERE    commission_pct IS NOT NULL ORDER BY    salary DESC     LIMIT 10;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -359,6 +302,63 @@
       <url>/2019/09/25/mysql/ji-chu-cha-xun/</url>
       
         <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>导入表 <a href="https://www.lanzous.com/i6eag1c" target="_blank" rel="noopener">下载地址</a></p><h2 id="查询表中的单个字段"><a href="#查询表中的单个字段" class="headerlink" title="查询表中的单个字段"></a>查询表中的单个字段</h2><pre><code>SELECT    last_name FROM    employees;</code></pre><h2 id="查询表中的多个字段"><a href="#查询表中的多个字段" class="headerlink" title="查询表中的多个字段"></a>查询表中的多个字段</h2><pre><code>SELECT    last_name,    salary,    email FROM    employees;</code></pre><h2 id="查询表中的所有字段"><a href="#查询表中的所有字段" class="headerlink" title="查询表中的所有字段"></a>查询表中的所有字段</h2><pre><code>SELECT    `employee_id`,    `first_name`,    `last_name`,    `phone_number`,    `last_name`,    `job_id`,    `phone_number`,    `job_id`,    `salary`,    `commission_pct`,    `manager_id`,    `department_id`,    `hiredate` FROM    employees;</code></pre><pre><code>SELECT    * FROM    employees;</code></pre><h2 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h2><h3 id="使用-AS"><a href="#使用-AS" class="headerlink" title="使用 AS"></a>使用 AS</h3><pre><code>SELECT    last_name AS 姓,    first_name AS 名 FROM    employees;</code></pre><h3 id="使用空格"><a href="#使用空格" class="headerlink" title="使用空格"></a>使用空格</h3><pre><code>SELECT    last_name 姓,    first_name 名 FROM    employees;</code></pre><h2 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h2><p>查询员工表中涉及到的所有的部门编号</p><pre><code>SELECT DISTINCT    department_id FROM    employees;</code></pre><h2 id="号运算符"><a href="#号运算符" class="headerlink" title="+ 号运算符"></a>+ 号运算符</h2><blockquote><p>select 100+90;   两个操作数都为数值型，则做加法运算</p><p>select ‘123’+90;   只要其中一方为字符型，试图将字符型数值转换成数值型。如果转换成功，则继续做加法运算<br>select ‘john’+90;   如果转换失败，则将字符型数值转换成0</p><p>select null+10;   只要其中一方为 null，则结果肯定为 null</p></blockquote><p>查询员工名和姓连接成一个字段，并显示为姓名</p><pre><code>SELECT    CONCAT( last_name, first_name ) AS 姓名 FROM    employees;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL行列转换</title>
+      <link href="/2019/09/25/mysql/xing-lie-zhuan-huan/"/>
+      <url>/2019/09/25/mysql/xing-lie-zhuan-huan/</url>
+      
+        <content type="html"><![CDATA[<p>有如下 t_score 表：</p><pre><code>CREATE TABLE t_score (    id INT PRIMARY KEY auto_increment,    name VARCHAR ( 20 ) NOT NULL,        #名字    subject VARCHAR ( 10 ) NOT NULL,    #科目    score DOUBLE DEFAULT 0                 #分数);</code></pre><p>我们插入几条数据：</p><pre><code>INSERT INTO `t_score` ( name, subject, score )VALUES    ( '张三', '语文', 86 ),    ( '张三', '数学', 83 ),    ( '张三', '英语', 93 ),    ( '李四', '语文', 88 ),    ( '李四', '数学', 84 ),    ( '李四', '英语', 94 ),    ( '王五', '语文', 80 ),    ( '王五', '数学', 86 ),    ( '王五', '英语', 88 ),    ( '赵六', '语文', 89 ),    ( '赵六', '数学', 80 ),    ( '赵六', '英语', 87 );</code></pre><p>原来的表格是这样的：</p><table><thead><tr><th>id</th><th>name</th><th>subject</th><th>score</th></tr></thead><tbody><tr><td>1</td><td>张三</td><td>语文</td><td>86</td></tr><tr><td>2</td><td>张三</td><td>数学</td><td>83</td></tr></tbody></table><p>希望转换成这样的：</p><table><thead><tr><th>姓名</th><th>语文</th><th>数学</th><th>英文</th><th>总分</th></tr></thead><tbody><tr><td>张三</td><td>86</td><td>83</td><td>93</td><td></td></tr><tr><td>李四</td><td>88</td><td>84</td><td>94</td><td></td></tr><tr><td>科目平均分</td><td></td><td></td><td></td><td></td></tr></tbody></table><pre><code>SELECT     name AS 姓名,    sum( IF ( subject = '语文', score, 0 ) ) AS 语文,    sum( IF ( subject = '数学', score, 0 ) ) AS 数学,    sum( IF ( subject = '英语', score, 0 ) ) AS 英语,    sum( score ) AS 总分 FROM    t_score GROUP BY name UNIONSELECT     name AS 姓名,    round( AVG( chinese ), 2 ),    round( AVG( math ), 2 ),    round( AVG( english ), 2 ),    "" FROM    (    SELECT        '科目平均分' AS NAME,        sum( IF ( subject = '语文', score, 0 ) ) AS chinese,        sum( IF ( subject = '数学', score, 0 ) ) AS math,        sum( IF ( subject = '英语', score, 0 ) ) AS english,        sum( score ) AS 总分     FROM        t_score     GROUP BY subject     ) t</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>5.MySQL分组查询</title>
+      <link href="/2019/09/25/mysql/fen-zu-cha-xun/"/>
+      <url>/2019/09/25/mysql/fen-zu-cha-xun/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简单的分组"><a href="#简单的分组" class="headerlink" title="简单的分组"></a>简单的分组</h2><p>查询每个工种的员工平均工资</p><pre><code>SELECT    AVG( salary ),    job_id FROM    employees GROUP BY    job_id;</code></pre><p>查询每个位置的部门个数</p><pre><code>SELECT    COUNT( * ),    location_id FROM    departments GROUP BY    location_id;</code></pre><h2 id="分组前的筛选"><a href="#分组前的筛选" class="headerlink" title="分组前的筛选"></a>分组前的筛选</h2><p>查询邮箱中包含 a 字符的每个部门的最高工资</p><pre><code>SELECT    MAX( salary ),    department_id FROM    employees WHERE    email LIKE '%a%' GROUP BY    department_id;</code></pre><p>查询有奖金的每个领导手下员工的平均工资</p><pre><code>SELECT    AVG( salary ),    manager_id FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    manager_id;</code></pre><h2 id="分组后的筛选"><a href="#分组后的筛选" class="headerlink" title="分组后的筛选"></a>分组后的筛选</h2><p>查询员工个数 &gt;5 的部门并统计员工个数</p><pre><code>SELECT    COUNT( * ),    department_id FROM    employees GROUP BY    department_id HAVING    COUNT( * ) &gt; 5;</code></pre><p>查询有奖金员工并且最高工资 &gt;12000 的员工并统计工种编号和最高工资</p><pre><code>SELECT    job_id,    MAX( salary ) FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    job_id HAVING    MAX( salary ) &gt; 12000;</code></pre><h2 id="添加排序"><a href="#添加排序" class="headerlink" title="添加排序"></a>添加排序</h2><p>统计每个工种有奖金员工的最高工资 &gt;6000 的工种编号和最高工资，按最高工资升序</p><pre><code>SELECT    job_id,    MAX( salary ) m FROM    employees WHERE    commission_pct IS NOT NULL GROUP BY    job_id HAVING    m &gt; 6000 ORDER BY    m;</code></pre><h2 id="按多个字段分组"><a href="#按多个字段分组" class="headerlink" title="按多个字段分组"></a>按多个字段分组</h2><p>查询每个工种每个部门的最低工资，并按最低工资降序</p><pre><code>SELECT    MIN( salary ),    job_id,    department_id FROM    employees GROUP BY    department_id,    job_id ORDER BY    MIN( salary ) DESC;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>3.MySQL排序查询</title>
+      <link href="/2019/09/25/mysql/pai-xu-cha-xun/"/>
+      <url>/2019/09/25/mysql/pai-xu-cha-xun/</url>
+      
+        <content type="html"><![CDATA[<h2 id="按单个字段排序"><a href="#按单个字段排序" class="headerlink" title="按单个字段排序"></a>按单个字段排序</h2><pre><code>SELECT    * FROM    employees ORDER BY    salary DESC;</code></pre><h2 id="添加筛选条件再排序"><a href="#添加筛选条件再排序" class="headerlink" title="添加筛选条件再排序"></a>添加筛选条件再排序</h2><p>查询部门编号&gt;=90的员工信息，并按员工编号降序</p><pre><code>SELECT    * FROM    employees WHERE    department_id &gt;= 90 ORDER BY    employee_id DESC;</code></pre><h2 id="按表达式排序"><a href="#按表达式排序" class="headerlink" title="按表达式排序"></a>按表达式排序</h2><p>查询员工信息，按年薪降序</p><pre><code>SELECT    *,    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) FROM    employees ORDER BY    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) DESC;</code></pre><h2 id="按别名排序"><a href="#按别名排序" class="headerlink" title="按别名排序"></a>按别名排序</h2><p>查询员工信息，按年薪升序</p><pre><code>SELECT    *,    salary * 12 * ( 1+ IFNULL( commission_pct, 0 ) ) 年薪 FROM    employees ORDER BY    年薪 ASC;</code></pre><h2 id="按函数排序"><a href="#按函数排序" class="headerlink" title="按函数排序"></a>按函数排序</h2><p>查询员工名，并且按名字的长度降序</p><pre><code>SELECT    LENGTH( last_name ),    last_name FROM    employees ORDER BY    LENGTH( last_name ) DESC;</code></pre><h2 id="按多个字段排序"><a href="#按多个字段排序" class="headerlink" title="按多个字段排序"></a>按多个字段排序</h2><p>查询员工信息，要求先按工资降序，再按 employee_id 升序</p><pre><code>SELECT    * FROM    employees ORDER BY    salary DESC,    employee_id ASC;</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
