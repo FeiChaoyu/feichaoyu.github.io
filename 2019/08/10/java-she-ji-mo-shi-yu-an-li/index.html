@@ -1,0 +1,2752 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java设计模式与案例, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="介绍Java的设计模式以及相应的案例">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java设计模式与案例 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            专注于IT互联网，包括但不限于Go、Java、项目管理、软件架构、分布式系统等
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java设计模式与案例</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-10
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="设计模式概述"><a href="#设计模式概述" class="headerlink" title="设计模式概述"></a>设计模式概述</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>设计模式可以分为三大类：创建型模式、行为型模式、结构型模式</p>
+<ul>
+<li><p>创建型模式：提供一种在创建对象的同时，隐藏创建逻辑的方式，而不是直接实例化对象。</p>
+<p>  常用创建型模式：单例模式、简单工厂模式、工厂模式、抽象工厂模式、生成器模式、原型模式</p>
+</li>
+<li><p>行为型模式：关注对象之间的通信。</p>
+<p>  常用行为型模式：责任链模式、命令模式、迭代器模式、访问者模式、中介者模式、备忘录模式、观察者模式、状态模式、策略模式、模板方法模式、解释器模式</p>
+</li>
+<li><p>结构型模式：关注类和对象的组合，继承的概念被用来组合接口和定义组合对象获得新功能的方式。</p>
+<p>  常用结构型模式：享元模式、适配器模式、组合模式、代理模式、桥接模式、装饰器模式、外观模式</p>
+</li>
+</ul>
+<h3 id="接口和抽象类"><a href="#接口和抽象类" class="headerlink" title="接口和抽象类"></a>接口和抽象类</h3><p>“顺序”问题用接口描述，”顺序+共享”问题用抽象类描述。</p>
+<p>举个例子，生产一辆汽车需要由钢板切割、压模、组装、喷漆四道工序组成，这些工序之前是顺序的关系，所以可以用接口来描述。组装多台电脑，我们可能需要不同的显卡，硬盘，但是CPU我们都想要同一型号的，那么CPU就是”共享的”，因此我们可以用抽象类来描述，这样就不需要每次都去实现一遍CPU，如果用接口描述，就需要重复实现。</p>
+<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><p>反射是在程序运行时获取已知名称的类或已有对象相关信息的一种机制，包括类的方法、属性、父类等信息，还包括实例的创建和类型的判断。</p>
+<p>下面举两个关于反射的例子</p>
+<p><strong>1.通过反射获取任意类的任意方法</strong></p>
+<pre><code>public class ReflectDemo {
+
+    public void add(String a, Integer b){
+        System.out.println(a+b);
+    }
+
+    static boolean process(String className, String funcName, Object[] para) throws Exception {
+        Class classType = Class.forName(className);
+        Class c[] = new Class[para.length];
+        for (int i = 0; i &lt; para.length; i++) {
+            c[i] = para[i].getClass();
+        }
+        Constructor constructor = classType.getConstructor();
+        Object obj = constructor.newInstance();
+        Method method = classType.getMethod(funcName, c);
+        method.invoke(obj, para);
+        return true;
+    }
+
+    public static void main(String[] args) throws Exception {
+        boolean process = process(&quot;reflection.ReflectDemo&quot;, &quot;add&quot;, new Object[]{&quot;a&quot;, 1});
+    }
+}</code></pre><pre><code>输出：a1，也就是执行了add方法</code></pre><p><strong>2.已知接收字符串有两种方式，屏幕输出或保存至文件，要求从命令行输入字符串处理类的类名字符串，输入”ConsoleMsg”就把字符串输出到控制台，输入”FileMsg”就把字符串输出到文件</strong></p>
+<p>定义字符串公共处理接口<code>IMsg</code>，两个子类<code>ConsoleMsg</code>、<code>FileMsg</code></p>
+<pre><code>public interface IMsg {
+    void process(String s);
+}</code></pre><pre><code>public class ConsoleMsg implements IMsg {
+    @Override
+    public void process(String msg) {
+        System.out.println(msg);
+    }
+}</code></pre><pre><code>public class FileMsg implements IMsg {
+    @Override
+    public void process(String msg) {
+        System.out.println(&quot;Sava msg to File&quot;);
+    }
+}</code></pre><pre><code>public static void main(String[] args) throws Exception {
+    IMsg obj = null;
+    obj = (IMsg) Class.forName(args[0]).newInstance();
+    obj.process(&quot;hello&quot;);
+}</code></pre><p><code>Class.forName(args[0]).newInstance();</code>表明产生的类名是<code>args[0]</code>的一个实例，可能是<code>ConsoleMsg</code>，也可能是<code>FileMsg</code>，还可能是其他字符串处理类的一个实例。也就是说，这是动态的，不随哪个具体的<code>IMsg</code>接口的子类改变而改变，它是稳定的。如果现在要增加一个将字符串保存到数据库的类，只需要增加功能子类<code>DbMsg</code>，而测试类代码无需改变。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p><strong>代码示例</strong></p>
+<pre><code>// 定义小汽车接口
+public interface ICar {
+}</code></pre><pre><code>// 高档小汽车
+public class UpCar implements ICar {
+}</code></pre><pre><code>// 中档小汽车
+public class MidCar implements ICar {
+}</code></pre><pre><code>// 低档小汽车
+public class DnCar implements ICar {
+}</code></pre><pre><code>public class CarSimpleFactory {
+    public static final String UPTYPE = &quot;uptype&quot;;
+    public static final String MIDTYPE = &quot;midtype&quot;;
+    public static final String DNTYPE = &quot;dntype&quot;;
+
+    public static ICar create(String mark) {
+        ICar obj = null;
+        if (mark.equals(UPTYPE)) {
+            obj = new UpCar();
+        } else if (mark.equals(MIDTYPE)) {
+            obj = new MidCar();
+        } else if (mark.equals(DNTYPE)) {
+            obj = new DnCar();
+        }
+        return obj;
+
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+    ICar obj = CarSimpleFactory.create(&quot;uptype&quot;);
+    System.out.println(obj);
+}</code></pre><p><strong>代码分析</strong></p>
+<p>简单工厂创建步骤：</p>
+<ul>
+<li>定制抽象产品接口，如<code>ICar</code></li>
+<li>定制具体产品子类，如<code>UpCar</code>、<code>MidCar</code>、<code>DnCar</code></li>
+<li>定制工厂类，如<code>CarSimpleFactory</code></li>
+</ul>
+<p>简单工厂类的特点是：它是一个具体的类，非接口或抽象类，有一个<code>create()</code>方法利用<code>if else</code>或<code>switch</code>创建所需产品。由于简单工厂不需要创建实例，所以可以把它实现成一个工具类，直接使用静态方法，因此简单工厂也叫静态工厂。</p>
+<h3 id="工厂模式-1"><a href="#工厂模式-1" class="headerlink" title="工厂模式"></a>工厂模式</h3><p><strong>代码示例</strong></p>
+<pre><code>//定义小汽车接口：ICar.java
+interface ICar {
+    //由于工厂模式仅关系对象的创建，为说明方便，勿需定义方法
+}
+
+//定义高中低档具体的小汽车
+//高档小汽车：UpCar.java
+class UpCar implements ICar {
+}
+
+//中档小汽车：MidCar.java
+class MidCar implements ICar {
+}
+
+//低档小汽车：DnCar.java
+class DnCar implements ICar {
+}
+
+//定义抽象工厂：AbstractFactory.java
+abstract class AbstractFactory {
+    public abstract ICar create();  
+}
+
+//定义高档小汽车工厂：UpFactory.java
+class UpFactory extends AbstractFactory {
+    public ICar create() {
+        return new UpCar(); //高档工厂生成高档小汽车对象
+    }
+}
+
+//定义中档小汽车工厂：UpFactory.java
+ class MidFactory extends AbstractFactory {
+    public ICar create() {
+        return new MidCar();//中档工厂生成中档小汽车对象
+    }
+}
+
+//定义低档小汽车工厂：DnFactory.java
+class DnFactory extends AbstractFactory {
+    public ICar create() {
+        return new DnCar();//低档工厂生成低档小汽车对象
+    }
+}
+
+//测试类：CarTest.java    
+public class CarTest {
+    public static void main(String []args){
+        AbstractFactory obj = new UpFactory();//多态创建高档工厂
+        ICar car = obj.create(); //获得高档工厂中的小汽车对象
+    }
+}</code></pre><p><strong>代码分析</strong></p>
+<p>工厂模式创建步骤：</p>
+<ul>
+<li>定制抽象产品接口，如<code>ICar</code></li>
+<li>定制具体产品子类，如类<code>UpCar</code>、<code>MidCar</code>、<code>DnCar</code></li>
+<li>定制抽象工厂类（或接口），如<code>AbstractFactory</code>。其中有一个重要的<code>create()</code>抽象方法</li>
+<li>定制具体工厂子类，如<code>UpFactory</code>、<code>MidFactory</code>、<code>DnFactory</code></li>
+</ul>
+<p>工厂与简单工厂模式的区别：</p>
+<p>工厂模式把简单工厂中具体的工厂类（如<code>CarSimpleFactory</code>）划分成两层：抽象工厂层（如<code>AbstractFactory</code>）+具体工厂子类层(如<code>UpFactory</code>等)。</p>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>一般来说，简单工厂、工厂模式是单产品系的，抽象工厂是多产品系的，从本质上来说抽象工厂、工厂模式是统一的。</p>
+<p><strong>代码示例</strong></p>
+<pre><code>interface ICar {  }
+class UpCar implements ICar {  }
+class MidCar implements ICar {  }
+class DnCar implements ICar {  }
+
+//定义公共汽车接口、高、中、低档公共汽车类
+interface IBus {  }
+class UpBus implements IBus {  }
+class MidBus implements IBus {  }
+class DnBus implements IBus {  }
+
+//定义抽象工厂：AbstractFactory.java
+ abstract class AbstractFactory {
+    public abstract ICar createCar();  //产生小汽车对象
+    public abstract IBus createBus();  //产生公共汽车对象
+}
+
+//定义高档工厂：UpFactory.java
+class UpFactory extends AbstractFactory {
+    public ICar createCar() {
+        return new UpCar(); //高档工厂生成高档小汽车对象
+    }
+    public IBus createBus() {
+        return new UpBus(); //高档工厂生成高档公共汽车对象
+    }
+}
+
+//定义中档工厂：MidFactory.java
+class MidFactory extends AbstractFactory {
+    public ICar createCar() {
+        return new MidCar(); //中档工厂生成中档小汽车对象
+    }
+    public IBus createBus() {
+        return new MidBus(); //中档工厂生成中档公共汽车对象
+    }
+}
+
+//定义低档工厂：DnFactory.java
+class DnFactory extends AbstractFactory {
+    public ICar createCar() {
+        return new DnCar(); //中档工厂生成中档小汽车对象
+    }
+    public IBus createBus() {
+        return new DnBus(); //中档工厂生成中档公共汽车对象
+    }
+}
+
+public class CarTest {
+    public static void main(String []args){
+        AbstractFactory fact = new UpFactory();
+        IBus bus = fact.createBus();
+    }
+}
+</code></pre><p>和工厂模式相比，这里多了公共汽车产品，也就是多产品。</p>
+<p><strong>代码分析</strong></p>
+<p>抽象工厂创建步骤：</p>
+<ul>
+<li>定制抽象产品接口，如<code>ICar</code>，<code>IBus</code></li>
+<li>定制具体产品子类，如小汽车类<code>UpCar</code>、<code>MidCar</code>、<code>DnCar</code>，公共汽车类<code>UpBus</code>、<code>MidBus</code>、<code>DnBus</code></li>
+<li>定制抽象工厂类（或接口），如<code>AbstractFactory</code>。其中有两个重要的<code>create()</code>抽象方法，分别返回<code>ICar</code>、<code>IBus</code>对象</li>
+<li>定制具体工厂子类，如<code>UpFactory</code>、<code>MidFactory</code>、<code>DnFactory</code>，每个工厂类中重写<code>create()</code>方法</li>
+</ul>
+<h3 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h3><p>编写读文件功能。具体功能是：读取文本文件，包括（GBK,UTF8,UNICODE）编码下的文本文件，要求获得全文内容；读取图像文件（BMP,GIF,JPG)，要求获得图像宽度、长度、每一点的RGB三基色信息。</p>
+<p>画出层次结构图：</p>
+<pre class=" language-mermaid"><code class="language-mermaid">graph TD
+A[读文件] -->B(文本文件)
+A[读文件] -->C(图像文件)
+B-->D(GBK)
+B-->E(UTF8)
+B-->F(UNICODE)
+C-->G(BMP)
+C-->H(GIF)
+C-->I(JPG)</code></pre>
+<p>利用工厂模式可以直接翻译上面的示意图，但是没有用到jdk本身的类库，下面的代码是真正能使用的。</p>
+<pre><code>import java.io.*;
+import javax.imageio.*;
+import java.awt.image.*;
+
+interface IRead&lt;T&gt;{
+    T read(String ... in);
+}
+
+class TextRead implements IRead&lt;String&gt; {     //读文本文件
+    public String read(String... in) {
+        String result = null;                  //result是结果串
+        try{
+            File file = new File(in[0]);         //in[0]表示文件名称
+            long len = file.length();
+            FileInputStream input = new FileInputStream(in[0]);
+            byte buf[] = new byte[(int)len];    //缓冲区大小等于文件长度
+            input.read(buf);                //一次读完文件
+            result = new String(buf, in[1]);    //按in[1]编码方式转化成可见字符串
+            input.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }        
+        return result;
+    }
+}
+
+//图像基本信息文件
+class ImageInfo {
+    private int width;    //图像宽度
+    private int height;    //图像高度
+    private int r[][];        //红色分量
+    private int g[][];        //绿色分量
+    private int b[][];        //蓝色分量
+
+    public void setWidth(int width){
+        this.width = width;
+    }
+    public int getWidth() {
+        return width;
+    }
+    public void setHeight(int height){
+        this.height = height;
+    }
+    public int getHeight() {
+        return height;
+    }
+    public int[][] getR() {
+        return r;
+    }
+    public int[][] getG() {
+        return g;
+    }
+    public int[][] getB() {
+        return b;
+    }
+
+    public void setRGB(int rgb[]){
+        r = new int[height][width];
+        g = new int[height][width];
+        b = new int[height][width];
+
+        int pos = 0;
+        for(int i=0; i&lt;height; i++){
+            pos = width*i;
+            for(int j=0; j&lt;width; j++){
+                r[i][j] =(rgb[pos+j]&amp;0xff0000)&gt;&gt;16;
+                g[i][j] =(rgb[pos+j]&amp;0x00ff00)&gt;&gt;8;
+                b[i][j] =rgb[pos+j]&amp;0x0000ff;            
+            }
+        }        
+    }    
+}
+
+//读图像文件
+class ImageRead implements IRead&lt;ImageInfo&gt; {     //读图像文件
+    public ImageInfo read(String... in) {
+        ImageInfo obj = null;
+        try{
+        File f = new File(in[0]);                //in[0]表示图像文件名
+        BufferedImage bi = ImageIO.read(f);
+        int width = bi.getWidth();
+        int height = bi.getHeight();
+        int rgb[] = new int[width*height];        
+        bi.getRGB(0,0,width,height, rgb, width, height);    //将图像数据读到result缓冲区
+
+        obj = new ImageInfo();        //设置图像信息
+        obj.setWidth(width);                //设置宽度
+        obj.setHeight(height);                //设置高度
+        obj.setRGB(rgb);                    //设置rgb[]三基色信息
+        }
+        catch(Exception e){e.printStackTrace();}
+
+        return obj;
+    }
+}
+
+abstract class AbstractFactory {
+    public abstract IRead create();
+}
+
+class TextFactory extends AbstractFactory {
+    public IRead create() {
+        return new TextRead();    //文件工厂产生具体读文件类
+    }
+}
+class ImageFactory extends AbstractFactory {
+    public IRead create() {
+        return new ImageRead();    //图像工厂产生具体读图像类
+    }
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        ImageFactory fact = new ImageFactory();
+        IRead obj = fact.create();
+        ImageInfo inf = (ImageInfo)obj.read(&quot;d:/a.jpg&quot;);
+        System.out.println(&quot;width=&quot;+inf.getWidth());
+        System.out.println(&quot;height=&quot;+inf.getHeight());
+
+    }
+}
+</code></pre><h2 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h2><p>建造者模式的意图在于将一个复杂的构建与其表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<p><strong>代码示例</strong></p>
+<pre><code>// 定义产品类
+public class Course {
+    private String courseName;
+    private String coursePPT;
+    private String courseVideo;
+    private String courseArticle;
+    private String courseQA;
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getCoursePPT() {
+        return coursePPT;
+    }
+
+    public void setCoursePPT(String coursePPT) {
+        this.coursePPT = coursePPT;
+    }
+
+    public String getCourseVideo() {
+        return courseVideo;
+    }
+
+    public void setCourseVideo(String courseVideo) {
+        this.courseVideo = courseVideo;
+    }
+
+    public String getCourseArticle() {
+        return courseArticle;
+    }
+
+    public void setCourseArticle(String courseArticle) {
+        this.courseArticle = courseArticle;
+    }
+
+    public String getCourseQA() {
+        return courseQA;
+    }
+
+    public void setCourseQA(String courseQA) {
+        this.courseQA = courseQA;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Course{&quot; +
+                &quot;courseName=&#39;&quot; + courseName + &#39;\&#39;&#39; +
+                &quot;, coursePPT=&#39;&quot; + coursePPT + &#39;\&#39;&#39; +
+                &quot;, courseVideo=&#39;&quot; + courseVideo + &#39;\&#39;&#39; +
+                &quot;, courseArticle=&#39;&quot; + courseArticle + &#39;\&#39;&#39; +
+                &quot;, courseQA=&#39;&quot; + courseQA + &#39;\&#39;&#39; +
+                &#39;}&#39;;
+    }
+
+}</code></pre><pre><code>// 定义抽象产品建造者类(接口)
+public abstract class CourseBuilder {
+    public abstract void buildCourseName(String courseName);
+
+    public abstract void buildCoursePPT(String coursePPT);
+
+    public abstract void buildCourseVideo(String courseVideo);
+
+    public abstract void buildCourseArticle(String courseArticle);
+
+    public abstract void buildCourseQA(String courseQA);
+
+    public abstract Course makeCourse();
+}</code></pre><pre><code>// 定义具体产品建造者类
+public class CourseActualBuilder extends CourseBuilder {
+    private Course course = new Course();
+
+    @Override
+    public void buildCourseName(String courseName) {
+        course.setCourseName(courseName);
+    }
+
+    @Override
+    public void buildCoursePPT(String coursePPT) {
+        course.setCoursePPT(coursePPT);
+    }
+
+    @Override
+    public void buildCourseVideo(String courseVideo) {
+        course.setCourseVideo(courseVideo);
+    }
+
+    @Override
+    public void buildCourseArticle(String courseArticle) {
+        course.setCourseArticle(courseArticle);
+    }
+
+    @Override
+    public void buildCourseQA(String courseQA) {
+        course.setCourseQA(courseQA);
+    }
+
+    @Override
+    public Course makeCourse() {
+        return course;
+    }
+}</code></pre><pre><code>// 定义指挥者类
+public class Director {
+    private CourseBuilder courseBuilder;
+
+    /**
+     * 这里的CourseBuilder通过set的方式给注入进来
+     */
+    public void setCourseBuilder(CourseBuilder courseBuilder) {
+        this.courseBuilder = courseBuilder;
+    }
+
+    public Course makeCourse(String courseName, String coursePPT,
+                             String courseVideo, String courseArticle, String courseQA) {
+        this.courseBuilder.buildCourseName(courseName);
+        this.courseBuilder.buildCoursePPT(coursePPT);
+        this.courseBuilder.buildCourseVideo(courseVideo);
+        this.courseBuilder.buildCourseArticle(courseArticle);
+        this.courseBuilder.buildCourseQA(courseQA);
+
+        return this.courseBuilder.makeCourse();
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+    /* 利用多态，父类的引用指向子类的对象 */
+    CourseBuilder courseBuilder = new CourseActualBuilder();
+    Director director = new Director();
+    /* 这里利用set方法注入进去 */
+    director.setCourseBuilder(courseBuilder);
+    Course course = director.makeCourse(&quot;Java设计模式&quot;, &quot;Java设计模式PPT&quot;, &quot;Java设计模式视频&quot;, &quot;Java设计模式手记&quot;, &quot;Java设计模式问答&quot;);
+    System.out.println(course);
+}</code></pre><pre><code>输出：
+Course{courseName=&#39;Java设计模式&#39;, coursePPT=&#39;Java设计模式PPT&#39;, courseVideo=&#39;Java设计模式视频&#39;, courseArticle=&#39;Java设计模式手记&#39;, courseQA=&#39;Java设计模式问答&#39;}</code></pre><p>由于<code>Course course = director.makeCourse(&quot;Java设计模式&quot;, &quot;Java设计模式PPT&quot;, &quot;Java设计模式视频&quot;, &quot;Java设计模式手记&quot;, &quot;Java设计模式问答&quot;);</code>制作课程时使用不灵活。</p>
+<p>下面提供一种链式调用的静态内部类方法，该方法的优点在于可以只创建需要的值，使用起来更加优雅。</p>
+<pre><code>public class Course {
+    private String courseName;
+    private String coursePPT;
+    private String courseVideo;
+    private String courseArticle;
+    private String courseQA;
+
+    public Course(CourseBuilder courseBuilder) {
+        this.courseName = courseBuilder.courseName;
+        this.coursePPT = courseBuilder.coursePPT;
+        this.courseVideo = courseBuilder.courseVideo;
+        this.courseArticle = courseBuilder.courseArticle;
+        this.courseQA = courseBuilder.courseQA;
+    }
+
+    public static class CourseBuilder{
+        private String courseName;
+        private String coursePPT;
+        private String courseVideo;
+        private String courseArticle;
+        private String courseQA;
+
+        public CourseBuilder builderCourseName(String courseName) {
+            this.courseName = courseName;     
+            //this指的是当前类，也就是CourseBuilder
+            //这里返回this的原因是为了能够让返回值能够继续调用本类其他方法，也就是链式调用
+            return this;
+        }
+        public CourseBuilder builderCoursePPT(String coursePPT) {
+            this.coursePPT = coursePPT;
+            return this;
+        }
+        public CourseBuilder builderCourseVideo(String courseVideo) {
+            this.courseVideo = courseVideo;
+            return this;
+        }
+        public CourseBuilder builderCourseArticle(String courseArticle) {
+            this.courseArticle = courseArticle;
+            return this;
+        }
+        public CourseBuilder builderCourseQA(String courseQA) {
+            this.courseQA = courseQA;
+            return this;
+        }
+
+        public Course build() {
+            return new Course(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Course{&quot; +
+                &quot;courseName=&#39;&quot; + courseName + &#39;\&#39;&#39; +
+                &quot;, coursePPT=&#39;&quot; + coursePPT + &#39;\&#39;&#39; +
+                &quot;, courseVideo=&#39;&quot; + courseVideo + &#39;\&#39;&#39; +
+                &quot;, courseArticle=&#39;&quot; + courseArticle + &#39;\&#39;&#39; +
+                &quot;, courseQA=&#39;&quot; + courseQA + &#39;\&#39;&#39; +
+                &#39;}&#39;;
+    }
+}</code></pre><pre><code>public static void main(String[] args){
+    Course course = new Course.CourseBuilder()
+            .builderCourseName(&quot;Java设计模式&quot;)
+            .builderCoursePPT(&quot;Java设计模式PPT&quot;)
+            .builderCourseVideo(&quot;Java设计模式视频&quot;)
+            .builderCourseArticle(&quot;Java设计模式手记&quot;)
+            .builderCourseQA(&quot;Java设计模式问答&quot;).build();
+    System.out.println(course);
+}</code></pre><p>这种方式可以在<code>lombok</code>插件的<code>@Builder</code>注解中见到。</p>
+<h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>原型模式是指用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>程序需要从一个对象出发，得到若干个和其状态相同，并可独立变化其状态的对象时</p>
+</li>
+<li><p>对象创建需要独立于它的构造方法和表示时</p>
+</li>
+<li><p>以原型对象为基础，克隆新的对象，并完善对象实例变量时</p>
+</li>
+</ul>
+<p>原型模式复制分为浅复制和深复制：</p>
+<ul>
+<li><p>浅复制</p>
+<p>  如果原型对象的成员变量是值类型，则将复制一份给克隆对象；如果原型对象的成员变量是引用类型，则将引用对象的地址复制一份给克隆对象，也就是说，原型对象和克隆对象的成员变量指向相同的内存地址。在浅克隆中，当对象被复制时只复制它本身和其中包含的值类型，而引用类型的成员对象并没有复制。</p>
+</li>
+<li><p>深复制</p>
+<p>  在深复制中，无论原型对象的成员变量是值类型还是引用类型，都将复制一份给克隆对象。</p>
+</li>
+</ul>
+<h3 id="利用构造函数方法"><a href="#利用构造函数方法" class="headerlink" title="利用构造函数方法"></a>利用构造函数方法</h3><p><strong>代码示例</strong></p>
+<p><strong>浅复制</strong></p>
+<pre><code>public class Student {
+    String name;
+    int age;
+    Address add;
+
+    Student(String na, int a, Address add) {
+        this.name = na;
+        age = a;
+        this.add = add;
+    }
+
+      // 构造函数 浅复制
+    Student(Student s) {
+        name = s.getName();
+        age = s.getAge();
+          add = s.getAdd();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAdd() {
+        return add;
+    }
+
+    public void setAdd(Address add) {
+        this.add = add;
+    }
+}</code></pre><pre><code>public class Address {
+    String pro;
+    String city;
+    String zip;
+
+    public Address(String p, String c, String z) {
+        pro = p;
+        city = c;
+        zip = z;
+    }
+
+    public Address(Address add) {
+        pro = add.getPro();
+        city = add.getCity();
+        zip = add.getZip();
+    }
+
+    public String getPro() {
+        return pro;
+    }
+
+    public void setPro(String pro) {
+        this.pro = pro;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+}</code></pre><pre><code>public static void main(String[] args) throws Exception {
+
+    Address adr = new Address(&quot;liaoning&quot;, &quot;dalian&quot;, &quot;116081&quot;);
+    Student s = new Student(&quot;zhang&quot;, 20, adr);
+
+    Student s2 = new Student(s);
+
+    System.out.println(&quot;s=&quot; + s + &quot;\ts2=&quot; + s2);
+    System.out.println(&quot;s.name=&quot; + s.getName() + &quot;\ts2.name=&quot; + s2.getName());
+    System.out.println(&quot;s.age=&quot; + s.getAge() + &quot;\ts2.age=&quot; + s2.getAge());
+    System.out.println(&quot;s.adr=&quot; + s.getAdd() + &quot;\ts2.adr=&quot; + s2.getAdd());
+}</code></pre><pre><code>输出：
+s=prototype.Student@61bbe9ba    s2=prototype.Student@610455d6
+s.name=zhang    s2.name=zhang
+s.age=20    s2.age=20
+s.adr=prototype.Address@511d50c0    s2.adr=prototype.Address@511d50c0</code></pre><p>由最后一行addr的地址可知，对象进行了浅复制。</p>
+<p><strong>深复制</strong></p>
+<p>将<code>Student</code>类中的构造方法改为如下</p>
+<pre><code>Student(Student s) {
+    name = s.getName();
+    age = s.getAge();
+    add = s.getAdd();
+    // 深复制
+    add = new Address(s.getAdd());
+}</code></pre><pre><code>输出：
+s=prototype.Student@61bbe9ba    s2=prototype.Student@610455d6
+s.name=zhang    s2.name=zhang
+s.age=20    s2.age=20
+s.adr=prototype.Address@511d50c0    s2.adr=prototype.Address@60e53b93</code></pre><p>由最后一行addr可知，对象进行了深复制。</p>
+<h3 id="利用Cloneable接口方法"><a href="#利用Cloneable接口方法" class="headerlink" title="利用Cloneable接口方法"></a>利用Cloneable接口方法</h3><p><code>Object</code>类提供一个<code>clone()</code>方法可以将一个对象复制，但是<code>clone()</code>是一个<code>protected</code>方法，外部类无法直接调用。不过Java规定只要类实现<code>Cloneable</code>接口，就表示这个类能被复制。</p>
+<p><strong>代码示例</strong></p>
+<p><strong>浅复制</strong></p>
+<pre><code>public class Student implements Cloneable {
+    String name;
+    int age;
+    Address add;
+
+    Student(String na, int a, Address add) {
+        this.name = na;
+        age = a;
+        this.add = add;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAdd() {
+        return add;
+    }
+
+    public void setAdd(Address add) {
+        this.add = add;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}</code></pre><pre><code>public static void main(String[] args)throws Exception {
+
+    Address adr = new Address(&quot;liaoning&quot;,&quot;dalian&quot;,&quot;116081&quot;);
+    Student s = new Student(&quot;zhang&quot;,20,adr);
+    Student s2 = (Student)s.clone();      
+
+    System.out.println(&quot;s=&quot;+s+&quot;\ts2=&quot;+s2);
+    System.out.println(&quot;s.name=&quot;+s.getName()+&quot;\ts2.name=&quot;+s2.getName());
+    System.out.println(&quot;s.age=&quot;+s.getAge()+&quot;\ts2.age=&quot;+s2.getAge());
+    System.out.println(&quot;s.adr=&quot;+s.getAdd()+&quot;\ts2.adr=&quot;+s2.getAdd());
+}</code></pre><pre><code>输出：
+s=prototype.clone.Student@61bbe9ba    s2=prototype.clone.Student@610455d6
+s.name=zhang    s2.name=zhang
+s.age=20    s2.age=20
+s.adr=prototype.clone.Address@511d50c0    s2.adr=prototype.clone.Address@511d50c0</code></pre><p><strong>深复制</strong></p>
+<pre><code>public class Address implements Cloneable {
+    String pro;
+    String city;
+    String zip;
+
+    public Address(String p, String c, String z) {
+        pro = p;
+        city = c;
+        zip = z;
+    }
+
+    public String getPro() {
+        return pro;
+    }
+
+    public void setPro(String pro) {
+        this.pro = pro;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Address s = (Address) super.clone();
+        return s;
+    }
+}</code></pre><pre><code>public class Student implements Cloneable {
+    String name;
+    int age;
+    Address add;
+
+    Student(String na, int a, Address add) {
+        this.name = na;
+        age = a;
+        this.add = add;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAdd() {
+        return add;
+    }
+
+    public void setAdd(Address add) {
+        this.add = add;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Student s = (Student) super.clone();
+        s.setAdd((Address) add.clone());
+        return s;
+    }
+}</code></pre><pre><code>输出：
+s=prototype.clone.Student@61bbe9ba    s2=prototype.clone.Student@610455d6
+s.name=zhang    s2.name=zhang
+s.age=20    s2.age=20
+s.adr=prototype.clone.Address@511d50c0    s2.adr=prototype.clone.Address@60e53b93</code></pre><p>由上可知，实现对象深复制，必须对类引用变量级联串中每一环节都进行处理。</p>
+<p><strong>深复制引用变量级联处理示例</strong></p>
+<pre><code>class A implements Cloneable{
+    B b;
+    B getB(){return b;}
+    void setB(B b){this.b = b;}
+    protected Object clone() throws CloneNotSupportedException {
+        A a=(A)super.clone();
+        a.setB((B)b.clone());
+        return a;
+    }
+}
+
+class B implements Cloneable{
+    C c;
+    C getC(){return c;}
+    void setC(C c){this.c = c;}
+    protected Object clone() throws CloneNotSupportedException {
+        B b=(B)super.clone();
+        b.setC((C)c.clone());
+        return b;
+    }
+}
+
+class C implements Cloneable{
+    D d;
+    D getD(){return d;}
+    void setD(D d){this.d = d;}
+    protected Object clone() throws CloneNotSupportedException {
+        C c=(C)super.clone();
+        c.setD((D)d.clone());
+        return c;
+    }
+}
+
+class D implements Cloneable{
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}</code></pre><h3 id="利用Serializable序列化接口方法"><a href="#利用Serializable序列化接口方法" class="headerlink" title="利用Serializable序列化接口方法"></a>利用<code>Serializable</code>序列化接口方法</h3><p>利用构造函数方法、<code>Cloneable</code>接口方法实现对象深复制都稍显复杂，但使用<code>Serializable</code>序列化接口方法实现要简单很多。<code>Serializable</code>同样是一个空接口，表示该对象支持序列化。</p>
+<p><strong>代码示例</strong></p>
+<pre><code>public class Student implements Cloneable, Serializable {
+    String name;
+    int age;
+    Address add;
+
+    Student(String na, int a, Address add) {
+        this.name = na;
+        age = a;
+        this.add = add;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Address getAdd() {
+        return add;
+    }
+
+    public void setAdd(Address add) {
+        this.add = add;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Object obj = null;
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(this);
+
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            obj = ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+}</code></pre><pre><code>public class Address implements Serializable {
+    String pro;
+    String city;
+    String zip;
+    public Address(String p,String c, String z){
+        pro=p;city=c;zip=z;
+    }
+}</code></pre><pre><code>public static void main(String[] args) throws Exception {
+
+        Address adr = new Address(&quot;liaoning&quot;, &quot;dalian&quot;, &quot;116081&quot;);
+        Student s = new Student(&quot;zhang&quot;, 20, adr);
+        Student s2 = (Student) s.clone();
+
+        System.out.println(&quot;s=&quot; + s + &quot;\ts2=&quot; + s2);
+        System.out.println(&quot;s.name=&quot; + s.getName() + &quot;\ts2.name=&quot; + s2.getName());
+        System.out.println(&quot;s.age=&quot; + s.getAge() + &quot;\ts2.age=&quot; + s2.getAge());
+        System.out.println(&quot;s.adr=&quot; + s.getAdd() + &quot;\ts2.adr=&quot; + s2.getAdd());
+    }</code></pre><pre><code>输出：
+s=prototype.serializable.Student@6f94fa3e    s2=prototype.serializable.Student@5b6f7412
+s.name=zhang    s2.name=zhang
+s.age=20    s2.age=20
+s.adr=prototype.serializable.Address@5e481248    s2.adr=prototype.serializable.Address@27973e9b</code></pre><p>从代码中可以看出：利用序列化实现对象复制，类引用变量级联串中的每个类都必须实现<code>Serializable</code>接口。在复制对象的源类中为了更好地表达复制功能，复制对象的源类一般也实现<code>Cloneable</code>接口，因此<code>Student</code>、<code>Address</code>类都实现了<code>Serializable</code>接口，而<code>Student</code>类同时还实现了<code>Cloneable</code>接口。</p>
+<p>序列化就是将对象写到流的过程，写到流中的对象是原有对象的一个复制，而原对象仍然存在于内存中。通过序列化实现的复制不仅可以复制对象本身，而且可以复制其引用的成员对象，因此通过序列化将对象写到一个流中，再从流中读出来，可以实现深克隆。</p>
+<p><strong>深复制引用变量级联处理示例</strong></p>
+<pre><code>class A implements Serializable, Cloneable {
+
+    B b;
+
+    protected Object clone() throws CloneNotSupportedException {
+        Object obj = null;
+        try {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(this);
+
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            obj = ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+}
+
+class B implements Serializable {
+    C c;
+}
+
+class C implements Serializable {
+    D d;
+}
+
+class D implements Serializable {
+}</code></pre><h2 id="责任链模式"><a href="#责任链模式" class="headerlink" title="责任链模式"></a>责任链模式</h2><p>责任链模式的定义如下：使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>有许多对象可以处理用户的请求，应用程序可自动确定谁处理用户请求</p>
+</li>
+<li><p>希望在用户不必明确指定接受者的情况下，向多个接受者提交一个请求</p>
+</li>
+<li><p>程序希望动态定制可处理用户请求的对象集合</p>
+</li>
+</ul>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>下面通过一个员工请假的例子来说明责任链模式的使用方法。</p>
+<blockquote>
+<p>请假天数 &lt;= 1天 ，组长决定；</p>
+</blockquote>
+<blockquote>
+<p>1天 &lt; 请假天数 &lt;= 2天，主任决定；</p>
+</blockquote>
+<blockquote>
+<p>请假天数 &gt; 2天，经理决定。</p>
+</blockquote>
+<p><strong>代码示例</strong></p>
+<pre><code>// 请求类
+public class Request {
+    int day;
+
+    Request(int day) {
+        this.day = day;
+    }
+}</code></pre><pre><code>// 抽象处理者类
+public abstract class Handler {
+    private Handler next;
+
+    public void setNext(Handler next) {
+        this.next = next;
+    }
+
+    public Handler getNext() {
+        return next;
+    }
+
+    public abstract boolean handle(Request req);
+}</code></pre><pre><code>// 具体处理者类
+public class ZuZhang extends Handler {
+    static int limit = 1;
+
+    public boolean handle(Request req) {
+        if (req.day &lt;= limit) {
+            System.out.println(&quot;ZuZhang agrees the request!&quot;);
+            return true;
+        }
+        return getNext().handle(req);
+    }
+}</code></pre><pre><code>public class ZhuRen extends Handler {
+    static int limit = 2;
+
+    public boolean handle(Request req) {
+        if (req.day &lt;= limit) {
+            System.out.println(&quot;ZhuRen agrees the request!&quot;);
+            return true;
+        }
+        return getNext().handle(req);
+    }
+
+}</code></pre><pre><code>public class JingLi extends Handler {
+    public boolean handle(Request req) {
+        System.out.println(&quot;JingLi agrees the request!&quot;);
+        return true;
+    }
+}</code></pre><pre><code>// 责任链
+public class MyChain {
+    private Handler one = new ZuZhang();
+    private Handler two = new ZhuRen();
+    private Handler three = new JingLi();
+
+    public void createChain() {
+        one.setNext(two);
+        two.setNext(three);
+    }
+
+    public void handle(Request req) {
+        one.handle(req);
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+
+    // 请假3天 
+    Request req = new Request(3);
+    MyChain mc = new MyChain();
+    mc.createChain();
+    mc.handle(req);
+}</code></pre><pre><code>输出：
+JingLi agrees the request!</code></pre><h3 id="反射改进"><a href="#反射改进" class="headerlink" title="反射改进"></a>反射改进</h3><p>当需求发生变化时，为了不修改程序，可以使用”配置文件+反射”的方式。</p>
+<p><strong>代码示例</strong></p>
+<pre><code>// myconfig.txt  注意是全类名
+chain=chain.ZuZhang,chain.ZhuRen,chain.JingLi</code></pre><pre><code>public class MyChain2 {
+    private Handler handle[];
+
+    public void createChain() {
+        try {
+            FileInputStream in = new FileInputStream(&quot;src/chain/myconfig.txt&quot;);
+            Properties p = new Properties();
+              // 读配置文件
+            p.load(in);
+            String s = p.getProperty(&quot;chain&quot;);
+            String unit[] = s.split(&quot;,&quot;);
+            int n = unit.length;
+            handle = new Handler[n];
+            for (int i = 0; i &lt; n; i++) {
+                // 反射加载各责任链类对象
+                handle[i] = (Handler) Class.forName(unit[i]).newInstance();
+            }
+            for (int i = 0; i &lt; n - 1; i++) {
+                  // 设置责任链节后节点关系
+                handle[i].setNext(handle[i + 1]);
+            }
+
+            p.load(in);
+            //    in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handle(Request req) {
+        handle[0].handle(req);
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+
+    Request req = new Request(3);
+    MyChain2 mc = new MyChain2();
+    mc.createChain();
+    mc.handle(req);
+}</code></pre><pre><code>输出：
+JingLi agrees the request!</code></pre><h3 id="回调技术"><a href="#回调技术" class="headerlink" title="回调技术"></a>回调技术</h3><p>A对象的<code>fA()</code>方法调用了B对象的<code>fB()</code>方法，<code>fB()</code>方法调用了A对象的<code>fA2()</code>方法，这是一个回调过程。</p>
+<p>下面对英文字符串处理：</p>
+<blockquote>
+<p>全部变为大写字母；</p>
+</blockquote>
+<blockquote>
+<p>去掉所有空格。</p>
+</blockquote>
+<p><strong>代码示例</strong></p>
+<pre><code>// 定义抽象处理者接口
+public interface Filter {
+    void doFilter(Request req, Response rep, FilterChain fc);
+}</code></pre><pre><code>// Request表示请求类，包含对字符串的原生封装
+public class Request {
+    String req;
+
+    Request(String req) {
+        this.req = req;
+    }
+}</code></pre><pre><code>// Response表示响应类，包含对处理后的结果字符串的封装
+public class Response {
+    String rep;
+
+    Response(String rep) {
+        this.rep = rep;
+    }
+}</code></pre><pre><code>// FilterChain表示过滤器容器类，其对象作为具体处理者必备的回调参数
+public class FilterChain {
+    ArrayList&lt;Filter&gt; ary = new ArrayList();
+    int index = 0;
+
+    void addFilter(Filter f) {
+        ary.add(f);
+    }
+
+    public void doFilter(Request req, Response rep, FilterChain fc) {
+        if (index == ary.size())
+            return;
+        Filter f = ary.get(index);
+        index++;
+        f.doFilter(req, rep, fc);
+    }
+}</code></pre><pre><code>// 具体处理者类，字符串小写变大写
+public class OneFilter implements Filter {
+    public void doFilter(Request req, Response rep, FilterChain fc) {
+        String s = req.req;
+        rep.rep = s.toUpperCase();
+        fc.doFilter(req, rep, fc);
+    }
+}</code></pre><pre><code>// 具体处理者类，去掉所有空格
+public class TwoFilter implements Filter {
+    public void doFilter(Request req, Response rep, FilterChain fc) {
+        String s = rep.rep;
+        StringBuffer sbuf = new StringBuffer();
+        for (int i = 0; i &lt; s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch != &#39; &#39;) {
+                sbuf.append(ch);
+            }
+        }
+        rep.rep = sbuf.toString();
+        fc.doFilter(req, rep, fc);
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+
+    Request req = new Request(&quot;i am a student&quot;);
+    Response rep = new Response(&quot;&quot;);
+
+    Filter one = new OneFilter();
+    Filter two = new TwoFilter();
+
+    FilterChain fc = new FilterChain();
+    fc.addFilter(one);
+    fc.addFilter(two);
+    fc.doFilter(req, rep, fc);
+
+    System.out.println(rep.rep);
+}</code></pre><pre><code>输出：
+IAMASTUDENT</code></pre><p><code>ArrayList</code>类型成员变量<code>ary</code>是各具体过德器的集合对象，其添加顺序就是各具体过滤器对象的执行顺序。<code>addFilter()</code>完成了具体过滤器对象的添加。</p>
+<p>成员变量<code>index</code> 与<code>doFilter()</code>方法一起决定当前执行焦点是哪一个具体过滤器对象。例如：当<code>index=0</code>时，则从<code>ary</code>中获得第一个过滤器对象f，同时使<code>index</code>加1，为执行下一个过滤器做准备，然后运行f中的<code>doFilter0</code>方法，当运行完后，再回调执行<code>FiterChain</code> 类中的<code>doFitr0</code>方法。此时，若<code>index</code>为1,则从<code>ary</code>中获得第二个过滤器对象f，同时使<code>index</code>加1，为执行下一个过滤器做准备，然后运行f中的<code>doFilter()</code>方法，当运行完后,再回调执行<code>FilterChain</code>类中的<code>doFiter()</code>方法。以此类推，那么什么时候回调结束呢？当<code>index</code> 值等于<code>ary</code>容器元素长度时，表明所有过滤器对象都已执行完毕，则结束即可。</p>
+<p>本例实现的其实是同步回调。利用多线程可以实现异步回调。</p>
+<p><strong>代码示例</strong></p>
+<p>修改<code>FilterChain</code>如下</p>
+<pre><code>public class FilterChain {
+    ArrayList&lt;Filter&gt; ary = new ArrayList();
+    int index = 0;
+
+    void addFilter(Filter f) {
+        ary.add(f);
+    }
+
+    public void doFilter(Request req, Response rep, FilterChain fc) {
+        if (index == ary.size())
+            return;
+        Filter f = ary.get(index);
+        index++;
+          // 自定义线程
+        MyThread th = new MyThread(req, rep, f, fc);
+        th.start();
+    }
+}</code></pre><pre><code>public class MyThread extends Thread {
+    Request req;
+    Response rep;
+    Filter f;
+    FilterChain fc;
+
+    MyThread(Request req, Response rep, Filter f, FilterChain fc) {
+        this.req = req;
+        this.rep = rep;
+        this.f = f;
+        this.fc = fc;
+    }
+
+    @Override
+    public void run() {
+        f.doFilter(req, rep, fc);
+        System.out.println(rep.rep);
+    }
+}</code></pre><h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>命令模式的定义如下：将一个请求封装为一个对象，从而使用户可用不同的请求对客户端进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>程序需要在不同的时刻指定、排列和执行请求</p>
+</li>
+<li><p>程序需要提供撤销操作</p>
+</li>
+<li><p>程序需要支持宏操作</p>
+</li>
+</ul>
+<p>命令模式一般有四种角色，如下：</p>
+<ul>
+<li><p>抽象命令者，是一个接口，规定用来封装请求的若干个方法</p>
+</li>
+<li><p>具体命令发送者，是实现命令接口的类的实例</p>
+</li>
+<li><p>请求者，具体命令的管理和维护类。请求者是一个包含“命令接口”变量的类的实例。请求者中的“命令”接口的变量可以存放任何具体命令的引用，请求者负责调用具体命令，让具体命令执行那些封装了请求的方法</p>
+</li>
+<li><p>命令接受者，是一个类的实例，该实例负责执行与请求相关的操作</p>
+</li>
+</ul>
+<p><strong>代码示例</strong></p>
+<pre><code>// 抽象命令者
+public interface Command {
+    void execute(); 
+}</code></pre><pre><code>// 命令接受者
+public class CourseVideo {
+    private String name;
+
+    public CourseVideo(String name) {
+        this.name = name;
+    }
+    public void open() {
+        System.out.println(this.name+&quot;课程开放&quot;);
+    }
+    public void close() {
+        System.out.println(this.name+&quot;课程关闭&quot;);
+    }
+}</code></pre><pre><code>// 具体命令发送者
+public class CloseCourseVideoCommand implements Command {
+
+    private CourseVideo courseVideo;
+
+    public CloseCourseVideoCommand(CourseVideo courseVideo) {
+        this.courseVideo = courseVideo;
+    }
+
+    @Override
+    public void execute() {
+        courseVideo.close();
+    }
+}</code></pre><pre><code>// 具体命令发送者
+public class OpenCourseVideoCommand implements Command {
+    private CourseVideo courseVideo;
+
+    public OpenCourseVideoCommand(CourseVideo courseVideo) {
+        this.courseVideo = courseVideo;
+    }
+
+    @Override
+    public void execute() {
+       courseVideo.open();
+    }
+}</code></pre><pre><code>// 请求者
+public class Staff {
+    private List&lt;Command&gt; commandList = new ArrayList&lt;&gt;();
+
+    public void addCommand(Command command) {
+        commandList.add(command);
+    }
+
+    public void executeCommands() {
+        for (Command command : commandList) {
+            command.execute();
+        }
+        commandList.clear();
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+
+        CourseVideo courseVideo = new CourseVideo(&quot;Java设计模式&quot;);
+        OpenCourseVideoCommand openCourseVideoCommand = new OpenCourseVideoCommand(courseVideo);
+        CloseCourseVideoCommand closeCourseVideoCommand = new CloseCourseVideoCommand(courseVideo);
+
+        Staff staff = new Staff();
+        staff.addCommand(openCourseVideoCommand);
+        staff.addCommand(closeCourseVideoCommand);
+        staff.executeCommands();
+}</code></pre><pre><code>输出：
+Java设计模式课程开放
+Java设计模式课程关闭</code></pre><h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><p>迭代器模式定义如下：提供一种方法访问一个容器对象中的各个元素，而又不暴露该对象的内部细节，是一种只应用于容器对象遍历的设计模式。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>遍历集合对象，不需要知道对象在集合中的存储方式</p>
+</li>
+<li><p>用户可以同时使用多个迭代器遍历一个集合</p>
+</li>
+</ul>
+<p>JDK中迭代器模式很成熟，它应用在多个容器中。</p>
+<p>下面自己写一个数组的迭代器，不使用JDK自带的迭代器，来说明迭代器模式的使用方法。</p>
+<p><strong>代码示例</strong></p>
+<pre><code>public interface Iterator {
+
+    Object next();
+
+    boolean hasNext();
+}</code></pre><pre><code>public interface Collection {
+
+    public void add(Object o);
+
+    public int size();
+
+    public Iterator iterator();
+
+    public Iterator reverseIterator();
+}</code></pre><pre><code>public class MyArrayList implements Collection {
+
+    private Object[] elementData;
+    private int size;
+
+    public MyArrayList(int size) {
+        this.elementData = new Object[size];
+        this.size = 0;
+    }
+
+    public MyArrayList() {
+        this(10); //默认创建容器长度为10
+    }
+
+    @Override
+    public void add(Object o) {
+        if (this.size == elementData.length) {
+            int newSize = size * 2;
+            elementData = Arrays.copyOf(elementData, newSize);
+        }
+        elementData[size] = o;
+        size++;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    public Object get(int size) {
+        return elementData[size];
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new ArrayListIterator();
+    }
+
+    @Override
+    public Iterator reverseIterator() {
+        return new ReverseIterator();
+    }
+
+    private class ArrayListIterator implements Iterator {
+
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex &lt; size;
+        }
+
+        @Override
+        public Object next() {
+            Object o = elementData[currentIndex];
+            currentIndex++;
+            return o;
+        }
+    }
+
+    private class ReverseIterator implements Iterator {
+
+        private int currentIndex = size - 1;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex &gt;= 0;
+        }
+
+        @Override
+        public Object next() {
+            Object o = elementData[currentIndex];
+            currentIndex--;
+            return o;
+        }
+    }
+}</code></pre><p><code>iterator()</code>方法返回具体的数组容器迭代器<code>ArrayListIterator</code>对象。<code>ArrayListIterator</code>是一个内部类，实现了<code>iterator</code>接口，重写了<code>hasNext()</code>、<code>next()</code>两个容器遍历方法。</p>
+<p>因此，如果需要添加新的容器类，写法和上面相同。</p>
+<pre><code>public static void traverse(Collection c) {
+    Iterator it = c.iterator();
+    while (it.hasNext()) {
+        String s = (String) it.next();
+        System.out.println(s);
+    }
+}
+
+public static void main(String[] args) {
+    Collection c = new MyArrayList(2);    //初始化自定义数组容器
+    for (int i = 0; i &lt; 5; i++) {
+        c.add(&quot;array&quot; + i);
+    }
+    System.out.println(&quot;数组容器遍历:&quot;);
+    traverse(c);
+
+    Collection c1 = new MyArrayList(2);    //初始化自定义数组容器
+    for (int i = 0; i &lt; 5; i++) {
+        c1.add(&quot;array&quot; + i);
+    }
+    System.out.println(&quot;反向迭代器遍历:&quot;);
+    Iterator it = c1.reverseIterator();
+    while (it.hasNext()) {
+        String s = (String) it.next();
+        System.out.println(s);
+    }
+
+}</code></pre><pre><code>输出：
+数组容器遍历:
+array0
+array1
+array2
+array3
+array4
+反向迭代器遍历:
+array4
+array3
+array2
+array1
+array0</code></pre><h2 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h2><p>访问者模式定义如下：表示一个作用于某对象结构中的各个元素的操作。它可以在不改变各个元素的类的前提下，定义作用于这些元素的新操作。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>对集合中的对象增加一些新的操作</p>
+</li>
+<li><p>对集合中的对象进行很多不同且不相关的操作，而又不想修改对象的类</p>
+</li>
+</ul>
+<blockquote>
+<p>有如下应用：已知三点坐标，编写功能类，求三角形的面积和周长</p>
+<p>目前已经确定的需求是面积和周长，但有可能将来要求重心等，因此我们可以用访问者模式</p>
+</blockquote>
+<p><strong>代码示例</strong></p>
+<pre><code>// 抽象需求分析接口
+interface IShape {
+    float getArea();        //明确的需求分析
+
+    float getLength();        //明确的需求分析
+
+    Object accept(IVisitor v);    //可扩展的需求分析
+}
+
+// 具体功能实现类
+class Triangle implements IShape {
+    float x1, y1, x2, y2, x3, y3;            //三角形三点坐标
+
+    public Triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.x3 = x3;
+        this.y3 = y3;
+    }
+
+    public float getDist(float u1, float v1, float u2, float v2) {    //求任意两点距离
+        return (float) Math.sqrt((u1 - u2) * (u1 - u2) + (v1 - v2) * (v1 - v2));
+    }
+
+    @Override
+    public float getArea() {                //固定需求分析求面积
+        float a = getDist(x1, y1, x2, y2);
+        float b = getDist(x1, y1, x3, y3);
+        float c = getDist(x2, y2, x3, y3);
+        float s = (a + b + c) / 2;
+        return (float) Math.sqrt(s * (s - a) * (s - b) * (s - c));//海伦公式求面积
+    }
+
+    @Override
+    public float getLength() {            //固定需求分析求周长
+        float a = getDist(x1, y1, x2, y2);
+        float b = getDist(x1, y1, x3, y3);
+        float c = getDist(x2, y2, x3, y3);
+        return a + b + c;
+    }
+
+    @Override
+    public Object accept(IVisitor v) {    //可扩展需求分析
+        return v.visit(this);
+    }
+}
+
+// 定义访问者接口
+interface IVisitor {
+    Object visit(Triangle t);
+}
+
+class Point {
+    float x, y;
+}
+
+// 重心坐标实现类
+class CenterVisitor implements IVisitor {
+    @Override
+    public Object visit(Triangle t) {
+        Point pt = new Point();
+        pt.x = (t.x1 + t.x2 + t.x3) / 3;
+        pt.y = (t.y1 + t.y2 + t.y3) / 3;
+        return pt;
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+    IVisitor v = new CenterVisitor();        //定义求重心具体访问者对象
+    Triangle t = new Triangle(0, 0, 2, 0, 0, 2);    //定义三角形对象
+    Point pt = (Point) t.accept(v);            //通过访问者对象求三角形重心坐标
+    System.out.println(pt.x + &quot;\t&quot; + pt.y);
+}</code></pre><p>如果我们再想增加一个求三角形外接圆半径的功能，只需再定义一个新类实现<code>IVisitor</code>接口。</p>
+<p>上面存在一个问题，当我们需要新增N个功能时，就必须创建N个具体访问者类，这样会让代码很臃肿，利用反射可以解决这个问题。</p>
+<pre><code>interface IShape {
+    float getArea();        //明确的需求分析
+
+    float getLength();        //明确的需求分析
+
+    Object accept(IVisitor v, String method);    //可扩展的需求分析
+}
+
+class Triangle implements IShape {
+    float x1, y1, x2, y2, x3, y3;            //三角形三点坐标
+
+    public Triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.x3 = x3;
+        this.y3 = y3;
+    }
+
+    public float getDist(float u1, float v1, float u2, float v2) {    //求任意两点距离
+        return (float) Math.sqrt((u1 - u2) * (u1 - u2) + (v1 - v2) * (v1 - v2));
+    }
+
+    @Override
+    public float getArea() {                //固定需求分析求面积
+        float a = getDist(x1, y1, x2, y2);
+        float b = getDist(x1, y1, x3, y3);
+        float c = getDist(x2, y2, x3, y3);
+        float s = (a + b + c) / 2;
+        return (float) Math.sqrt(s * (s - a) * (s - b) * (s - c));//海伦公式求面积
+    }
+
+    @Override
+    public float getLength() {            //固定需求分析求周长
+        float a = getDist(x1, y1, x2, y2);
+        float b = getDist(x1, y1, x3, y3);
+        float c = getDist(x2, y2, x3, y3);
+        return a + b + c;
+    }
+
+    @Override
+    public Object accept(IVisitor v, String method) {
+        return v.visit(this, method);
+    }
+
+}
+
+interface IVisitor {
+    Object visit(Triangle t, String method);
+}
+
+class Point {
+    float x, y;
+}
+
+class CenterVisitor implements IVisitor {
+
+    public Object getCenter(Triangle t) {
+        Point pt = new Point();
+        pt.x = (t.x1 + t.x2 + t.x3) / 3;
+        pt.y = (t.y1 + t.y2 + t.y3) / 3;
+        return pt;
+    }
+
+    @Override
+    public Object visit(Triangle t, String method) {
+        Object result = null;
+        try {
+            Method mt = this.getClass().getMethod(method, Triangle.class);
+            result = mt.invoke(this, new Object[]{t});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+}</code></pre><pre><code>public static void main(String[] args) {
+    IVisitor v = new CenterVisitor();        //定义求重心具体访问者对象
+    Triangle t = new Triangle(0, 0, 2, 0, 0, 2);    //定义三角形对象
+    Point pt = (Point) t.accept(v, &quot;getCenter&quot;);        //通过访问者对象求三角形重心坐标
+    System.out.println(pt.x + &quot;\t&quot; + pt.y);
+}</code></pre><p><code>t.accept(v, &quot;getCenter&quot;);</code>一个类中多个方法只需要写出方法名即可调用，不用创建过多类。</p>
+<h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><p>中介者模式是指用一个中介者对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>许多对象以复杂方式交互，所导致的依赖使系统难以维护</p>
+</li>
+<li><p>一个对象引用其他很多对象，导致难以复用该对象</p>
+</li>
+</ul>
+<blockquote>
+<p>对于中介者模式，这里只举一个例子，不再展示代码了。</p>
+<p>比如房屋中介实现：</p>
+<ul>
+<li>租房者发布租房信息给房屋中介，房屋中介将收到的信息发布给所有出租房屋者；</li>
+<li>出租房屋者发布信息给房屋中介，房屋中介将收到的信息发布给所有租房者。</li>
+</ul>
+</blockquote>
+<h2 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h2><p>备忘录模式指在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可将该对象恢复到原先保存的状态。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>必须保存某对象在某一时刻的部分或全部状态信息，以便对象恢复到该时刻的运行状态</p>
+</li>
+<li><p>一个对象不想通过提供public权限的方法让其他对象得到自己的内部状态</p>
+</li>
+</ul>
+<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理模式的定义如下：为其他对象提供一组代理以控制对这个对象的访问。</p>
+<p>适合场景：</p>
+<ul>
+<li><p>不希望用户直接访问该对象，而是提供一个特殊的对象以控制对当前对象的访问</p>
+</li>
+<li><p>对象需要很长时间才能加载完成</p>
+</li>
+<li><p>对象位于远程主机上，需要为用户提供远程访问的能力</p>
+</li>
+</ul>
+<p>代理对象可以在客户端和目标对象之间起到中介的作用，并且可以通过代理对象去掉客户端不能看到的内容和服务或者添加客户端需要的额外服务。</p>
+<p>代理模式是给一个对象提供一个代理<code>Proxy</code>，由代理对象控制对原对象的引用。</p>
+<p>代理模式包含如下角色：</p>
+<ul>
+<li><code>ISubject</code>：抽象主题角色，是一个接口，该接口是对象和它的代理所共用的接口</li>
+<li><code>RealSubject</code>：真实主题角色，是实现抽象主题接口的类</li>
+<li><code>Proxy</code>：代理角色，内部含有对真实对象<code>RealSubject</code>的引用，从而可以操作真实对象。代理对象提供与真实对象相同的接口，以便在任何时刻都能代替真实对象，同时，代理对象可以在执行真实对象操作时，附加其他的操作，相当于对真实对象进行封装</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://feichaoyu.com" rel="external nofollow noreferrer">feichaoyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://feichaoyu.com/2019/08/10/java-she-ji-mo-shi-yu-an-li/">https://feichaoyu.com/2019/08/10/java-she-ji-mo-shi-yu-an-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://feichaoyu.com" target="_blank">feichaoyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/08/10/spring/spring-data-jpa-gui-fan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Spring Data JPA规范">
+                        
+                        <span class="card-title">Spring Data JPA规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            介绍Spring Data JPA规范
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring-Framwork/" class="post-category">
+                                    Spring Framwork
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JPA/">
+                        <span class="chip bg-color">JPA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/10/duo-xian-cheng-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Java多线程编程核心技术读书笔记">
+                        
+                        <span class="card-title">Java多线程编程核心技术读书笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            总结了《Java多线程编程核心技术》的知识点
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                        <span class="chip bg-color">多线程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://feichaoyu.com" target="_blank">feichaoyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

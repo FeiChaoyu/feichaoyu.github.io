@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <subtitle>分享日常学习和生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://feichaoyu.com/"/>
+  <updated>2019-12-14T13:00:37.747Z</updated>
+  <id>https://feichaoyu.com/</id>
+  
+  <author>
+    <name>feichaoyu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gradle控制台输出乱码解决方法</title>
+    <link href="https://feichaoyu.com/2019/12/14/gradle-kong-zhi-tai-shu-chu-luan-ma-jie-jue-fang-fa/"/>
+    <id>https://feichaoyu.com/2019/12/14/gradle-kong-zhi-tai-shu-chu-luan-ma-jie-jue-fang-fa/</id>
+    <published>2019-12-13T16:00:00.000Z</published>
+    <updated>2019-12-14T13:00:37.747Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、打开工具栏 Help-&amp;gt;Edit Custom VM Options
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Gradle" scheme="https://feichaoyu.com/tags/Gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库的三范式</title>
+    <link href="https://feichaoyu.com/2019/11/25/mysql/shu-ju-ku-san-fan-shi-ju-li/"/>
+    <id>https://feichaoyu.com/2019/11/25/mysql/shu-ju-ku-san-fan-shi-ju-li/</id>
+    <published>2019-11-24T16:00:00.000Z</published>
+    <updated>2019-11-26T02:19:58.957Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;案例&quot;&gt;&lt;a href=&quot;#案例&quot; class=&quot;headerlink&quot; title=&quot;案例&quot;&gt;&lt;/a&gt;案例&lt;/h2&gt;&lt;p&gt;有如下表格：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/image-20191125220832916.png&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+      <category term="三范式" scheme="https://feichaoyu.com/tags/%E4%B8%89%E8%8C%83%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker中redis容器无限重启问题</title>
+    <link href="https://feichaoyu.com/2019/11/19/docker/docker-pei-zhi-redis/"/>
+    <id>https://feichaoyu.com/2019/11/19/docker/docker-pei-zhi-redis/</id>
+    <published>2019-11-18T16:00:00.000Z</published>
+    <updated>2019-11-19T07:53:31.215Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天用&lt;code&gt;docker-compose&lt;/code&gt;启动 redis 容器时，发现一直启动不了，找了很久发现我的
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://feichaoyu.com/categories/docker/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker中容器之间通信的方式</title>
+    <link href="https://feichaoyu.com/2019/11/19/docker/docker-rong-qi-zhi-jian-tong-xin/"/>
+    <id>https://feichaoyu.com/2019/11/19/docker/docker-rong-qi-zhi-jian-tong-xin/</id>
+    <published>2019-11-18T16:00:00.000Z</published>
+    <updated>2019-11-19T09:38:34.470Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在docker中，容器之间的通信方式无非就是两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;容器之间通过宿主机通信&lt;/li&gt;
+&lt;li&gt;容器之间直接通信&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;场景：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我有两个容器，容器1放的是 Java 应用，容器2放的是
+        
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://feichaoyu.com/categories/docker/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>&lt;mvc:default-servlet-handler/&gt;的作用</title>
+    <link href="https://feichaoyu.com/2019/11/03/spring/default-servlet-handler-biao-qian-de-zuo-yong/"/>
+    <id>https://feichaoyu.com/2019/11/03/spring/default-servlet-handler-biao-qian-de-zuo-yong/</id>
+    <published>2019-11-02T16:00:00.000Z</published>
+    <updated>2019-11-03T06:44:52.271Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;优雅 REST 风格的资源 URL 是不希望带类似 &lt;code&gt;.html&lt;/code&gt; 或 &lt;code&gt;.do&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Framwork" scheme="https://feichaoyu.com/categories/Spring-Framwork/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot中前端获取日期少8小时的原因</title>
+    <link href="https://feichaoyu.com/2019/11/03/spring/hou-duan-date-shi-jian-chuan-dao-qian-duan-xiang-chai-8-xiao-shi/"/>
+    <id>https://feichaoyu.com/2019/11/03/spring/hou-duan-date-shi-jian-chuan-dao-qian-duan-xiang-chai-8-xiao-shi/</id>
+    <published>2019-11-02T16:00:00.000Z</published>
+    <updated>2019-11-06T05:21:15.947Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;Spring 中对于加上 &lt;code&gt;@RestController&lt;/code&gt; 或者
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Framwork" scheme="https://feichaoyu.com/categories/Spring-Framwork/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</title>
+    <link href="https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/"/>
+    <id>https://feichaoyu.com/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/</id>
+    <published>2019-10-20T16:00:00.000Z</published>
+    <updated>2019-11-18T12:36:12.373Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;假设访问路径是 &lt;code&gt;/test/a.html&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;请看以下两种情况：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. proxy_pass 加 / 斜线的情况&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location /test/ {
+   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://feichaoyu.com/categories/nginx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue路由history模式刷新后退出现404或500的解决方案</title>
+    <link href="https://feichaoyu.com/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/"/>
+    <id>https://feichaoyu.com/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/</id>
+    <published>2019-10-20T16:00:00.000Z</published>
+    <updated>2019-11-19T07:16:56.795Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;nginx 的配置文件部分如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+        listen       80;
+        server_name  localhost;
+        root   html/dist;
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://feichaoyu.com/categories/nginx/"/>
+    
+      <category term="vue" scheme="https://feichaoyu.com/categories/nginx/vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring中Scope的陷阱</title>
+    <link href="https://feichaoyu.com/2019/10/16/spring/scope-de-xian-jing/"/>
+    <id>https://feichaoyu.com/2019/10/16/spring/scope-de-xian-jing/</id>
+    <published>2019-10-15T16:00:00.000Z</published>
+    <updated>2019-10-16T11:50:24.450Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有如下情景：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 Spring 的诸多应用场景中 bean 都是单例形式，当一个单例 bean 需要和一个非单例 bean 组合使用或者一个非单例 bean 和另一个非单例 bean 组合使用时，我们通常都是将依赖以属性的方式放到
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring Framwork" scheme="https://feichaoyu.com/categories/Spring-Framwork/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox中.vdi的迁移</title>
+    <link href="https://feichaoyu.com/2019/09/29/virtualbox-zhong.vdi-de-qian-yi/"/>
+    <id>https://feichaoyu.com/2019/09/29/virtualbox-zhong.vdi-de-qian-yi/</id>
+    <published>2019-09-28T16:00:00.000Z</published>
+    <updated>2019-09-29T03:07:25.522Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;当你需要重装系统，想把原有的虚拟机转移过去。也就是从 VirtualBox 中将已有的&lt;code&gt;.vdi&lt;/code&gt;文件转移。这时候不是简单的拷贝一下就行了，需要按照如下操作：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假设源文件路径是
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="VirtualBox" scheme="https://feichaoyu.com/tags/VirtualBox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>9.MySQL联合查询</title>
+    <link href="https://feichaoyu.com/2019/09/26/mysql/lian-he-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/26/mysql/lian-he-cha-xun/</id>
+    <published>2019-09-25T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:10.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;union 关键字默认去重，如果使用 union all 可以包含重复项&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;查询部门编号 &amp;gt;90 或邮箱包含 a 的员工信息（去重）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT
+    *
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>7.MySQL分页查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/fen-ye-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:02.320Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;code&gt;offset&lt;/code&gt; 要显示条目的起始索引（起始索引从0开始）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;size&lt;/code&gt; 要显示的条目个数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;limit&lt;/code&gt; 语句放在查询语句的最后&lt;/p&gt;
+&lt;p&gt;如果要显示的页数为
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL行列转换</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/xing-lie-zhuan-huan/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:10.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有如下 t_score 表：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CREATE TABLE t_score (
+    id INT PRIMARY KEY auto_increment,
+    name VARCHAR ( 20 ) NOT NULL,       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>3.MySQL排序查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/pai-xu-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:07.989Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;按单个字段排序&quot;&gt;&lt;a href=&quot;#按单个字段排序&quot; class=&quot;headerlink&quot; title=&quot;按单个字段排序&quot;&gt;&lt;/a&gt;按单个字段排序&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;SELECT
+    * 
+FROM
+    employees 
+ORDER
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>6.MySQL连接查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/lian-jie-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/lian-jie-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:11.434Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;SQL92-标准&quot;&gt;&lt;a href=&quot;#SQL92-标准&quot; class=&quot;headerlink&quot; title=&quot;SQL92 标准&quot;&gt;&lt;/a&gt;SQL92 标准&lt;/h2&gt;&lt;h3 id=&quot;内连接&quot;&gt;&lt;a href=&quot;#内连接&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>8.MySQL子查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/zi-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:04.342Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;标量子查询&quot;&gt;&lt;a href=&quot;#标量子查询&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>5.MySQL分组查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/fen-zu-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:00.954Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简单的分组&quot;&gt;&lt;a href=&quot;#简单的分组&quot; class=&quot;headerlink&quot; title=&quot;简单的分组&quot;&gt;&lt;/a&gt;简单的分组&lt;/h2&gt;&lt;p&gt;查询每个工种的员工平均工资&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT
+    AVG( salary ),
+  
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>4.MySQL常见函数</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/chang-jian-han-shu/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/chang-jian-han-shu/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:06.886Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;字符函数&quot;&gt;&lt;a href=&quot;#字符函数&quot; class=&quot;headerlink&quot; title=&quot;字符函数&quot;&gt;&lt;/a&gt;字符函数&lt;/h2&gt;&lt;p&gt;&lt;code&gt;length&lt;/code&gt; 获取参数值的字节个数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT
+   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>1.MySQL基础查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/ji-chu-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/ji-chu-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:03.379Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;导入表 &lt;a href=&quot;https://www.lanzous.com/i6eag1c&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2.MySQL条件查询</title>
+    <link href="https://feichaoyu.com/2019/09/25/mysql/tiao-jian-cha-xun/"/>
+    <id>https://feichaoyu.com/2019/09/25/mysql/tiao-jian-cha-xun/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2019-09-28T08:32:09.386Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;按条件表达式筛选&quot;&gt;&lt;a href=&quot;#按条件表达式筛选&quot; class=&quot;headerlink&quot; title=&quot;按条件表达式筛选&quot;&gt;&lt;/a&gt;按条件表达式筛选&lt;/h2&gt;&lt;p&gt;查询工资&amp;gt;12000的员工信息&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT 
+   
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://feichaoyu.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+</feed>
