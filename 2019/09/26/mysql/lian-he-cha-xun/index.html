@@ -646,6 +646,32 @@ WHERE
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5d532a15ac3d0c7b3a64',
+        clientSecret: '572d78e2f0d397d21bb65eddd0ffcc740197553d',
+        repo: 'https://github.com/FeiChaoyu/comments',
+        owner: 'feichaoyu',
+        admin: ["feichaoyu"],
+        id: '2019-09-26T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
@@ -709,19 +735,19 @@ WHERE
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/25/mysql/pai-xu-cha-xun/">
+                <a href="/2019/09/25/mysql/fen-ye-cha-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="3.MySQL排序查询">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="7.MySQL分页查询">
                         
-                        <span class="card-title">3.MySQL排序查询</span>
+                        <span class="card-title">7.MySQL分页查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍MySQL排序查询
+                            介绍MySQL分页查询
                         
                     </div>
                     <div class="publish-info">

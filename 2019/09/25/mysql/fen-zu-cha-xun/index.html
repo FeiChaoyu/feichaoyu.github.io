@@ -790,6 +790,32 @@ ORDER BY
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5d532a15ac3d0c7b3a64',
+        clientSecret: '572d78e2f0d397d21bb65eddd0ffcc740197553d',
+        repo: 'https://github.com/FeiChaoyu/comments',
+        owner: 'feichaoyu',
+        admin: ["feichaoyu"],
+        id: '2019-09-25T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
@@ -808,19 +834,19 @@ ORDER BY
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/25/mysql/chang-jian-han-shu/">
+                <a href="/2019/09/25/mysql/zi-cha-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="4.MySQL常见函数">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="8.MySQL子查询">
                         
-                        <span class="card-title">4.MySQL常见函数</span>
+                        <span class="card-title">8.MySQL子查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍MySQL常见函数
+                            介绍MySQL子查询
                         
                     </div>
                     <div class="publish-info">
@@ -849,19 +875,19 @@ ORDER BY
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/25/mysql/zi-cha-xun/">
+                <a href="/2019/09/25/mysql/lian-jie-cha-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="8.MySQL子查询">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="6.MySQL连接查询">
                         
-                        <span class="card-title">8.MySQL子查询</span>
+                        <span class="card-title">6.MySQL连接查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍MySQL子查询
+                            介绍MySQL连接查询
                         
                     </div>
                     <div class="publish-info">

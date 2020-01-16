@@ -734,6 +734,32 @@ compileGroovy.dependsOn = deps - 'compileJava'</code></pre><p>如果出现控制
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5d532a15ac3d0c7b3a64',
+        clientSecret: '572d78e2f0d397d21bb65eddd0ffcc740197553d',
+        repo: 'https://github.com/FeiChaoyu/comments',
+        owner: 'feichaoyu',
+        admin: ["feichaoyu"],
+        id: '2019-08-13T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
@@ -793,19 +819,19 @@ compileGroovy.dependsOn = deps - 'compileJava'</code></pre><p>如果出现控制
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/10/propertiesutil-tong-yong-pei-zhi-wen-jian-gong-ju-lei/">
+                <a href="/2019/08/10/mysql-ji-chu-cao-zuo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PropertiesUtil通用配置文件工具类">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="MySQL基础操作">
                         
-                        <span class="card-title">PropertiesUtil通用配置文件工具类</span>
+                        <span class="card-title">MySQL基础操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            自己写的通用配置文件工具类
+                            介绍MySQL基础操作，包括DDL、DML、DCL
                         
                     </div>
                     <div class="publish-info">
@@ -816,21 +842,13 @@ compileGroovy.dependsOn = deps - 'compileJava'</code></pre><p>如果出现控制
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/PropertiesUtil/">
-                        <span class="chip bg-color">PropertiesUtil</span>
-                    </a>
-                    
                 </div>
                 
             </div>
