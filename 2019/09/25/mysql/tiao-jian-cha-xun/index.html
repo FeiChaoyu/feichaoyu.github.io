@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -452,12 +452,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    510
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -503,38 +523,38 @@ WHERE
 from
     employees
 where
-    last_name like &#39;%a%&#39;;</code></pre><p>查询员工名中第三个字符为 n，第五个字符为 l 的员工名和工资</p>
+    last_name like '%a%';</code></pre><p>查询员工名中第三个字符为 n，第五个字符为 l 的员工名和工资</p>
 <pre><code>select
     last_name,
     salary
 FROM
     employees
 WHERE
-    last_name LIKE &#39;__n_l%&#39;;</code></pre><p>查询员工名中第二个字符为 _ 的员工名</p>
+    last_name LIKE '__n_l%';</code></pre><p>查询员工名中第二个字符为 _ 的员工名</p>
 <pre><code>SELECT
     last_name
 FROM
     employees
 WHERE
-    last_name LIKE &#39;_\_%&#39;;  # 转移字符\</code></pre><pre><code>SELECT
+    last_name LIKE '_\_%';  # 转移字符\</code></pre><pre><code>SELECT
     last_name
 FROM
     employees
 WHERE
-    last_name LIKE &#39;_$_%&#39; ESCAPE &#39;$&#39;; # 自定义转义字符$</code></pre><h2 id="IN-列表"><a href="#IN-列表" class="headerlink" title="IN 列表"></a>IN 列表</h2><p>查询员工的工种编号是 IT_PROG、AD_VP、AD_PRES 中的任意一个的员工名和工种编号</p>
+    last_name LIKE '_$_%' ESCAPE '$'; # 自定义转义字符$</code></pre><h2 id="IN-列表"><a href="#IN-列表" class="headerlink" title="IN 列表"></a>IN 列表</h2><p>查询员工的工种编号是 IT_PROG、AD_VP、AD_PRES 中的任意一个的员工名和工种编号</p>
 <pre><code>SELECT
     last_name,
     job_id
 FROM
     employees
 WHERE
-    job_id = &#39;IT_PROT&#39; OR job_id = &#39;AD_VP&#39; OR JOB_ID =&#39;AD_PRES&#39;;</code></pre><pre><code>SELECT
+    job_id = 'IT_PROT' OR job_id = 'AD_VP' OR JOB_ID ='AD_PRES';</code></pre><pre><code>SELECT
     last_name,
     job_id
 FROM
     employees
 WHERE
-    job_id IN( &#39;IT_PROT&#39; ,&#39;AD_VP&#39;,&#39;AD_PRES&#39;);</code></pre><h2 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h2><blockquote>
+    job_id IN( 'IT_PROT' ,'AD_VP','AD_PRES');</code></pre><h2 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h2><blockquote>
 <p>= 或 &lt;&gt; 不能用于判断 null 值<br>is null 或 is not null 可以判断 null 值</p>
 </blockquote>
 <p>查询没有奖金的员工名和奖金率</p>
@@ -551,7 +571,7 @@ WHERE
 FROM
     employees
 WHERE
-    commission_pct IS NOT NULL;</code></pre><h2 id="安全等于-lt-gt"><a href="#安全等于-lt-gt" class="headerlink" title="安全等于 &lt;=&gt;"></a>安全等于 &lt;=&gt;</h2><blockquote>
+    commission_pct IS NOT NULL;</code></pre><h2 id="安全等于-lt-gt"><a href="#安全等于-lt-gt" class="headerlink" title="安全等于 <=>"></a>安全等于 &lt;=&gt;</h2><blockquote>
 <p>&lt;=&gt; 既可以判断 null 值，又可以判断普通的数值，但是可读性较低</p>
 </blockquote>
 <p>查询没有奖金的员工名和奖金率</p>
@@ -561,7 +581,25 @@ WHERE
 FROM
     employees
 WHERE
-    commission_pct &lt;=&gt; NULL;</code></pre>
+    commission_pct &lt;=&gt; NULL;</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -791,19 +829,19 @@ WHERE
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/25/mysql/ji-chu-cha-xun/">
+                <a href="/2019/09/25/mysql/lian-jie-cha-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1.MySQL基础查询">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="6.MySQL连接查询">
                         
-                        <span class="card-title">1.MySQL基础查询</span>
+                        <span class="card-title">6.MySQL连接查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍MySQL基础查询
+                            介绍MySQL连接查询
                         
                     </div>
                     <div class="publish-info">
@@ -832,44 +870,36 @@ WHERE
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/11/java-nei-cun-qu-yu/">
+                <a href="/2019/09/25/mysql/ji-chu-cha-xun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java内存区域划分">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1.MySQL基础查询">
                         
-                        <span class="card-title">Java内存区域划分</span>
+                        <span class="card-title">1.MySQL基础查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍Java虚拟机内存区域划分
+                            介绍MySQL基础查询
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1016,6 +1046,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -456,12 +456,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    464
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -473,7 +493,7 @@
 <p>1.在resource包下创建application.properties(没有的话)</p>
 <p>2.创建你自己的配置文件，名字随意，文件中以<code>key=value</code>的形式填写</p>
 <p>3.在application.properties中填写<code>feichaoyu=你创建的配置文件名</code>，如果有多个，以逗号隔开</p>
-<p>4.调用方式<code>PropertiesUtil.getProperty(&quot;你的配置文件名&quot;,&quot;键名&quot;,&quot;是否带默认值&quot;)</code></p>
+<p>4.调用方式<code>PropertiesUtil.getProperty("你的配置文件名","键名","是否带默认值")</code></p>
 <pre><code>import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -494,12 +514,12 @@ public class PropertiesUtil {
 
     static {
         // 先加载application.properties获取所有自定义配置文件
-        String fileName = &quot;application.properties&quot;;
+        String fileName = "application.properties";
         try {
-            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName), &quot;UTF-8&quot;));
-            String value = props.getProperty(&quot;feichaoyu&quot;);
+            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(fileName), "UTF-8"));
+            String value = props.getProperty("feichaoyu");
             if (StringUtils.isNotBlank(value)) {
-                String[] fileNames = value.split(&quot;,&quot;);
+                String[] fileNames = value.split(",");
                 for (String name : fileNames) {
                     if (StringUtils.isNotBlank(name)) {
                         proFileSet.put(name.trim(), new Properties());
@@ -507,15 +527,15 @@ public class PropertiesUtil {
                 }
             }
         } catch (IOException e) {
-            logger.error(&quot;application.properties读取自定义配置文件异常&quot;, e);
+            logger.error("application.properties读取自定义配置文件异常", e);
         }
 
         // 加载自定义配置文件
         for (String key : proFileSet.keySet()) {
             try {
-                proFileSet.get(key).load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(key), &quot;UTF-8&quot;));
+                proFileSet.get(key).load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(key), "UTF-8"));
             } catch (IOException e) {
-                logger.error(&quot;自定义配置文件读取异常&quot;, e);
+                logger.error("自定义配置文件读取异常", e);
             }
         }
     }
@@ -557,7 +577,25 @@ public class PropertiesUtil {
         return null;
     }
 
-}</code></pre>
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1024,6 +1062,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

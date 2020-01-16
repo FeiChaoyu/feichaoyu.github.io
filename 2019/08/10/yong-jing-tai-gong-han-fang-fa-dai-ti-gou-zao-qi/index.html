@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -456,12 +456,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -567,7 +587,7 @@
      * The {@code Boolean} object corresponding to the primitive
      * value {@code false}.
      */
-    public static final Boolean FALSE = new Boolean(false);</code></pre><p>当我们调用<code>Boolean.valueOf(&quot;true&quot;)</code>方法时，返回的就是这两个实例的引用，这样可以避免创建不必要的对象，如果使用构造器的话，就达不到这种效果了；</p>
+    public static final Boolean FALSE = new Boolean(false);</code></pre><p>当我们调用<code>Boolean.valueOf("true")</code>方法时，返回的就是这两个实例的引用，这样可以避免创建不必要的对象，如果使用构造器的话，就达不到这种效果了；</p>
 <pre><code>public static Boolean valueOf(boolean b) {
     return (b ? TRUE : FALSE);
 }
@@ -638,7 +658,7 @@ class AppStore {
     public static MusicApp installApp(String name) {
         MusicProvider p = providers.get(name);
         if (p==null) {
-            throw new IllegalArgumentException(&quot;No provider registerd with name:&quot; + name);
+            throw new IllegalArgumentException("No provider registerd with name:" + name);
         }
         return p.getMusicApp();
     }
@@ -648,14 +668,14 @@ class AppStore {
 class NetEaseMusicApp implements MusicApp {
     @Override
     public void play() {
-        System.out.println(&quot;网易云音乐，听见好时光~来自Android客户端&quot;);
+        System.out.println("网易云音乐，听见好时光~来自Android客户端");
     }
 }
 //网易云音乐PC端实现
 class NetEaseMusicPC implements MusicApp {
     @Override
     public void play() {
-        System.out.println(&quot;网易云音乐，听见好时光~来自PC客户端&quot;);
+        System.out.println("网易云音乐，听见好时光~来自PC客户端");
     }
 }
 //网易云音乐服务提供者实现
@@ -674,16 +694,16 @@ class NetEaseMusicProvider implements MusicProvider {
 </code></pre><p>这里我们分别实现了移动端服务和PC端服务两个服务，以及一个服务提供者。</p>
 <p>最后，给出用户的操作流程代码。</p>
 <pre><code>public static void main(String[] args) {
-    AppStore.registerProvider(&quot;NetEase&quot;, new NetEaseMusicProvider());
+    AppStore.registerProvider("NetEase", new NetEaseMusicProvider());
     //以下为用户的操作
-    MusicApp musicApp = AppStore.installApp(&quot;NetEase&quot;);
+    MusicApp musicApp = AppStore.installApp("NetEase");
     musicApp.play();
 }
 </code></pre><p>第一句把服务提供者的实现注册到应用市场的操作既可以由用户来完成，也可以由商家完成。在我们举的例子中应该由商家完成，而使用JDBC时通常由用户自己完成，这并不是重点。重点在于用户只需要根据商家的名字“NetEase”就可以得到一个音乐客户端的实例，而不需要指定与该客户端实例相关的任何细节，这实现了用户与服务的解耦。在上面的代码中，我们为移动端和客户端分别实现了两个服务，而在实际情况中，由于版本、平台的不同可能会有更多的实例，具体为用户创建哪个实例，由服务提供者来决定，用户不必关心。另一方面，服务提供商也可以有多个，用户选择哪个只需要提供该商家的名称即可，这实现了用户与服务提供商的解耦。</p>
 <p>下面再从JDBC源码角度来看服务提供者框架</p>
 <p>首先让我们回忆一下在编写<strong>JDBC</strong>代码的时候，我们在获取<strong>Connection</strong>的时候怎么获取的</p>
-<pre><code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-Connection connection= DriverManager.getConnection(&quot;jdbc:mysql:///mydatabase&quot;, &quot;root&quot;, &quot;root&quot;);
+<pre><code>Class.forName("com.mysql.jdbc.Driver");
+Connection connection= DriverManager.getConnection("jdbc:mysql:///mydatabase", "root", "root");
 
 </code></pre><ol>
 <li><p>通过<strong>反射</strong>的方式将com.mysql.jdbc.Driver的<strong>class文件</strong>通过类加载器加载到内存中</p>
@@ -719,7 +739,7 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
         try {
             DriverManager.registerDriver(new Driver());
         } catch (SQLException var1) {
-            throw new RuntimeException(&quot;Can\&#39;t register driver!&quot;);
+            throw new RuntimeException("Can\'t register driver!");
         }
     }
 }
@@ -736,21 +756,21 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
         throw new NullPointerException();
     }
 
-    println(&quot;registerDriver: &quot; + driver);
+    println("registerDriver: " + driver);
 
 }
 </code></pre><p><code>java.sql.Driver</code>就是服务提供者接口，<code>NonRegisteringDriver</code>就是其实现类，<code>com.mysql.jdbc.Driver</code>只是进行注册。在静态代码块中调用了<code>DriverManager.registerDriver</code>方法，并且将实现类添加到JDBC的注册列表（registeredDrivers）。所以在我们通过反射加载<code>com.mysql.jdbc.Driver</code>就可以完成注册了。</p>
 <p>客户端如何调用服务</p>
-<pre><code>DriverManager.getConnection(&quot;jdbc:mysql:///mydatabase&quot;, &quot;root&quot;, &quot;root&quot;);
+<pre><code>DriverManager.getConnection("jdbc:mysql:///mydatabase", "root", "root");
 </code></pre><pre><code>public static Connection getConnection(String url,
     String user, String password) throws SQLException {
     java.util.Properties info = new java.util.Properties();
 
     if (user != null) {
-        info.put(&quot;user&quot;, user);
+        info.put("user", user);
     }
     if (password != null) {
-        info.put(&quot;password&quot;, password);
+        info.put("password", password);
     }
 
     return (getConnection(url, info, Reflection.getCallerClass()));
@@ -761,11 +781,11 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
     // skip it.
     if(isDriverAllowed(aDriver.driver, callerCL)) {
         try {
-            println(&quot;    trying &quot; + aDriver.driver.getClass().getName());
+            println("    trying " + aDriver.driver.getClass().getName());
             Connection con = aDriver.driver.connect(url, info);
             if (con != null) {
                 // Success!
-                println(&quot;getConnection returning &quot; + aDriver.driver.getClass().getName());
+                println("getConnection returning " + aDriver.driver.getClass().getName());
                 return (con);
             }
         } catch (SQLException ex) {
@@ -775,7 +795,7 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
         }
 
     } else {
-        println(&quot;    skipping: &quot; + aDriver.getClass().getName());
+        println("    skipping: " + aDriver.getClass().getName());
     }
 
 }
@@ -785,7 +805,25 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
 <p>参考文章：</p>
 <p><a href="https://www.jianshu.com/p/4d7a0cd36a82" target="_blank" rel="noopener">https://www.jianshu.com/p/4d7a0cd36a82</a></p>
 <p><a href="https://blog.csdn.net/zhangshaoqiangchn/article/details/65442234" target="_blank" rel="noopener">https://blog.csdn.net/zhangshaoqiangchn/article/details/65442234</a></p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1256,6 +1294,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

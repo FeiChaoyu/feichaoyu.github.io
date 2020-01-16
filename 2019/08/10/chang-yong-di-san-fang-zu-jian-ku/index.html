@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -460,12 +460,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -489,19 +509,19 @@ public static void populate(Object bean, Map properties) // Map转为bean
     &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre><pre><code>public static void main(String[] args) {
         //MD5加密
-        System.out.println(&quot;MD5加密：&quot; + DigestUtils.md5Hex(&quot;abc&quot;));
+        System.out.println("MD5加密：" + DigestUtils.md5Hex("abc"));
 
         //sha加密
-        System.out.println(&quot;sha加密：&quot; + DigestUtils.sha1Hex(&quot;abc&quot;));
+        System.out.println("sha加密：" + DigestUtils.sha1Hex("abc"));
 
         //加密
-        String str = &quot;abc&quot;;
+        String str = "abc";
         byte[] b = Base64.encodeBase64(str.getBytes(), true);
-        System.out.println(&quot;base64加密：&quot; + new String(b));
+        System.out.println("base64加密：" + new String(b));
 
         //解密
         byte[] b2 = Base64.decodeBase64(b);
-        System.out.println(&quot;base64解密：&quot; + new String(b2));
+        System.out.println("base64解密：" + new String(b2));
 }</code></pre><pre><code>输出：
 MD5加密：900150983cd24fb0d6963f7d28e17f72
 sha加密：a9993e364706816aba3e25717850c26c9cd0d89d
@@ -523,20 +543,20 @@ if (CollectionUtils.isNotEmpty(list)){
 <pre><code>public static void main(String[] args) {
 
     BidiMap bidi = new TreeBidiMap();
-    bidi.put(&quot;One&quot;, &quot;1&quot;);
-    bidi.put(&quot;Two&quot;, &quot;2&quot;);
-    bidi.put(&quot;Three&quot;, &quot;3&quot;);
+    bidi.put("One", "1");
+    bidi.put("Two", "2");
+    bidi.put("Three", "3");
         // 根据键找值
-    System.out.println(bidi.get(&quot;One&quot;));
+    System.out.println(bidi.get("One"));
       // 根据值找键
-    System.out.println(bidi.getKey(&quot;1&quot;));
-    System.out.println(&quot;Original Map: &quot; + bidi);
+    System.out.println(bidi.getKey("1"));
+    System.out.println("Original Map: " + bidi);
         // 删除当前映射到指定值的键值对
-    bidi.removeValue(&quot;1&quot;);
-    System.out.println(&quot;Modified Map: &quot; + bidi);
+    bidi.removeValue("1");
+    System.out.println("Modified Map: " + bidi);
     // 反转键值对，键变值，值变键
     BidiMap inversedMap = bidi.inverseBidiMap();
-    System.out.println(&quot;Inversed Map: &quot; + inversedMap);
+    System.out.println("Inversed Map: " + inversedMap);
 }</code></pre><pre><code>输出：
 1
 One
@@ -547,12 +567,12 @@ Inversed Map: {2=Two, 3=Three}</code></pre><h3 id="OrderedMap接口"><a href="#O
 <pre><code>public static void main(String[] args) {
 
     OrderedMap map = new LinkedMap();
-    map.put(&quot;One&quot;, &quot;1&quot;);
-    map.put(&quot;Two&quot;, &quot;2&quot;);
-    map.put(&quot;Three&quot;, &quot;3&quot;);
+    map.put("One", "1");
+    map.put("Two", "2");
+    map.put("Three", "3");
     System.out.println(map.firstKey());
-    System.out.println(map.nextKey(&quot;One&quot;));
-    System.out.println(map.nextKey(&quot;Two&quot;));
+    System.out.println(map.nextKey("One"));
+    System.out.println(map.nextKey("Two"));
 }</code></pre><pre><code>输出：
 One
 Two
@@ -562,14 +582,14 @@ Three</code></pre><h3 id="CollectionUtils类"><a href="#CollectionUtils类" clas
     List&lt;String&gt; list = new LinkedList&lt;String&gt;();
 
     CollectionUtils.addIgnoreNull(list, null);
-    CollectionUtils.addIgnoreNull(list, &quot;a&quot;);
+    CollectionUtils.addIgnoreNull(list, "a");
 
     System.out.println(list);
 
     if(list.contains(null)) {
-        System.out.println(&quot;Null value is present&quot;);
+        System.out.println("Null value is present");
     } else {
-        System.out.println(&quot;Null value is not present&quot;);
+        System.out.println("Null value is not present");
     }
 }</code></pre><pre><code>输出：
 [a]
@@ -577,7 +597,7 @@ Null value is not present</code></pre><h3 id="Lang"><a href="#Lang" class="heade
 &lt;dependency&gt;
     &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
     &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre><pre><code>String str = &quot; s s s &quot;;
+&lt;/dependency&gt;</code></pre><pre><code>String str = " s s s ";
 System.out.println(StringUtils.isEmpty(str)); // false，包括空格
 System.out.println(StringUtils.isBlank(str)); // true，不包括空格
 
@@ -586,20 +606,20 @@ StringUtils.trim(str); // 去掉首尾空格
 String str = null;
 System.out.println(StringUtils.equals(str,null)); // true
 
-String str = &quot;tests&quot;;
-StringUtils.contains(str, &quot;test&quot;); // true
+String str = "tests";
+StringUtils.contains(str, "test"); // true
 
 // StringUtils.split方法会丢弃空字符串，并且效率比JDK自带的用正则的split方法高
-String str = &quot;hello,world&quot;;
-String[] split = StringUtils.split(str, &quot;,&quot;);
+String str = "hello,world";
+String[] split = StringUtils.split(str, ",");
 Arrays.stream(split).forEach(System.out::println); </code></pre><h2 id="Google-Guava工具包"><a href="#Google-Guava工具包" class="headerlink" title="Google Guava工具包"></a>Google Guava工具包</h2><pre><code>&lt;!--Google Guava包--&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
     &lt;artifactId&gt;guava&lt;/artifactId&gt;
     &lt;version&gt;19.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre><h3 id="Preconditions"><a href="#Preconditions" class="headerlink" title="Preconditions"></a>Preconditions</h3><p>对条件做前置判断，经常用在方法的最前面，用来对参数进行校验，不符合则抛出异常。</p>
-<pre><code>Preconditions.checkArgument(user!=null,&quot;user null error&quot;); // user为null则抛出空指针异常
-Preconditions.checkNotNull(user,&quot;user null&quot;); // 同上</code></pre><h3 id="Objects和MoreObjects"><a href="#Objects和MoreObjects" class="headerlink" title="Objects和MoreObjects"></a>Objects和MoreObjects</h3><p>在开发中经常会需要比较两个对象是否相等，这时候我们需要考虑比较的两个对象是否为<code>null</code>，然后再调用<code>equals</code>方法来比较是否相等，google guava库的<code>com.google.common.base.Objects</code>类提供了一个静态方法<code>equals</code>可以避免我们自己做是否为空的判断</p>
+<pre><code>Preconditions.checkArgument(user!=null,"user null error"); // user为null则抛出空指针异常
+Preconditions.checkNotNull(user,"user null"); // 同上</code></pre><h3 id="Objects和MoreObjects"><a href="#Objects和MoreObjects" class="headerlink" title="Objects和MoreObjects"></a>Objects和MoreObjects</h3><p>在开发中经常会需要比较两个对象是否相等，这时候我们需要考虑比较的两个对象是否为<code>null</code>，然后再调用<code>equals</code>方法来比较是否相等，google guava库的<code>com.google.common.base.Objects</code>类提供了一个静态方法<code>equals</code>可以避免我们自己做是否为空的判断</p>
 <pre><code>public static boolean equal(@Nullable Object a, @Nullable Object b) {
 2    return a == b || (a != null &amp;&amp; a.equals(b));
 3 }</code></pre><p>首先判断a和b是否是同一个对象，如果是同一对象，那么直接返回相等，如果不是同一对象再判断a不为<code>null</code>并且<code>a.equals(b)</code>，这样做既考虑了性能也考虑了<code>null</code>空指针的问题。</p>
@@ -607,45 +627,63 @@ Preconditions.checkNotNull(user,&quot;user null&quot;); // 同上</code></pre><h
 <pre><code>@Override
 public String toString() {
     return MoreObjects.toStringHelper(this.getClass())
-            .add(&quot;name&quot;,name)
-            .add(&quot;age&quot;,age)
+            .add("name",name)
+            .add("age",age)
             .omitNullValues().toString();
 }
 //omitNullValues()方法来指定忽略返回的空值</code></pre><h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><pre><code>Strings.nullToEmpty(str); // 如果str为null，则转换为空字符串
 
 Strings.repeat(str,3); // 重复字符串成为新字符串</code></pre><h3 id="Joiner"><a href="#Joiner" class="headerlink" title="Joiner"></a>Joiner</h3><pre><code>// 使用,拼接字符串，并且忽略null
-Joiner joiner = Joiner.on(&quot;,&quot;).skipNulls();
-String s = joiner.join(&quot;1&quot;, null, &quot;2&quot;, &quot;3&quot;);</code></pre><h3 id="Splitter"><a href="#Splitter" class="headerlink" title="Splitter"></a>Splitter</h3><pre><code>// trimResults表示对结果做trim即去掉首尾空格，omitEmptyStrings表示忽略空字符串
-Iterable&lt;String&gt; split = Splitter.on(&quot;,&quot;).trimResults().omitEmptyStrings().split(&quot;1,2,3&quot;);
+Joiner joiner = Joiner.on(",").skipNulls();
+String s = joiner.join("1", null, "2", "3");</code></pre><h3 id="Splitter"><a href="#Splitter" class="headerlink" title="Splitter"></a>Splitter</h3><pre><code>// trimResults表示对结果做trim即去掉首尾空格，omitEmptyStrings表示忽略空字符串
+Iterable&lt;String&gt; split = Splitter.on(",").trimResults().omitEmptyStrings().split("1,2,3");
 split.forEach(System.out::print);</code></pre><h3 id="MultiMap"><a href="#MultiMap" class="headerlink" title="MultiMap"></a>MultiMap</h3><p><code>MultiMap</code>是一个key映射多值的<code>Map</code>，类似于<code>Map&lt;K,List&lt;V&gt;&gt;</code>、<code>Map&lt;K,Set&lt;V&gt;&gt;</code> 。主要使用它两个子类<code>ListMultimap</code>和<code>SetMultimap</code>，前者允许重复值，后者不允许。</p>
 <pre><code>Multimap&lt;String,String&gt; multimap= ArrayListMultimap.create();
-multimap.put(&quot;test&quot;,&quot;1&quot;);
-multimap.put(&quot;test&quot;,&quot;2&quot;);
-Collection&lt;String&gt; test = multimap.get(&quot;test&quot;);
+multimap.put("test","1");
+multimap.put("test","2");
+Collection&lt;String&gt; test = multimap.get("test");
 System.out.println(test);
 // 输出：[1, 2]</code></pre><h3 id="Lists和Maps"><a href="#Lists和Maps" class="headerlink" title="Lists和Maps"></a>Lists和Maps</h3><p><code>Lists</code>和<code>Maps</code>是<code>List</code>和<code>Map</code>的工具类，最大的特性就是提供了静态工厂方法，相比先创建<code>ArrayList</code>再添加元素或者设置初始化方式要优雅得多。</p>
-<pre><code>Lists.newArrayList(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;);
+<pre><code>Lists.newArrayList("1","2","3");
 Lists.newArrayListWithCapacity(100);</code></pre><h2 id="高效Bean映射框架—Orika"><a href="#高效Bean映射框架—Orika" class="headerlink" title="高效Bean映射框架—Orika"></a>高效Bean映射框架—Orika</h2><p>Orika是java Bean映射框架，可以实现从一个对象递归拷贝数据至另一个对象（深拷贝），在开发多层应用程序中非常有用。在这些层之间交换数据时，通常为了适应不同API需要转换一个实例至另一个实例。总之，可以简化不同层对象之间映射过程。 Orika使用字节码生成器创建开销最小的快速映射，比其他基于反射方式实现（如Dozer、BeanUtils）更快。</p>
 <pre><code>public static void main(String[] args) {
 //        DefaultMapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 //        MapperFacade mapper = mapperFactory.getMapperFacade();
 //        User user = new User();
-//        user.setName(&quot;test&quot;);
+//        user.setName("test");
 //        User user1 = mapper.map(user,User.class);
 //        System.out.println(user1.getName());
 
   // 不同类之间的复制，如果属性名不一样，可以通过自定义映射来复制，属性名相同则可以直接复制
         DefaultMapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
         mapperFactory.classMap(User.class,TestUser.class)
-                .field(&quot;name&quot;,&quot;testName&quot;)
+                .field("name","testName")
                 .byDefault()
                 .register();
         MapperFacade mapper = mapperFactory.getMapperFacade();
         User user = new User();
-        user.setName(&quot;test&quot;);
+        user.setName("test");
         TestUser testUser = mapper.map(user,TestUser.class);
         System.out.println(testUser.getTestName());
-}</code></pre>
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1112,6 +1150,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

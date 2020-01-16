@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -456,12 +456,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.5k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    43 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -505,7 +525,7 @@
     }
 
     public static void main(String[] args) throws Exception {
-        boolean process = process(&quot;reflection.ReflectDemo&quot;, &quot;add&quot;, new Object[]{&quot;a&quot;, 1});
+        boolean process = process("reflection.ReflectDemo", "add", new Object[]{"a", 1});
     }
 }</code></pre><pre><code>输出：a1，也就是执行了add方法</code></pre><p><strong>2.已知接收字符串有两种方式，屏幕输出或保存至文件，要求从命令行输入字符串处理类的类名字符串，输入”ConsoleMsg”就把字符串输出到控制台，输入”FileMsg”就把字符串输出到文件</strong></p>
 <p>定义字符串公共处理接口<code>IMsg</code>，两个子类<code>ConsoleMsg</code>、<code>FileMsg</code></p>
@@ -519,12 +539,12 @@
 }</code></pre><pre><code>public class FileMsg implements IMsg {
     @Override
     public void process(String msg) {
-        System.out.println(&quot;Sava msg to File&quot;);
+        System.out.println("Sava msg to File");
     }
 }</code></pre><pre><code>public static void main(String[] args) throws Exception {
     IMsg obj = null;
     obj = (IMsg) Class.forName(args[0]).newInstance();
-    obj.process(&quot;hello&quot;);
+    obj.process("hello");
 }</code></pre><p><code>Class.forName(args[0]).newInstance();</code>表明产生的类名是<code>args[0]</code>的一个实例，可能是<code>ConsoleMsg</code>，也可能是<code>FileMsg</code>，还可能是其他字符串处理类的一个实例。也就是说，这是动态的，不随哪个具体的<code>IMsg</code>接口的子类改变而改变，它是稳定的。如果现在要增加一个将字符串保存到数据库的类，只需要增加功能子类<code>DbMsg</code>，而测试类代码无需改变。</p>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p><strong>代码示例</strong></p>
 <pre><code>// 定义小汽车接口
@@ -536,9 +556,9 @@ public class MidCar implements ICar {
 }</code></pre><pre><code>// 低档小汽车
 public class DnCar implements ICar {
 }</code></pre><pre><code>public class CarSimpleFactory {
-    public static final String UPTYPE = &quot;uptype&quot;;
-    public static final String MIDTYPE = &quot;midtype&quot;;
-    public static final String DNTYPE = &quot;dntype&quot;;
+    public static final String UPTYPE = "uptype";
+    public static final String MIDTYPE = "midtype";
+    public static final String DNTYPE = "dntype";
 
     public static ICar create(String mark) {
         ICar obj = null;
@@ -553,7 +573,7 @@ public class DnCar implements ICar {
 
     }
 }</code></pre><pre><code>public static void main(String[] args) {
-    ICar obj = CarSimpleFactory.create(&quot;uptype&quot;);
+    ICar obj = CarSimpleFactory.create("uptype");
     System.out.println(obj);
 }</code></pre><p><strong>代码分析</strong></p>
 <p>简单工厂创建步骤：</p>
@@ -818,9 +838,9 @@ public class Test {
         // TODO Auto-generated method stub
         ImageFactory fact = new ImageFactory();
         IRead obj = fact.create();
-        ImageInfo inf = (ImageInfo)obj.read(&quot;d:/a.jpg&quot;);
-        System.out.println(&quot;width=&quot;+inf.getWidth());
-        System.out.println(&quot;height=&quot;+inf.getHeight());
+        ImageInfo inf = (ImageInfo)obj.read("d:/a.jpg");
+        System.out.println("width="+inf.getWidth());
+        System.out.println("height="+inf.getHeight());
 
     }
 }
@@ -876,13 +896,13 @@ public class Course {
 
     @Override
     public String toString() {
-        return &quot;Course{&quot; +
-                &quot;courseName=&#39;&quot; + courseName + &#39;\&#39;&#39; +
-                &quot;, coursePPT=&#39;&quot; + coursePPT + &#39;\&#39;&#39; +
-                &quot;, courseVideo=&#39;&quot; + courseVideo + &#39;\&#39;&#39; +
-                &quot;, courseArticle=&#39;&quot; + courseArticle + &#39;\&#39;&#39; +
-                &quot;, courseQA=&#39;&quot; + courseQA + &#39;\&#39;&#39; +
-                &#39;}&#39;;
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", coursePPT='" + coursePPT + '\'' +
+                ", courseVideo='" + courseVideo + '\'' +
+                ", courseArticle='" + courseArticle + '\'' +
+                ", courseQA='" + courseQA + '\'' +
+                '}';
     }
 
 }</code></pre><pre><code>// 定义抽象产品建造者类(接口)
@@ -958,10 +978,10 @@ public class Director {
     Director director = new Director();
     /* 这里利用set方法注入进去 */
     director.setCourseBuilder(courseBuilder);
-    Course course = director.makeCourse(&quot;Java设计模式&quot;, &quot;Java设计模式PPT&quot;, &quot;Java设计模式视频&quot;, &quot;Java设计模式手记&quot;, &quot;Java设计模式问答&quot;);
+    Course course = director.makeCourse("Java设计模式", "Java设计模式PPT", "Java设计模式视频", "Java设计模式手记", "Java设计模式问答");
     System.out.println(course);
 }</code></pre><pre><code>输出：
-Course{courseName=&#39;Java设计模式&#39;, coursePPT=&#39;Java设计模式PPT&#39;, courseVideo=&#39;Java设计模式视频&#39;, courseArticle=&#39;Java设计模式手记&#39;, courseQA=&#39;Java设计模式问答&#39;}</code></pre><p>由于<code>Course course = director.makeCourse(&quot;Java设计模式&quot;, &quot;Java设计模式PPT&quot;, &quot;Java设计模式视频&quot;, &quot;Java设计模式手记&quot;, &quot;Java设计模式问答&quot;);</code>制作课程时使用不灵活。</p>
+Course{courseName='Java设计模式', coursePPT='Java设计模式PPT', courseVideo='Java设计模式视频', courseArticle='Java设计模式手记', courseQA='Java设计模式问答'}</code></pre><p>由于<code>Course course = director.makeCourse("Java设计模式", "Java设计模式PPT", "Java设计模式视频", "Java设计模式手记", "Java设计模式问答");</code>制作课程时使用不灵活。</p>
 <p>下面提供一种链式调用的静态内部类方法，该方法的优点在于可以只创建需要的值，使用起来更加优雅。</p>
 <pre><code>public class Course {
     private String courseName;
@@ -1015,21 +1035,21 @@ Course{courseName=&#39;Java设计模式&#39;, coursePPT=&#39;Java设计模式PPT
 
     @Override
     public String toString() {
-        return &quot;Course{&quot; +
-                &quot;courseName=&#39;&quot; + courseName + &#39;\&#39;&#39; +
-                &quot;, coursePPT=&#39;&quot; + coursePPT + &#39;\&#39;&#39; +
-                &quot;, courseVideo=&#39;&quot; + courseVideo + &#39;\&#39;&#39; +
-                &quot;, courseArticle=&#39;&quot; + courseArticle + &#39;\&#39;&#39; +
-                &quot;, courseQA=&#39;&quot; + courseQA + &#39;\&#39;&#39; +
-                &#39;}&#39;;
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", coursePPT='" + coursePPT + '\'' +
+                ", courseVideo='" + courseVideo + '\'' +
+                ", courseArticle='" + courseArticle + '\'' +
+                ", courseQA='" + courseQA + '\'' +
+                '}';
     }
 }</code></pre><pre><code>public static void main(String[] args){
     Course course = new Course.CourseBuilder()
-            .builderCourseName(&quot;Java设计模式&quot;)
-            .builderCoursePPT(&quot;Java设计模式PPT&quot;)
-            .builderCourseVideo(&quot;Java设计模式视频&quot;)
-            .builderCourseArticle(&quot;Java设计模式手记&quot;)
-            .builderCourseQA(&quot;Java设计模式问答&quot;).build();
+            .builderCourseName("Java设计模式")
+            .builderCoursePPT("Java设计模式PPT")
+            .builderCourseVideo("Java设计模式视频")
+            .builderCourseArticle("Java设计模式手记")
+            .builderCourseQA("Java设计模式问答").build();
     System.out.println(course);
 }</code></pre><p>这种方式可以在<code>lombok</code>插件的<code>@Builder</code>注解中见到。</p>
 <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><p>原型模式是指用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</p>
@@ -1136,15 +1156,15 @@ Course{courseName=&#39;Java设计模式&#39;, coursePPT=&#39;Java设计模式PPT
     }
 }</code></pre><pre><code>public static void main(String[] args) throws Exception {
 
-    Address adr = new Address(&quot;liaoning&quot;, &quot;dalian&quot;, &quot;116081&quot;);
-    Student s = new Student(&quot;zhang&quot;, 20, adr);
+    Address adr = new Address("liaoning", "dalian", "116081");
+    Student s = new Student("zhang", 20, adr);
 
     Student s2 = new Student(s);
 
-    System.out.println(&quot;s=&quot; + s + &quot;\ts2=&quot; + s2);
-    System.out.println(&quot;s.name=&quot; + s.getName() + &quot;\ts2.name=&quot; + s2.getName());
-    System.out.println(&quot;s.age=&quot; + s.getAge() + &quot;\ts2.age=&quot; + s2.getAge());
-    System.out.println(&quot;s.adr=&quot; + s.getAdd() + &quot;\ts2.adr=&quot; + s2.getAdd());
+    System.out.println("s=" + s + "\ts2=" + s2);
+    System.out.println("s.name=" + s.getName() + "\ts2.name=" + s2.getName());
+    System.out.println("s.age=" + s.getAge() + "\ts2.age=" + s2.getAge());
+    System.out.println("s.adr=" + s.getAdd() + "\ts2.adr=" + s2.getAdd());
 }</code></pre><pre><code>输出：
 s=prototype.Student@61bbe9ba    s2=prototype.Student@610455d6
 s.name=zhang    s2.name=zhang
@@ -1207,14 +1227,14 @@ s.adr=prototype.Address@511d50c0    s2.adr=prototype.Address@60e53b93</code></pr
     }
 }</code></pre><pre><code>public static void main(String[] args)throws Exception {
 
-    Address adr = new Address(&quot;liaoning&quot;,&quot;dalian&quot;,&quot;116081&quot;);
-    Student s = new Student(&quot;zhang&quot;,20,adr);
+    Address adr = new Address("liaoning","dalian","116081");
+    Student s = new Student("zhang",20,adr);
     Student s2 = (Student)s.clone();      
 
-    System.out.println(&quot;s=&quot;+s+&quot;\ts2=&quot;+s2);
-    System.out.println(&quot;s.name=&quot;+s.getName()+&quot;\ts2.name=&quot;+s2.getName());
-    System.out.println(&quot;s.age=&quot;+s.getAge()+&quot;\ts2.age=&quot;+s2.getAge());
-    System.out.println(&quot;s.adr=&quot;+s.getAdd()+&quot;\ts2.adr=&quot;+s2.getAdd());
+    System.out.println("s="+s+"\ts2="+s2);
+    System.out.println("s.name="+s.getName()+"\ts2.name="+s2.getName());
+    System.out.println("s.age="+s.getAge()+"\ts2.age="+s2.getAge());
+    System.out.println("s.adr="+s.getAdd()+"\ts2.adr="+s2.getAdd());
 }</code></pre><pre><code>输出：
 s=prototype.clone.Student@61bbe9ba    s2=prototype.clone.Student@610455d6
 s.name=zhang    s2.name=zhang
@@ -1406,14 +1426,14 @@ class D implements Cloneable{
     }
 }</code></pre><pre><code>public static void main(String[] args) throws Exception {
 
-        Address adr = new Address(&quot;liaoning&quot;, &quot;dalian&quot;, &quot;116081&quot;);
-        Student s = new Student(&quot;zhang&quot;, 20, adr);
+        Address adr = new Address("liaoning", "dalian", "116081");
+        Student s = new Student("zhang", 20, adr);
         Student s2 = (Student) s.clone();
 
-        System.out.println(&quot;s=&quot; + s + &quot;\ts2=&quot; + s2);
-        System.out.println(&quot;s.name=&quot; + s.getName() + &quot;\ts2.name=&quot; + s2.getName());
-        System.out.println(&quot;s.age=&quot; + s.getAge() + &quot;\ts2.age=&quot; + s2.getAge());
-        System.out.println(&quot;s.adr=&quot; + s.getAdd() + &quot;\ts2.adr=&quot; + s2.getAdd());
+        System.out.println("s=" + s + "\ts2=" + s2);
+        System.out.println("s.name=" + s.getName() + "\ts2.name=" + s2.getName());
+        System.out.println("s.age=" + s.getAge() + "\ts2.age=" + s2.getAge());
+        System.out.println("s.adr=" + s.getAdd() + "\ts2.adr=" + s2.getAdd());
     }</code></pre><pre><code>输出：
 s=prototype.serializable.Student@6f94fa3e    s2=prototype.serializable.Student@5b6f7412
 s.name=zhang    s2.name=zhang
@@ -1498,7 +1518,7 @@ public class ZuZhang extends Handler {
 
     public boolean handle(Request req) {
         if (req.day &lt;= limit) {
-            System.out.println(&quot;ZuZhang agrees the request!&quot;);
+            System.out.println("ZuZhang agrees the request!");
             return true;
         }
         return getNext().handle(req);
@@ -1508,7 +1528,7 @@ public class ZuZhang extends Handler {
 
     public boolean handle(Request req) {
         if (req.day &lt;= limit) {
-            System.out.println(&quot;ZhuRen agrees the request!&quot;);
+            System.out.println("ZhuRen agrees the request!");
             return true;
         }
         return getNext().handle(req);
@@ -1516,7 +1536,7 @@ public class ZuZhang extends Handler {
 
 }</code></pre><pre><code>public class JingLi extends Handler {
     public boolean handle(Request req) {
-        System.out.println(&quot;JingLi agrees the request!&quot;);
+        System.out.println("JingLi agrees the request!");
         return true;
     }
 }</code></pre><pre><code>// 责任链
@@ -1549,12 +1569,12 @@ chain=chain.ZuZhang,chain.ZhuRen,chain.JingLi</code></pre><pre><code>public clas
 
     public void createChain() {
         try {
-            FileInputStream in = new FileInputStream(&quot;src/chain/myconfig.txt&quot;);
+            FileInputStream in = new FileInputStream("src/chain/myconfig.txt");
             Properties p = new Properties();
               // 读配置文件
             p.load(in);
-            String s = p.getProperty(&quot;chain&quot;);
-            String unit[] = s.split(&quot;,&quot;);
+            String s = p.getProperty("chain");
+            String unit[] = s.split(",");
             int n = unit.length;
             handle = new Handler[n];
             for (int i = 0; i &lt; n; i++) {
@@ -1639,7 +1659,7 @@ public class TwoFilter implements Filter {
         StringBuffer sbuf = new StringBuffer();
         for (int i = 0; i &lt; s.length(); i++) {
             char ch = s.charAt(i);
-            if (ch != &#39; &#39;) {
+            if (ch != ' ') {
                 sbuf.append(ch);
             }
         }
@@ -1648,8 +1668,8 @@ public class TwoFilter implements Filter {
     }
 }</code></pre><pre><code>public static void main(String[] args) {
 
-    Request req = new Request(&quot;i am a student&quot;);
-    Response rep = new Response(&quot;&quot;);
+    Request req = new Request("i am a student");
+    Response rep = new Response("");
 
     Filter one = new OneFilter();
     Filter two = new TwoFilter();
@@ -1734,10 +1754,10 @@ public class CourseVideo {
         this.name = name;
     }
     public void open() {
-        System.out.println(this.name+&quot;课程开放&quot;);
+        System.out.println(this.name+"课程开放");
     }
     public void close() {
-        System.out.println(this.name+&quot;课程关闭&quot;);
+        System.out.println(this.name+"课程关闭");
     }
 }</code></pre><pre><code>// 具体命令发送者
 public class CloseCourseVideoCommand implements Command {
@@ -1780,7 +1800,7 @@ public class Staff {
     }
 }</code></pre><pre><code>public static void main(String[] args) {
 
-        CourseVideo courseVideo = new CourseVideo(&quot;Java设计模式&quot;);
+        CourseVideo courseVideo = new CourseVideo("Java设计模式");
         OpenCourseVideoCommand openCourseVideoCommand = new OpenCourseVideoCommand(courseVideo);
         CloseCourseVideoCommand closeCourseVideoCommand = new CloseCourseVideoCommand(courseVideo);
 
@@ -1904,16 +1924,16 @@ Java设计模式课程关闭</code></pre><h2 id="迭代器模式"><a href="#迭�
 public static void main(String[] args) {
     Collection c = new MyArrayList(2);    //初始化自定义数组容器
     for (int i = 0; i &lt; 5; i++) {
-        c.add(&quot;array&quot; + i);
+        c.add("array" + i);
     }
-    System.out.println(&quot;数组容器遍历:&quot;);
+    System.out.println("数组容器遍历:");
     traverse(c);
 
     Collection c1 = new MyArrayList(2);    //初始化自定义数组容器
     for (int i = 0; i &lt; 5; i++) {
-        c1.add(&quot;array&quot; + i);
+        c1.add("array" + i);
     }
-    System.out.println(&quot;反向迭代器遍历:&quot;);
+    System.out.println("反向迭代器遍历:");
     Iterator it = c1.reverseIterator();
     while (it.hasNext()) {
         String s = (String) it.next();
@@ -2017,7 +2037,7 @@ class CenterVisitor implements IVisitor {
     IVisitor v = new CenterVisitor();        //定义求重心具体访问者对象
     Triangle t = new Triangle(0, 0, 2, 0, 0, 2);    //定义三角形对象
     Point pt = (Point) t.accept(v);            //通过访问者对象求三角形重心坐标
-    System.out.println(pt.x + &quot;\t&quot; + pt.y);
+    System.out.println(pt.x + "\t" + pt.y);
 }</code></pre><p>如果我们再想增加一个求三角形外接圆半径的功能，只需再定义一个新类实现<code>IVisitor</code>接口。</p>
 <p>上面存在一个问题，当我们需要新增N个功能时，就必须创建N个具体访问者类，这样会让代码很臃肿，利用反射可以解决这个问题。</p>
 <pre><code>interface IShape {
@@ -2100,9 +2120,9 @@ class CenterVisitor implements IVisitor {
 }</code></pre><pre><code>public static void main(String[] args) {
     IVisitor v = new CenterVisitor();        //定义求重心具体访问者对象
     Triangle t = new Triangle(0, 0, 2, 0, 0, 2);    //定义三角形对象
-    Point pt = (Point) t.accept(v, &quot;getCenter&quot;);        //通过访问者对象求三角形重心坐标
-    System.out.println(pt.x + &quot;\t&quot; + pt.y);
-}</code></pre><p><code>t.accept(v, &quot;getCenter&quot;);</code>一个类中多个方法只需要写出方法名即可调用，不用创建过多类。</p>
+    Point pt = (Point) t.accept(v, "getCenter");        //通过访问者对象求三角形重心坐标
+    System.out.println(pt.x + "\t" + pt.y);
+}</code></pre><p><code>t.accept(v, "getCenter");</code>一个类中多个方法只需要写出方法名即可调用，不用创建过多类。</p>
 <h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><p>中介者模式是指用一个中介者对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</p>
 <p>适合场景：</p>
 <ul>
@@ -2145,7 +2165,25 @@ class CenterVisitor implements IVisitor {
 <li><code>RealSubject</code>：真实主题角色，是实现抽象主题接口的类</li>
 <li><code>Proxy</code>：代理角色，内部含有对真实对象<code>RealSubject</code>的引用，从而可以操作真实对象。代理对象提供与真实对象相同的接口，以便在任何时刻都能代替真实对象，同时，代理对象可以在执行真实对象操作时，附加其他的操作，相当于对真实对象进行封装</li>
 </ul>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -2612,6 +2650,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

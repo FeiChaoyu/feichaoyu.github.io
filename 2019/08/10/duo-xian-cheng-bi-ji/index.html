@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -456,12 +456,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    13k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    58 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -501,8 +521,8 @@ thread.start();</code></pre><p>比较这两个方法，用实现<code>Runnable</
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-        System.out.println(&quot;这是线程B&quot;);
-        return &quot;thread B&quot;;
+        System.out.println("这是线程B");
+        return "thread B";
     }
 }
 
@@ -511,15 +531,15 @@ public class Run {
         MyThread myThread = new MyThread();
         FutureTask futureTask = new FutureTask(myThread);
         new Thread(futureTask).start();
-        System.out.println(&quot;这是主线程：begin&quot;);
+        System.out.println("这是主线程：begin");
         try {
-            System.out.println(&quot;返回结果：&quot;+futureTask.get());
+            System.out.println("返回结果："+futureTask.get());
         }catch (InterruptedException e){
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        System.out.println(&quot;这是主线程：end&quot;);
+        System.out.println("这是主线程：end");
     }
 }
 
@@ -543,17 +563,17 @@ public class Run {
     synchronized public void run() {
         super.run();
         count--;
-        System.out.println(this.currentThread().getName()+&quot; count=&quot;+count);
+        System.out.println(this.currentThread().getName()+" count="+count);
     }
 }
 
 public static void main(String[] args) {
         MyThread myThread = new MyThread();
-        Thread a = new Thread(myThread, &quot;A&quot;);
-        Thread b = new Thread(myThread, &quot;B&quot;);
-        Thread c = new Thread(myThread, &quot;C&quot;);
-        Thread d = new Thread(myThread, &quot;D&quot;);
-        Thread e = new Thread(myThread, &quot;E&quot;);
+        Thread a = new Thread(myThread, "A");
+        Thread b = new Thread(myThread, "B");
+        Thread c = new Thread(myThread, "C");
+        Thread d = new Thread(myThread, "D");
+        Thread e = new Thread(myThread, "E");
         a.start();
         b.start();
         c.start();
@@ -584,7 +604,7 @@ B count=0</code></pre><p>通过在<code>run</code>方法前加入<code>synchroni
 
     @Override
     public void run() {
-        System.out.println(&quot;进入run了&quot;);
+        System.out.println("进入run了");
         while (isRunning == true) {
             System.out.println(Thread.currentThread().getName());
             try {
@@ -603,7 +623,7 @@ public class Run {
             thread.start();
             Thread.sleep(5000);
             thread.setRunning(false);
-            System.out.println(&quot;退出&quot;);
+            System.out.println("退出");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -626,13 +646,13 @@ public class Run {
         try {
             for (int i = 0; i &lt; 500_000; i++) {
                 if (this.isInterrupted()) {
-                    System.out.println(&quot;已经停止，我要退出&quot;);
+                    System.out.println("已经停止，我要退出");
                     throw new InterruptedException();
                 }
-                System.out.println(&quot;i=&quot;+(i+1));
+                System.out.println("i="+(i+1));
             }
         } catch (InterruptedException e) {
-            System.out.println(&quot;我被抓了&quot;);
+            System.out.println("我被抓了");
             e.printStackTrace();
         }
     }
@@ -643,7 +663,7 @@ public class Run {
         super.run();
         while (true){
             if (this.isInterrupted()){
-                System.out.println(&quot;停止&quot;);
+                System.out.println("停止");
                 return;
             }
         }
@@ -657,7 +677,7 @@ public class Run {
 <li><p>造成公共的同步对象的独占，使得其他线程无法访问公共同步对象</p>
 <pre><code>public class SynchronizedObject {
     synchronized public void sameMethod(){
-        if (Thread.currentThread().getName().equals(&quot;A&quot;)){
+        if (Thread.currentThread().getName().equals("A")){
             // A线程永远suspend，其他线程无法进来
             Thread.currentThread().suspend();
         }
@@ -698,7 +718,7 @@ public final static int MAX_PRIORITY = 10;</code></pre><ul>
     private String getData2;
     public void doLongTimeTask(){
         try {
-            System.out.println(&quot;start task&quot;);
+            System.out.println("start task");
             Thread.sleep(3000);
             String privateGetData1=Thread.currentThread().getName();
             String privateGetData2=Thread.currentThread().getName();
@@ -708,7 +728,7 @@ public final static int MAX_PRIORITY = 10;</code></pre><ul>
             }
             System.out.println(getData1);
             System.out.println(getData2);
-            System.out.println(&quot;end task&quot;);
+            System.out.println("end task");
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -723,17 +743,17 @@ public final static int MAX_PRIORITY = 10;</code></pre><ul>
     public void a(){
         try {
             synchronized (anyObject){
-                System.out.println(&quot;a begin&quot;);
+                System.out.println("a begin");
                 Thread.sleep(1000);
-                System.out.println(&quot;a end&quot;);
+                System.out.println("a end");
             }
         }catch (InterruptedException e){
             e.printStackTrace();
         }
     }
     synchronized public void b(){
-        System.out.println(&quot;b begin&quot;);
-        System.out.println(&quot;b end&quot;);
+        System.out.println("b begin");
+        System.out.println("b end");
     }
 }</code></pre><p>由于<code>a()</code>方法和<code>b()</code>方法的对象监视器不同，a方法是<code>anyObject</code>，b方法是<code>this</code>，所以会出现异步执行的结果。</p>
 <p>同步代码块放在非同步<code>synchronized</code>方法中进行声明并不能保证调用方法的线程的执行顺序性，也就是线程调用方法的顺序是无序的，这样会产生“脏读”问题，使用<code>synchronized</code>(非<code>this</code>对象)同步代码块可以解决“脏读”问题。</p>
@@ -742,8 +762,8 @@ public final static int MAX_PRIORITY = 10;</code></pre><ul>
 <p><code>synchronized(class)</code>代码块的作用和<code>synchronized static</code>方法的作用一样。</p>
 <p>静态同步代码块或方法可以用于创建多个线程时，由于每个线程的对象锁是不一样的，但是Class锁是一样的。</p>
 <h3 id="14-String的常量池特性"><a href="#14-String的常量池特性" class="headerlink" title="14.String的常量池特性"></a>14.<code>String</code>的常量池特性</h3><p>在JVM中具有<code>String</code>常量池缓存的功能，所以下面的结果是<code>true</code></p>
-<pre><code>String a = &quot;a&quot;;
-String b = &quot;a&quot;;
+<pre><code>String a = "a";
+String b = "a";
 System.out.println(a == b); // true</code></pre><p>如果把<code>synchronized(string)</code>同步块与<code>String</code>结合使用时，需要注意以下问题：</p>
 <pre><code>public class Service {
     public static void print(String stringParam){
@@ -769,7 +789,7 @@ public class ThreadA extends Thread {
 
     @Override
     public void run() {
-        Service.print(&quot;a&quot;);
+        Service.print("a");
     }
 }
 
@@ -782,7 +802,7 @@ public class ThreadB extends Thread {
 
     @Override
     public void run() {
-        Service.print(&quot;a&quot;);
+        Service.print("a");
     }
 }
 
@@ -790,10 +810,10 @@ public class Run {
     public static void main(String[] args) {
         Service service = new Service();
         ThreadA a = new ThreadA(service);
-        a.setName(&quot;A&quot;);
+        a.setName("A");
         a.start();
         ThreadB b = new ThreadB(service);
-        b.setName(&quot;B&quot;);
+        b.setName("B");
         b.start();
     }
 }</code></pre><p>此时只有A线程执行，出现这样的原因是<code>String</code>的两个值都是a，两个线程持有相同的锁，所以造成线程B不能执行。这就是<code>String</code>常量池带来的问题，因此<code>synchronized</code>代码块不用<code>String</code>作为锁对象，而用其他<code>Object</code>对象。</p>
@@ -838,29 +858,29 @@ public class ThreadA extends Thread {
 
     @Override
     public void run() {
-        if (name.equals(&quot;a&quot;)) {
+        if (name.equals("a")) {
             synchronized (lock1) {
-                System.out.println(&quot;name=&quot; + name);
+                System.out.println("name=" + name);
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 synchronized (lock2) {
-                    System.out.println(&quot;lock1-&gt;lock2&quot;);
+                    System.out.println("lock1-&gt;lock2");
                 }
             }
         }
-        if (name.equals(&quot;b&quot;)) {
+        if (name.equals("b")) {
             synchronized (lock2) {
-                System.out.println(&quot;name=&quot; + name);
+                System.out.println("name=" + name);
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 synchronized (lock1) {
-                    System.out.println(&quot;lock2-&gt;lock1&quot;);
+                    System.out.println("lock2-&gt;lock1");
                 }
             }
         }
@@ -872,11 +892,11 @@ public class Run {
     public static void main(String[] args) {
         try {
             DeadLockThread deadLockThread = new DeadLockThread();
-            deadLockThread.setName(&quot;a&quot;);
+            deadLockThread.setName("a");
             Thread thread1 = new Thread(deadLockThread);
             thread1.start();
             Thread.sleep(1000);
-            deadLockThread.setName(&quot;b&quot;);
+            deadLockThread.setName("b");
             Thread thread2 = new Thread(deadLockThread);
             thread2.start();
         } catch (InterruptedException e) {
@@ -899,11 +919,11 @@ public class Run {
 
     @Override
     public void run() {
-        System.out.println(&quot;进入run了&quot;);
+        System.out.println("进入run了");
         while (isRunning) {
             //这里传入任意synchronized同步方法都是可以解决死循环的
         }
-        System.out.println(&quot;线程被停止了&quot;);
+        System.out.println("线程被停止了");
     }
 }
 
@@ -914,7 +934,7 @@ public class Run {
             thread.start();
             Thread.sleep(1000);
             thread.setRunning(false);
-            System.out.println(&quot;已经赋值为false了&quot;);
+            System.out.println("已经赋值为false了");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1008,11 +1028,11 @@ public class Run {
 <pre><code>public class MyThreadExceptionHandler implements Thread.UncaughtExceptionHandler {
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        System.out.println(&quot;An exception has been captured&quot;);
-        System.out.printf(&quot;Exception: %s: %s\n&quot;, e.getClass().getName(), e.getMessage());
-        System.out.println(&quot;Stack Trace&quot;);
+        System.out.println("An exception has been captured");
+        System.out.printf("Exception: %s: %s\n", e.getClass().getName(), e.getMessage());
+        System.out.println("Stack Trace");
         e.printStackTrace(System.out);
-        System.out.printf(&quot;Thread status: %s\n&quot;, t.getState());
+        System.out.printf("Thread status: %s\n", t.getState());
     }
 }
 
@@ -1020,7 +1040,7 @@ public class MyThread implements Runnable {
 
     @Override
     public void run() {
-        int a = Integer.parseInt(&quot;a&quot;);
+        int a = Integer.parseInt("a");
         System.out.println(a);
     }
 }
@@ -1036,9 +1056,9 @@ public class Run {
 
 //输出
 An exception has been captured
-Exception: java.lang.NumberFormatException: For input string: &quot;a&quot;
+Exception: java.lang.NumberFormatException: For input string: "a"
 Stack Trace
-java.lang.NumberFormatException: For input string: &quot;a&quot;
+java.lang.NumberFormatException: For input string: "a"
     at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
     at java.lang.Integer.parseInt(Integer.java:580)
     at java.lang.Integer.parseInt(Integer.java:615)
@@ -1069,18 +1089,18 @@ Thread status: RUNNABLE</code></pre><p>线程组的异常处理如下：</p>
     public void run() {
         int numInt = Integer.parseInt(num);
         while (this.isInterrupted() == false) {
-            System.out.println(&quot;while循环中：&quot; + Thread.currentThread().getName());
+            System.out.println("while循环中：" + Thread.currentThread().getName());
         }
     }
 }</code></pre><pre><code>public class Run {
     public static void main(String[] args) {
-        MyThreadGroup group = new MyThreadGroup(&quot;我的线程组&quot;);
+        MyThreadGroup group = new MyThreadGroup("我的线程组");
         MyThread[] myThread = new MyThread[10];
         for (int i = 0; i &lt; myThread.length; i++) {
-            myThread[i] = new MyThread(group, &quot;线程&quot; + (i + 1), &quot;1&quot;);
+            myThread[i] = new MyThread(group, "线程" + (i + 1), "1");
             myThread[i].start();
         }
-        MyThread thread = new MyThread(group, &quot;报错线程&quot;, &quot;a&quot;);
+        MyThread thread = new MyThread(group, "报错线程", "a");
         thread.start();
     }
 }</code></pre><p>只要有一个线程发生异常，那么此线程组中的所有线程都会中断。</p>
@@ -1109,7 +1129,7 @@ public void method(){
     private static List list = new ArrayList();
 
     public static void add() {
-        list.add(&quot;any&quot;);
+        list.add("any");
     }
 
     public static int size() {
@@ -1130,9 +1150,9 @@ public class ThreadA extends Thread {
         try {
             synchronized (lock) {
                 if (MyList.size() != 5) {
-                    System.out.println(&quot;wait begin &quot; + System.currentTimeMillis());
+                    System.out.println("wait begin " + System.currentTimeMillis());
                     lock.wait();
-                    System.out.println(&quot;wait end &quot; + System.currentTimeMillis());
+                    System.out.println("wait end " + System.currentTimeMillis());
                 }
             }
         } catch (InterruptedException e) {
@@ -1156,9 +1176,9 @@ public class ThreadB extends Thread {
                     MyList.add();
                     if (MyList.size() == 5) {
                         lock.notify();
-                        System.out.println(&quot;has notified&quot;);
+                        System.out.println("has notified");
                     }
-                    System.out.println(&quot;add &quot; + (i + 1) + &quot; element&quot;);
+                    System.out.println("add " + (i + 1) + " element");
                     Thread.sleep(1000);
                 }
             }
@@ -1196,7 +1216,7 @@ wait end 1553399428180</code></pre><p>注意到<code>notify()</code>方法执行
 <p><code>notify()</code>只能随机唤醒一个线程，<code>notifyAll()</code>能唤醒所有<code>waiting</code>的线程。</p>
 <p>带一个参数的<code>wait(long)</code>方法会等待某一时间内是否有线程对锁进行唤醒，如果超过这个时间则自动唤醒。</p>
 <h3 id="3-生产者-消费者模式"><a href="#3-生产者-消费者模式" class="headerlink" title="3.生产者/消费者模式"></a>3.生产者/消费者模式</h3><h4 id="一生产与一消费：操作值"><a href="#一生产与一消费：操作值" class="headerlink" title="一生产与一消费：操作值"></a>一生产与一消费：操作值</h4><pre><code>public class ValueObject {
-    public static String value = &quot;&quot;;
+    public static String value = "";
 }</code></pre><pre><code>public class P {
     private String lock;
 
@@ -1207,11 +1227,11 @@ wait end 1553399428180</code></pre><p>注意到<code>notify()</code>方法执行
     public void setValue() {
         try {
             synchronized (lock) {
-                if (!ValueObject.value.equals(&quot;&quot;)) {
+                if (!ValueObject.value.equals("")) {
                     lock.wait();
                 }
-                String value = &quot;value&quot;;
-                System.out.println(&quot;set的值是 &quot; + value);
+                String value = "value";
+                System.out.println("set的值是 " + value);
                 ValueObject.value = value;
                 lock.notify();
             }
@@ -1229,11 +1249,11 @@ wait end 1553399428180</code></pre><p>注意到<code>notify()</code>方法执行
     public void getValue() {
         try {
             synchronized (lock) {
-                if (ValueObject.value.equals(&quot;&quot;)) {
+                if (ValueObject.value.equals("")) {
                     lock.wait();
                 }
-                System.out.println(&quot;get的值是 &quot; + ValueObject.value);
-                ValueObject.value = &quot;&quot;;
+                System.out.println("get的值是 " + ValueObject.value);
+                ValueObject.value = "";
                 lock.notify();
             }
         } catch (InterruptedException e) {
@@ -1290,12 +1310,12 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     public void setValue() {
         try {
             synchronized (lock) {
-                while (!ValueObject.value.equals(&quot;&quot;)) {
-                    System.out.println(&quot;生产者 &quot;+Thread.currentThread().getName()+&quot;waiting★&quot;);
+                while (!ValueObject.value.equals("")) {
+                    System.out.println("生产者 "+Thread.currentThread().getName()+"waiting★");
                     lock.wait();
                 }
-                System.out.println(&quot;生产者 &quot;+Thread.currentThread().getName()+&quot;runnable&quot;);
-                String value = &quot;value&quot;;
+                System.out.println("生产者 "+Thread.currentThread().getName()+"runnable");
+                String value = "value";
                 ValueObject.value = value;
                 lock.notify();
             }
@@ -1313,12 +1333,12 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     public void getValue() {
         try {
             synchronized (lock) {
-                while (ValueObject.value.equals(&quot;&quot;)) {
-                    System.out.println(&quot;消费者 &quot;+Thread.currentThread().getName()+&quot;waiting☆&quot;);
+                while (ValueObject.value.equals("")) {
+                    System.out.println("消费者 "+Thread.currentThread().getName()+"waiting☆");
                     lock.wait();
                 }
-                System.out.println(&quot;消费者 &quot;+Thread.currentThread().getName()+&quot;runnable&quot;);
-                ValueObject.value = &quot;&quot;;
+                System.out.println("消费者 "+Thread.currentThread().getName()+"runnable");
+                ValueObject.value = "";
                 lock.notify();
             }
         } catch (InterruptedException e) {
@@ -1334,9 +1354,9 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
         ThreadC[] threadC = new ThreadC[2];
         for (int i = 0; i &lt; 2; i++) {
             threadP[i] = new ThreadP(p);
-            threadP[i].setName(&quot;生产者&quot; + (i + 1));
+            threadP[i].setName("生产者" + (i + 1));
             threadC[i] = new ThreadC(c);
-            threadC[i].setName(&quot;消费者&quot; + (i + 1));
+            threadC[i].setName("消费者" + (i + 1));
             threadP[i].start();
             threadC[i].start();
         }
@@ -1344,7 +1364,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
         Thread[] threads = new Thread[Thread.currentThread().getThreadGroup().activeCount()];
         Thread.currentThread().getThreadGroup().enumerate(threads);
         for (Thread thread : threads) {
-            System.out.println(thread.getName() + &quot; &quot; + thread.getState());
+            System.out.println(thread.getName() + " " + thread.getState());
         }
     }
 }</code></pre><pre><code>//输出结果如下
@@ -1400,25 +1420,25 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
             while (list.size() == 1) {
                 this.wait();
             }
-            list.add(&quot;any&quot;);
+            list.add("any");
             this.notify();// 多通信时需要改成notifyAll()
-            System.out.println(&quot;push=&quot; + list.size());
+            System.out.println("push=" + list.size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     synchronized public String pop() {
-        String returnValue = &quot;&quot;;
+        String returnValue = "";
         try {
             while (list.size() == 0) {
-                System.out.println(&quot;pop操作中的: &quot; + Thread.currentThread().getName() + &quot; 线程为wait状态&quot;);
+                System.out.println("pop操作中的: " + Thread.currentThread().getName() + " 线程为wait状态");
                 this.wait();
             }
-            returnValue = &quot;&quot; + list.get(0);
+            returnValue = "" + list.get(0);
             list.remove(0);
             this.notify();// 多通信时需要改成notifyAll()
-            System.out.println(&quot;pop=&quot; + list.size());
+            System.out.println("pop=" + list.size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1442,7 +1462,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     }
 
     public void popService() {
-        System.out.println(&quot;pop=&quot; + myStack.pop());
+        System.out.println("pop=" + myStack.pop());
     }
 }</code></pre><pre><code>public class ThreadP extends Thread {
     private P p;
@@ -1487,9 +1507,9 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
 <pre><code>public class WriteData {
     public void writeMethod(PipedOutputStream out) {
         try {
-            System.out.println(&quot;write:&quot;);
+            System.out.println("write:");
             for (int i = 0; i &lt; 300; i++) {
-                String outData = &quot;&quot; + (i + 1);
+                String outData = "" + (i + 1);
                 out.write(outData.getBytes());
                 System.out.print(outData);
             }
@@ -1502,7 +1522,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
 }</code></pre><pre><code>public class ReadData {
     public void readMethod(PipedInputStream input) {
         try {
-            System.out.println(&quot;read:&quot;);
+            System.out.println("read:");
             byte[] bytes = new byte[20];
             int readLength = input.read(bytes);
             while (readLength != -1) {
@@ -1572,9 +1592,9 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
 <pre><code>public class WriteData {
     public void writeMethod(PipedWriter out) {
         try {
-            System.out.println(&quot;write:&quot;);
+            System.out.println("write:");
             for (int i = 0; i &lt; 300; i++) {
-                String outData = &quot;&quot; + (i + 1);
+                String outData = "" + (i + 1);
                 out.write(outData);
                 System.out.print(outData);
             }
@@ -1587,7 +1607,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
 }</code></pre><pre><code>public class ReadData {
     public void readMethod(PipedReader input) {
         try {
-            System.out.println(&quot;read:&quot;);
+            System.out.println("read:");
             char[] bytes = new char[20];
             int readLength = input.read(bytes);
             while (readLength != -1) {
@@ -1671,14 +1691,14 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     @Override
     public void run() {
         for (int i = 0; i &lt; 10; i++) {
-            System.out.println(&quot;在ThreadA线程中取值=&quot; + Tools.t1.get());
+            System.out.println("在ThreadA线程中取值=" + Tools.t1.get());
         }
     }
 }</code></pre><pre><code>public class Run {
     public static void main(String[] args) {
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.println(&quot;在Main线程中取值=&quot; + Tools.t1.get());
+                System.out.println("在Main线程中取值=" + Tools.t1.get());
             }
             Thread.sleep(5000);
             ThreadA a = new ThreadA();
@@ -1715,7 +1735,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
 
     @Override
     protected Object childValue(Object parentValue) {
-        return parentValue+&quot; 加上子线程自己的值&quot;;
+        return parentValue+" 加上子线程自己的值";
     }
 
     @Override
@@ -1726,14 +1746,14 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     @Override
     public void run() {
         for (int i = 0; i &lt; 10; i++) {
-            System.out.println(&quot;在ThreadA线程中取值=&quot; + Tools.t1.get());
+            System.out.println("在ThreadA线程中取值=" + Tools.t1.get());
         }
     }
 }</code></pre><pre><code>public class Run {
     public static void main(String[] args) {
         try {
             for (int i = 0; i &lt; 10; i++) {
-                System.out.println(&quot;在Main线程中取值=&quot; + Tools.t1.get());
+                System.out.println("在Main线程中取值=" + Tools.t1.get());
             }
             Thread.sleep(5000);
             ThreadA a = new ThreadA();
@@ -1769,7 +1789,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     public void testMethod() {
         lock.lock();
         for (int i = 0; i &lt; 5; i++) {
-            System.out.println(Thread.currentThread().getName() + &quot; &quot; + (i + 1));
+            System.out.println(Thread.currentThread().getName() + " " + (i + 1));
         }
         lock.unlock();
     }
@@ -1807,7 +1827,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     public void await() {
         try {
             lock.lock();
-            System.out.println(&quot; await时间为&quot; + System.currentTimeMillis());
+            System.out.println(" await时间为" + System.currentTimeMillis());
             condition.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -1819,7 +1839,7 @@ get的值是 value</code></pre><h4 id="多生产与多消费：操作值"><a hre
     public void signal() {
         try {
             lock.lock();
-            System.out.println(&quot;signal时间为&quot; + System.currentTimeMillis());
+            System.out.println("signal时间为" + System.currentTimeMillis());
             condition.signal();
         } finally {
             lock.unlock();
@@ -1855,9 +1875,9 @@ signal时间为1553603469000</code></pre><p>多个<code>Condition</code>实现�
     public void awaitA() {
         try {
             lock.lock();
-            System.out.println(&quot;begin awaitA时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("begin awaitA时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
             conditionA.await();
-            System.out.println(&quot;  end awaitA时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("  end awaitA时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -1868,9 +1888,9 @@ signal时间为1553603469000</code></pre><p>多个<code>Condition</code>实现�
     public void awaitB() {
         try {
             lock.lock();
-            System.out.println(&quot;begin awaitB时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("begin awaitB时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
             conditionB.await();
-            System.out.println(&quot;  end awaitB时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("  end awaitB时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -1881,7 +1901,7 @@ signal时间为1553603469000</code></pre><p>多个<code>Condition</code>实现�
     public void signalAll_A() {
         try {
             lock.lock();
-            System.out.println(&quot;  signalAll_A时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("  signalAll_A时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
             conditionA.signalAll();
         } finally {
             lock.unlock();
@@ -1891,7 +1911,7 @@ signal时间为1553603469000</code></pre><p>多个<code>Condition</code>实现�
     public void signalAll_B() {
         try {
             lock.lock();
-            System.out.println(&quot;  signalAll_B时间为&quot; + System.currentTimeMillis() + &quot; ThreadName=&quot; + Thread.currentThread().getName());
+            System.out.println("  signalAll_B时间为" + System.currentTimeMillis() + " ThreadName=" + Thread.currentThread().getName());
             conditionB.signalAll();
         } finally {
             lock.unlock();
@@ -1923,10 +1943,10 @@ signal时间为1553603469000</code></pre><p>多个<code>Condition</code>实现�
     public static void main(String[] args) throws InterruptedException {
         MyService service = new MyService();
         ThreadA a = new ThreadA(service);
-        a.setName(&quot;A&quot;);
+        a.setName("A");
         a.start();
         ThreadB b = new ThreadB(service);
-        b.setName(&quot;B&quot;);
+        b.setName("B");
         b.start();
         Thread.sleep(3000);
         service.signalAll_A();
@@ -1947,7 +1967,7 @@ begin awaitB时间为1553605530841 ThreadName=B
     public void serviceMethod() {
         try {
             lock.lock();
-            System.out.println(&quot;ThreadName=&quot; + Thread.currentThread().getName() + &quot;获得锁定&quot;);
+            System.out.println("ThreadName=" + Thread.currentThread().getName() + "获得锁定");
         } finally {
             lock.unlock();
         }
@@ -1957,7 +1977,7 @@ begin awaitB时间为1553605530841 ThreadName=B
         // 传入true是公平锁，false是非公平锁
         final Service service = new Service(true);
         Runnable runnable = () -&gt; {
-            System.out.println(&quot;线程&quot; + Thread.currentThread().getName() + &quot;运行了&quot;);
+            System.out.println("线程" + Thread.currentThread().getName() + "运行了");
             service.serviceMethod();
         };
         Thread[] threads = new Thread[10];
@@ -2020,7 +2040,7 @@ ThreadName=Thread-9获得锁定</code></pre><h3 id="4-getHoldCount"><a href="#4-
     public void serviceMethod1() {
         try {
             lock.lock();
-            System.out.println(&quot;serviceMethod1 getHoldCount=&quot; + lock.getHoldCount());
+            System.out.println("serviceMethod1 getHoldCount=" + lock.getHoldCount());
             serviceMethod2();
         } finally {
             lock.unlock();
@@ -2030,7 +2050,7 @@ ThreadName=Thread-9获得锁定</code></pre><h3 id="4-getHoldCount"><a href="#4-
     public void serviceMethod2() {
         try {
             lock.lock();
-            System.out.println(&quot;serviceMethod2 getHoldCount=&quot; + lock.getHoldCount());
+            System.out.println("serviceMethod2 getHoldCount=" + lock.getHoldCount());
         } finally {
             lock.unlock();
         }
@@ -2050,7 +2070,7 @@ serviceMethod2 getHoldCount=2</code></pre><h3 id="5-getQueueLength"><a href="#5-
     public void serviceMethod1() {
         try {
             lock.lock();
-            System.out.println(&quot;ThreadName=&quot; + Thread.currentThread().getName() + &quot;进入方法！&quot;);
+            System.out.println("ThreadName=" + Thread.currentThread().getName() + "进入方法！");
             Thread.sleep(Integer.MAX_VALUE);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
@@ -2078,7 +2098,7 @@ serviceMethod2 getHoldCount=2</code></pre><h3 id="5-getQueueLength"><a href="#5-
             threadArray[i].start();
         }
         Thread.sleep(2000);
-        System.out.println(&quot;有线程数：&quot; + service.lock.getQueueLength() + &quot;在等待获取锁！&quot;);
+        System.out.println("有线程数：" + service.lock.getQueueLength() + "在等待获取锁！");
 
     }
 }</code></pre><pre><code>输出：
@@ -2103,7 +2123,7 @@ ThreadName=Thread-0进入方法！
     public void notityMethod() {
         try {
             lock.lock();
-            System.out.println(&quot;有&quot; + lock.getWaitQueueLength(newCondition) + &quot;个线程正在等待newCondition&quot;);
+            System.out.println("有" + lock.getWaitQueueLength(newCondition) + "个线程正在等待newCondition");
             newCondition.signal();
         } finally {
             lock.unlock();
@@ -2191,8 +2211,8 @@ ThreadName=Thread-0进入方法！
     public void notityMethod() {
         try {
             lock.lock();
-            System.out.println(&quot;有没有线程正在等待newCondition？&quot;
-                    + lock.hasWaiters(newCondition) + &quot; 线程数是多少？&quot;
+            System.out.println("有没有线程正在等待newCondition？"
+                    + lock.hasWaiters(newCondition) + " 线程数是多少？"
                     + lock.getWaitQueueLength(newCondition));
             newCondition.signal();
         } finally {
@@ -2234,7 +2254,7 @@ ThreadName=Thread-0进入方法！
     public void serviceMethod() {
         try {
             lock.lock();
-            System.out.println(&quot;公平锁情况：&quot; + lock.isFair());
+            System.out.println("公平锁情况：" + lock.isFair());
         } finally {
             lock.unlock();
         }
@@ -2324,13 +2344,13 @@ ThreadName=Thread-0进入方法！
         try {
             lock.lock();
             System.out
-                    .println(&quot;lock begin &quot; + Thread.currentThread().getName());
+                    .println("lock begin " + Thread.currentThread().getName());
             for (int i = 0; i &lt; Integer.MAX_VALUE / 10; i++) {
                 String newString = new String();
                 Math.random();
             }
             System.out
-                    .println(&quot;lock   end &quot; + Thread.currentThread().getName());
+                    .println("lock   end " + Thread.currentThread().getName());
         } finally {
             if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
@@ -2348,14 +2368,14 @@ ThreadName=Thread-0进入方法！
         };
 
         Thread threadA = new Thread(runnableRef);
-        threadA.setName(&quot;A&quot;);
+        threadA.setName("A");
         threadA.start();
         Thread.sleep(500);
         Thread threadB = new Thread(runnableRef);
-        threadB.setName(&quot;B&quot;);
+        threadB.setName("B");
         threadB.start();
         threadB.interrupt(); // 打标记，并没有停止
-        System.out.println(&quot;main end!&quot;);
+        System.out.println("main end!");
     }
 }</code></pre><pre><code>输出：
 lock begin A
@@ -2371,13 +2391,13 @@ lock   end B</code></pre><p>可见，执行<code>lock()</code>方法没有出现
     public void waitMethod() {
         try {
             lock.lockInterruptibly();
-            System.out.println(&quot;lock &quot; + Thread.currentThread().getName());
+            System.out.println("lock " + Thread.currentThread().getName());
             for (int i = 0; i &lt; Integer.MAX_VALUE / 10; i++) {
                 String newString = new String();
                 Math.random();
             }
         } catch (InterruptedException e) {
-            System.out.println(&quot;线程&quot;+Thread.currentThread().getName()+&quot;进入catch&quot;);
+            System.out.println("线程"+Thread.currentThread().getName()+"进入catch");
             //e.printStackTrace();
         } finally {
             if (lock.isHeldByCurrentThread()) {
@@ -2397,12 +2417,12 @@ main end!
     public void waitMethod() {
         try {
             if (lock.tryLock(3, TimeUnit.SECONDS)) {
-                System.out.println(&quot;      &quot; + Thread.currentThread().getName()
-                        + &quot;获得锁的时间：&quot; + System.currentTimeMillis());
+                System.out.println("      " + Thread.currentThread().getName()
+                        + "获得锁的时间：" + System.currentTimeMillis());
                 Thread.sleep(10000);
             } else {
-                System.out.println(&quot;      &quot; + Thread.currentThread().getName()
-                        + &quot;没有获得锁&quot;);
+                System.out.println("      " + Thread.currentThread().getName()
+                        + "没有获得锁");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -2420,16 +2440,16 @@ main end!
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName()
-                        + &quot;调用waitMethod时间：&quot; + System.currentTimeMillis());
+                        + "调用waitMethod时间：" + System.currentTimeMillis());
                 service.waitMethod();
             }
         };
 
         Thread threadA = new Thread(runnableRef);
-        threadA.setName(&quot;A&quot;);
+        threadA.setName("A");
         threadA.start();
         Thread threadB = new Thread(runnableRef);
-        threadB.setName(&quot;B&quot;);
+        threadB.setName("B");
         threadB.start();
     }
 }</code></pre><pre><code>输出：
@@ -2446,8 +2466,8 @@ B调用waitMethod时间：1553654723504
         try {
             try {
                 lock.readLock().lock();
-                System.out.println(&quot;获得读锁&quot; + Thread.currentThread().getName()
-                        + &quot; &quot; + System.currentTimeMillis());
+                System.out.println("获得读锁" + Thread.currentThread().getName()
+                        + " " + System.currentTimeMillis());
                 Thread.sleep(10000);
             } finally {
                 lock.readLock().unlock();
@@ -2485,9 +2505,9 @@ B调用waitMethod时间：1553654723504
     public static void main(String[] args) throws InterruptedException {
         Service service = new Service();
         ThreadA a = new ThreadA(service);
-        a.setName(&quot;A&quot;);
+        a.setName("A");
         ThreadB b = new ThreadB(service);
-        b.setName(&quot;B&quot;);
+        b.setName("B");
         a.start();
         b.start();
     }
@@ -2501,8 +2521,8 @@ B调用waitMethod时间：1553654723504
         try {
             try {
                 lock.writeLock().lock();
-                System.out.println(&quot;获得写锁&quot; + Thread.currentThread().getName()
-                        + &quot; &quot; + System.currentTimeMillis());
+                System.out.println("获得写锁" + Thread.currentThread().getName()
+                        + " " + System.currentTimeMillis());
                 Thread.sleep(10000);
             } finally {
                 lock.writeLock().unlock();
@@ -2522,8 +2542,8 @@ B调用waitMethod时间：1553654723504
         try {
             try {
                 lock.readLock().lock();
-                System.out.println(&quot;获得读锁&quot; + Thread.currentThread().getName()
-                        + &quot; &quot; + System.currentTimeMillis());
+                System.out.println("获得读锁" + Thread.currentThread().getName()
+                        + " " + System.currentTimeMillis());
                 Thread.sleep(10000);
             } finally {
                 lock.readLock().unlock();
@@ -2537,8 +2557,8 @@ B调用waitMethod时间：1553654723504
         try {
             try {
                 lock.writeLock().lock();
-                System.out.println(&quot;获得写锁&quot; + Thread.currentThread().getName()
-                        + &quot; &quot; + System.currentTimeMillis());
+                System.out.println("获得写锁" + Thread.currentThread().getName()
+                        + " " + System.currentTimeMillis());
                 Thread.sleep(10000);
             } finally {
                 lock.writeLock().unlock();
@@ -2576,11 +2596,11 @@ B调用waitMethod时间：1553654723504
 
         Service service = new Service();
         ThreadA a = new ThreadA(service);
-        a.setName(&quot;A&quot;);
+        a.setName("A");
         a.start();
         Thread.sleep(1000);
         ThreadB b = new ThreadB(service);
-        b.setName(&quot;B&quot;);
+        b.setName("B");
         b.start();
     }
 }</code></pre><pre><code>输出：
@@ -2592,18 +2612,36 @@ B调用waitMethod时间：1553654723504
 
         Service service = new Service();
         ThreadB b = new ThreadB(service);
-        b.setName(&quot;B&quot;);
+        b.setName("B");
         b.start();
         Thread.sleep(1000);
         ThreadA a = new ThreadA(service);
-        a.setName(&quot;A&quot;);
+        a.setName("A");
         a.start();
 
     }
 }</code></pre><pre><code>输出：
 获得写锁B 1561709743838
 获得读锁A 1561709753839</code></pre><p>由此可见，只要有写操作，就是互斥的。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -3071,6 +3109,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

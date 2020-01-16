@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -452,12 +452,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-11-03
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.1k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -465,8 +485,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>优雅 REST 风格的资源 URL 是不希望带类似 <code>.html</code> 或 <code>.do</code> 这样的后缀。由于早期的 Spring MVC 不能很好地处理静态资源，所以在 web.xml 中配置 DispatcherServlet 的请求映射，往往使用 <code>*.do</code> 、 <code>*.xhtml</code>等方式。这就决定了请求 URL 必须是一个带后缀的 URL，而无法采用真正的 REST 风格的 URL。</p>
-<p>如果将 DispatcherServlet 请求映射配置为<code>&quot;/&quot;</code>，则 Spring MVC 将捕获 Web 容器所有的请求，包括静态资源的请求，Spring MVC 会将它们当成一个普通请求处理，因此找不到对应处理器将导致错误。</p>
-<p>如何让 Spring 框架能够捕获所有 URL 的请求，同时又将静态资源的请求转由 Web 容器处理，是可将DispatcherServlet 的请求映射配置为<code>&quot;/&quot;</code>的前提。由于 REST 是 Spring3.0 最重要的功能之一，所以 Spring 团队很看重静态资源处理这项任务，给出了以下两种解决方案。</p>
+<p>如果将 DispatcherServlet 请求映射配置为<code>"/"</code>，则 Spring MVC 将捕获 Web 容器所有的请求，包括静态资源的请求，Spring MVC 会将它们当成一个普通请求处理，因此找不到对应处理器将导致错误。</p>
+<p>如何让 Spring 框架能够捕获所有 URL 的请求，同时又将静态资源的请求转由 Web 容器处理，是可将DispatcherServlet 的请求映射配置为<code>"/"</code>的前提。由于 REST 是 Spring3.0 最重要的功能之一，所以 Spring 团队很看重静态资源处理这项任务，给出了以下两种解决方案。</p>
 <p>先调整 web.xml 中的 DispatcherServlet 的配置，使其可以捕获所有的请求：</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>springMVC<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
@@ -478,18 +498,36 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span></code></pre>
 <p> 通过上面<code>url-pattern</code>的配置，所有 URL 请求都将被 Spring MVC 的 DispatcherServlet 截获。 </p>
-<h2 id="使用-lt-mvc-default-servlet-handler-gt"><a href="#使用-lt-mvc-default-servlet-handler-gt" class="headerlink" title="使用  &lt;mvc:default-servlet-handler /&gt;"></a>使用  <code>&lt;mvc:default-servlet-handler /&gt;</code></h2><p>在 <code>springMVC-servlet.xml</code> 中配置<code>&lt;mvc:default-servlet-handler /&gt;</code>后，会在 Spring MVC 上下文中定义一个<code>org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler</code>，它会像一个检查员，对进入 DispatcherServlet 的 URL 进行筛查，如果发现是静态资源的请求，就将该请求转由 Web 应用服务器默认的 Servlet 处理，如果不是静态资源的请求，才由 DispatcherServlet 继续处理。</p>
+<h2 id="使用-lt-mvc-default-servlet-handler-gt"><a href="#使用-lt-mvc-default-servlet-handler-gt" class="headerlink" title="使用  <mvc:default-servlet-handler />"></a>使用  <code>&lt;mvc:default-servlet-handler /&gt;</code></h2><p>在 <code>springMVC-servlet.xml</code> 中配置<code>&lt;mvc:default-servlet-handler /&gt;</code>后，会在 Spring MVC 上下文中定义一个<code>org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler</code>，它会像一个检查员，对进入 DispatcherServlet 的 URL 进行筛查，如果发现是静态资源的请求，就将该请求转由 Web 应用服务器默认的 Servlet 处理，如果不是静态资源的请求，才由 DispatcherServlet 继续处理。</p>
 <p>一般 Web 应用服务器默认的 Servlet 名称是 “default”，因此 DefaultServletHttpRequestHandler 可以找到它。如果你所有的Web应用服务器的默认 Servlet 名称不是 “default”，则需要通过 <code>default-servlet-name</code> 属性显示指定：</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>default-servlet-handler</span> <span class="token attr-name">default-servlet-name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>所使用的Web服务器默认使用的Servlet名称<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
-<h2 id="使用-lt-mvc-resources-gt"><a href="#使用-lt-mvc-resources-gt" class="headerlink" title="使用  &lt;mvc:resources  /&gt;"></a>使用  <code>&lt;mvc:resources  /&gt;</code></h2><p><code>&lt;mvc:default-servlet-handler /&gt;</code>将静态资源的处理经由 Spring MVC 框架交回 Web 应用服务器处理。而<code>&lt;mvc:resources /&gt;</code>更进一步，由 Spring MVC 框架自己处理静态资源，并添加一些有用的附加值功能。</p>
+<h2 id="使用-lt-mvc-resources-gt"><a href="#使用-lt-mvc-resources-gt" class="headerlink" title="使用  <mvc:resources  />"></a>使用  <code>&lt;mvc:resources  /&gt;</code></h2><p><code>&lt;mvc:default-servlet-handler /&gt;</code>将静态资源的处理经由 Spring MVC 框架交回 Web 应用服务器处理。而<code>&lt;mvc:resources /&gt;</code>更进一步，由 Spring MVC 框架自己处理静态资源，并添加一些有用的附加值功能。</p>
 <p>首先，<code>&lt;mvc:resources /&gt;</code>允许静态资源放在任何地方，如 WEB-INF 目录下、类路径下等，你甚至可以将JavaScript 等静态文件打到 JAR 包中。通过 <code>location</code> 属性指定静态资源的位置，由于 <code>location</code> 属性是 Resources 类型，因此可以使用诸如 “classpath:” 等的资源前缀指定资源位置。传统 Web 容器的静态资源只能放在 Web 容器的根路径下，<code>&lt;mvc:resources /&gt;</code>完全打破了这个限制。</p>
 <p>其次，<code>&lt;mvc:resources /&gt;</code>依据当前著名的 Page Speed、YSlow 等浏览器优化原则对静态资源提供优化。你可以通过<code>cacheSeconds</code>属性指定静态资源在浏览器端的缓存时间，一般可将该时间设置为一年，以充分利用浏览器端的缓存。在输出静态资源时，会根据配置设置好响应报文头的 Expires 和 Cache-Control 值。</p>
 <p>在接收到静态资源的获取请求时，会检查请求头的 Last-Modified 值，如果静态资源没有发生变化，则直接返回 303 相应状态码，提示客户端使用浏览器缓存的数据，而非将静态资源的内容输出到客户端，以充分节省带宽，提高程序性能。</p>
 <p>在<code>springMVC-servlet.xml</code>中添加如下配置：</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">mvc:</span>resources</span> <span class="token attr-name">location</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/,classpath:/META-INF/publicResources/<span class="token punctuation">"</span></span> <span class="token attr-name">mapping</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/resources/**<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
-<p>以上配置将 Web 根路径 <code>&quot;/&quot;</code> 及类路径下 <code>/META-INF/publicResources/</code> 的目录映射为<code>/resources</code>路径。假设 Web 根路径下拥有 images、js 这两个资源目录，在 images 下面有 bg.gif 图片，在 js 下面有 test.js 文件，则可以通过 <code>/resources/images/bg.gif</code> 和 <code>/resources/js/test.js</code> 访问这二个静态资源。</p>
+<p>以上配置将 Web 根路径 <code>"/"</code> 及类路径下 <code>/META-INF/publicResources/</code> 的目录映射为<code>/resources</code>路径。假设 Web 根路径下拥有 images、js 这两个资源目录，在 images 下面有 bg.gif 图片，在 js 下面有 test.js 文件，则可以通过 <code>/resources/images/bg.gif</code> 和 <code>/resources/js/test.js</code> 访问这二个静态资源。</p>
 <p>转自 <a href="https://www.cnblogs.com/dflmg/p/6393416.html" target="_blank" rel="noopener">https://www.cnblogs.com/dflmg/p/6393416.html</a> </p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -936,6 +974,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

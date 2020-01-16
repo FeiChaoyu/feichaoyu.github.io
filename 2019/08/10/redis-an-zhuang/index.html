@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -460,12 +460,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.8k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -587,38 +607,38 @@ EXEC=/usr/local/bin/redis-server
 CLIEXEC=/usr/local/bin/redis-cli
 
 PIDFILE=/var/run/redis_${REDISPORT}.pid
-CONF=&quot;/etc/redis/${REDISPORT}.conf&quot;
+CONF="/etc/redis/${REDISPORT}.conf"
 
-case &quot;$1&quot; in
+case "$1" in
     start)
         if [ -f $PIDFILE ]
         then
-                echo &quot;$PIDFILE exists, process is already running or crashed&quot;
+                echo "$PIDFILE exists, process is already running or crashed"
         else
-                echo &quot;Starting Redis server...&quot;
+                echo "Starting Redis server..."
                 $EXEC $CONF
         fi
         ;;
     stop)
         if [ ! -f $PIDFILE ]
         then
-                echo &quot;$PIDFILE does not exist, process is not running&quot;
+                echo "$PIDFILE does not exist, process is not running"
         else
                 PID=$(cat $PIDFILE)
-                echo &quot;Stopping ...&quot;
+                echo "Stopping ..."
                 $CLIEXEC -p $REDISPORT shutdown
                 while [ -x /proc/${PID} ]
                 do
-                    echo &quot;Waiting for Redis to shutdown ...&quot;
+                    echo "Waiting for Redis to shutdown ..."
                     sleep 1
                 done
-                echo &quot;Redis stopped&quot;
+                echo "Redis stopped"
         fi
         ;;
     *)
-        echo &quot;Please use start or stop as first argument&quot;
+        echo "Please use start or stop as first argument"
         ;;
-esac</code></pre><p>注意到<code>CONF=&quot;/etc/redis/${REDISPORT}.conf&quot;</code>，我们还没有配置启动时的配置文件，而且需要在这个目录下才生效，我们把redis配置文件复制到/etc/redis下，并且重命名为<code>端口号.conf</code>，这里也就是<code>6379.conf</code></p>
+esac</code></pre><p>注意到<code>CONF="/etc/redis/${REDISPORT}.conf"</code>，我们还没有配置启动时的配置文件，而且需要在这个目录下才生效，我们把redis配置文件复制到/etc/redis下，并且重命名为<code>端口号.conf</code>，这里也就是<code>6379.conf</code></p>
 <p><code>6379.conf</code>配置文件只需修改如下几个地方:</p>
 <pre><code>daemonize no改成yes
 
@@ -652,8 +672,26 @@ ps -ef | grep redis
 kill 进程号</code></pre><p>2.修改redis服务脚本，加入如下信息</p>
 <pre><code>vim /etc/init.d/redis-6379
 #修改下面这行
-$CLIEXEC -a &quot;你的redis连接密码&quot; -p $REDISPORT shutdown</code></pre><p>然后再执行一次启动和停止，就不会出现无法停止的情况了，至此，redis的开机后台自启动配置完成。</p>
-
+$CLIEXEC -a "你的redis连接密码" -p $REDISPORT shutdown</code></pre><p>然后再执行一次启动和停止，就不会出现无法停止的情况了，至此，redis的开机后台自启动配置完成。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1128,6 +1166,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             

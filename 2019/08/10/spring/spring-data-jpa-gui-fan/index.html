@@ -104,22 +104,22 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>留言板</span>
+      <span>友情链接</span>
     </a>
     
   </li>
@@ -206,22 +206,22 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/contact" class="waves-effect waves-light">
+		<a href="/friends" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			留言板
+			友情链接
 		</a>
           
         </li>
@@ -456,12 +456,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2019-09-28
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.5k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
@@ -472,16 +492,16 @@
 <p>源码如下：</p>
 <pre><code>public @interface Entity {
     //可选，默认是此实体类的名字，全局唯一
-    String name() default &quot;&quot;;
+    String name() default "";
 }</code></pre><h3 id="2-Table"><a href="#2-Table" class="headerlink" title="2.@Table"></a>2.@Table</h3><p>用于指定数据库的表名。</p>
 <p>源码如下：</p>
 <pre><code>public @interface Table {
     //表的名字，如果不写，则默认与实体的名字一样
-    String name() default &quot;&quot;;
+    String name() default "";
     //此表的catalog
-    String catalog() default &quot;&quot;;
+    String catalog() default "";
     //此表的schema
-    String schema() default &quot;&quot;;
+    String schema() default "";
     //唯一性约束，只有创建表的时候用，默认不需要
     UniqueConstraint[] uniqueConstraints() default {};
     //索引，只有创建表的时候使用，默认不需要
@@ -508,7 +528,7 @@
     //Id生成策略，默认GenerationType.AUTO
     GenerationType strategy() default GenerationType.AUTO;
     //通过Sequences生成Id，常见的是Orcale数据库的Id生成规则，需要配合@SequenceGenerator使用
-    String generator() default &quot;&quot;;
+    String generator() default "";
 }</code></pre><p><code>GenerationType</code>有以下4个值：</p>
 <pre><code>public enum GenerationType {
     //通过表产生主键，框架由表模拟序列产生主键，使用该策略可以使应用更易于数据库移植
@@ -542,7 +562,7 @@ public enum FetchType {
 <h3 id="8-Column"><a href="#8-Column" class="headerlink" title="8.@Column"></a>8.@Column</h3><p>定义属性对应数据库中的列名。</p>
 <p>源码如下：</p>
 <pre><code>public @interface Column {
-    String name() default &quot;&quot;;
+    String name() default "";
     //表示该字段是否为唯一标识，默认为false，如果表中有一个字段需要唯一标识，则既可以使用该标记，也可以使用@Table标记中的@UniqueConstraint
     boolean unique() default false;
     //数据字段是否允许为空，默认允许
@@ -553,9 +573,9 @@ public enum FetchType {
     //insertable和updatable属性一般多用于只读的属性，例如主键和外键等。这些字段的值通常是自动生成的
     boolean updatable() default true;
     //表示创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用
-    String columnDefinition() default &quot;&quot;;
+    String columnDefinition() default "";
     //表示当映射多个表时，指定表的表中的字段。默认值为主表的表名
-    String table() default &quot;&quot;;
+    String table() default "";
     //字段长度，默认255
     int length() default 255;
     // precision属性和scale属性表示精度，当字段类型为double时，precision表示数值的总长度，scale表示小数点所占的位数
@@ -597,9 +617,9 @@ public enum TemporalType {
 <p>源码如下：</p>
 <pre><code>public @interface JoinColumn {
     //注解所在当前表的主键名，必须写
-    String name() default &quot;&quot;;
+    String name() default "";
     //关联外部表的列名，默认是外部主键名
-    String referencedColumnName() default &quot;&quot;;
+    String referencedColumnName() default "";
     //外键字段是否唯一
     boolean unique() default false;
     //外键字段是否允许为空
@@ -609,9 +629,9 @@ public enum TemporalType {
     //是否跟随一起更新
     boolean updatable() default true;
 
-    String columnDefinition() default &quot;&quot;;
+    String columnDefinition() default "";
 
-    String table() default &quot;&quot;;
+    String table() default "";
 
     ForeignKey foreignKey() default @ForeignKey(ConstraintMode.PROVIDER_DEFAULT);
 }</code></pre><p>配合<code>@OneToOne</code>、<code>@OneToMany</code>、<code>@ManyToOne</code>一起使用。</p>
@@ -636,7 +656,7 @@ public enum TemporalType {
     注意：只有关系维护方才能操作两者的关系，被维护方即使设置了维护方属性进行存储也不会更新外键关联
     //mappedBy不能与@JoinColumn或者@JoinTable同时使用
     //mappedBy的值是指另一方的实体里属性的字段，而不是数据库字段，也不是实体的对象的名字，是另一方配置了@JoinColumn或者@JoinTable注解的属性的字段名称
-    String mappedBy() default &quot;&quot;;
+    String mappedBy() default "";
     //是否级联删除，和CascadeType.REMOVE的效果一样，只是配置了两种中的一种就会自动级联删除
     boolean orphanRemoval() default false;
 }
@@ -654,7 +674,7 @@ public enum CascadeType {
 }</code></pre><p><code>@OneToOne</code>需要配合<code>@JoinColumn</code>一起使用</p>
 <p>在使用<code>@OneToOne</code>进行双向关联时，需要在类上加上注解<code>@JsonIdentityInfo</code>，这个注解被用来在序列化/反序列化时为该对象或字段添加一个对象识别码，通常是用来解决循环嵌套的问题。通过配置属性generator来确定识别码生成的方式，配置属性property来确定识别码的名称，识别码名称没有限制。</p>
 <p>一般这个注解可以这么加，</p>
-<p><code>@JsonIdentityInfo(generator =ObjectIdGenerators.PropertyGenerator.class,property = &quot;id&quot;)</code></p>
+<p><code>@JsonIdentityInfo(generator =ObjectIdGenerators.PropertyGenerator.class,property = "id")</code></p>
 <h3 id="3-OneToMany和-ManyToOne"><a href="#3-OneToMany和-ManyToOne" class="headerlink" title="3.@OneToMany和@ManyToOne"></a>3.@OneToMany和@ManyToOne</h3><p>自行分析，同上。</p>
 <h3 id="4-OrderBy"><a href="#4-OrderBy" class="headerlink" title="4.OrderBy"></a>4.OrderBy</h3><p>用于关联查询时排序。</p>
 <p><code>@orderBy（“字段名   ASC|DESC”）</code></p>
@@ -678,10 +698,10 @@ public interface MyRepository&lt;T,ID extends Serializable&gt; extends Repositor
 }</code></pre><p>   <code>Repository</code>中这么写：</p>
 <pre><code>// 我这里是通过name查找的
 NameAndEmail findByName(String name);</code></pre><p>Controller写法示例：</p>
-<pre><code>@RequestMapping(&quot;/findByName&quot;)
+<pre><code>@RequestMapping("/findByName")
 @ResponseBody
 public NameAndEmail findByName(){
-    return userRepository.findByName(&quot;fcy&quot;);
+    return userRepository.findByName("fcy");
 }</code></pre><p>（2）使用Dto，定义自己的Dto实体类。</p>
 <pre><code>@Data
 public class NameAndEmailDto {
@@ -695,38 +715,38 @@ public class NameAndEmailDto {
     }
 }</code></pre><p>  <code>Repository</code>中这么写：</p>
 <pre><code>Collection&lt;?&gt; findByName(String name, Class&lt;?&gt; type);</code></pre><p><code>Controller</code>写法示例：</p>
-<pre><code>@RequestMapping(&quot;/findByName&quot;)
+<pre><code>@RequestMapping("/findByName")
 @ResponseBody
 public Collection&lt;?&gt; findByName(){
-    return userRepository.findByName(&quot;fcy&quot;,NameAndEmailDto.class);
+    return userRepository.findByName("fcy",NameAndEmailDto.class);
 }
 //当然这里还可以传入 User.class,这样就返回所有字段了，算是通用接口，推荐这个写法</code></pre><h2 id="四、注解式查询方法"><a href="#四、注解式查询方法" class="headerlink" title="四、注解式查询方法"></a>四、注解式查询方法</h2><h3 id="1-Query"><a href="#1-Query" class="headerlink" title="1.@Query"></a>1.@Query</h3><p>源码如下：</p>
 <pre><code>public @interface Query {
     //指定JPQL的查询语句，nativeQuery=true时，是原生SQL语句
-    String value() default &quot;&quot;;
+    String value() default "";
     //指定count的JPQL语句，如果不指定将根据query自动生成
-    String countQuery() default &quot;&quot;;
+    String countQuery() default "";
     //根据哪个字段来count，默认即可
-    String countProjection() default &quot;&quot;;
+    String countProjection() default "";
     //默认为false，表示不是原生SQL，如果要用原生SQL，改成true
     boolean nativeQuery() default false;
     //可以指定一个query的名字，必须是唯一的
-    String name() default &quot;&quot;;
+    String name() default "";
     //可以指定一个count的query的名字，必须是唯一的
-    String countName() default &quot;&quot;;
+    String countName() default "";
 }</code></pre><p>注意：<code>nativeQuery</code>不支持直接<code>Sort</code>的参数查询。</p>
 <p><strong>JPQL语句不支持insert</strong></p>
 <p><code>nativeQuery</code>排序的错误写法：</p>
-<pre><code>@Query（value=&quot;......&quot;,nativeQuery=true）
+<pre><code>@Query（value="......",nativeQuery=true）
 User findByName（String name,Sort sort） </code></pre><p>正确的排序写法是通过<code>order by</code>来查询。</p>
 <h4 id="Query排序"><a href="#Query排序" class="headerlink" title="@Query排序"></a>@Query排序</h4><pre><code>//使用JPQL语句
-@Query(value = &quot;select u from User u where u.name like ?1%&quot;)
+@Query(value = "select u from User u where u.name like ?1%")
 List&lt;NameAndEmail&gt; findByAndSort(String name, Sort sort);</code></pre><p><code>new Sort</code>里的属性必须是实体类中的字段，如下。</p>
-<pre><code>userRepository.findByAndSort(&quot;f&quot;,new Sort(&quot;name&quot;));</code></pre><h4 id="Query分页"><a href="#Query分页" class="headerlink" title="@Query分页"></a>@Query分页</h4><pre><code>@Query(&quot;select u from User u where u.email=?1&quot;)
-Page&lt;NameAndEmail&gt; findByEmail(String email, Pageable pageable);</code></pre><pre><code>userRepository.findByEmail(&quot;XXXXXXX&quot;,new PageRequest(1,10));</code></pre><h3 id="2-Param"><a href="#2-Param" class="headerlink" title="2.@Param"></a>2.@Param</h3><p>默认参数是通过顺序绑定在查询语句上的，这使得查询方法对参数位置的重构容易出错。为了解决这个问题，可以使用@Param注解指定方法参数的具体名称，通过绑定的参数名称做查询条件。</p>
+<pre><code>userRepository.findByAndSort("f",new Sort("name"));</code></pre><h4 id="Query分页"><a href="#Query分页" class="headerlink" title="@Query分页"></a>@Query分页</h4><pre><code>@Query("select u from User u where u.email=?1")
+Page&lt;NameAndEmail&gt; findByEmail(String email, Pageable pageable);</code></pre><pre><code>userRepository.findByEmail("XXXXXXX",new PageRequest(1,10));</code></pre><h3 id="2-Param"><a href="#2-Param" class="headerlink" title="2.@Param"></a>2.@Param</h3><p>默认参数是通过顺序绑定在查询语句上的，这使得查询方法对参数位置的重构容易出错。为了解决这个问题，可以使用@Param注解指定方法参数的具体名称，通过绑定的参数名称做查询条件。</p>
 <p>如下：</p>
-<pre><code>@Query(&quot;select u from User u where u.email = :email&quot;)
-Page&lt;NameAndEmail&gt; findByEmail(@Param(&quot;email&quot;) String email, Pageable pageable);</code></pre><h3 id="3-Modifying"><a href="#3-Modifying" class="headerlink" title="3.@Modifying"></a>3.@Modifying</h3><p>源码如下：</p>
+<pre><code>@Query("select u from User u where u.email = :email")
+Page&lt;NameAndEmail&gt; findByEmail(@Param("email") String email, Pageable pageable);</code></pre><h3 id="3-Modifying"><a href="#3-Modifying" class="headerlink" title="3.@Modifying"></a>3.@Modifying</h3><p>源码如下：</p>
 <pre><code>public @interface Modifying {
     boolean flushAutomatically() default false;
     //我们知道jpa底层实现会有二级缓存，也就是在更新完数据库后，如果后面去用这个对象，你再去查这个对象，这个对象是在一级缓存中，并没有跟数据库同步，这个时候用clearAutomatically=true,就会刷新hibernate的一级缓存了，否则你在同一接口中，更新一个对象，接着查询这个对象，那么你查出来的这个对象还是没有更新之前的状态。
@@ -815,7 +835,7 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
 <p>要求：查询地址是“河南省郑州市”，且重点关注的客户。<br>说明：对于默认匹配器满足条件时，则不需要创建匹配器。</p>
 <pre><code> //创建查询条件数据对象
         Customer customer = new Customer();
-        customer.setAddress(&quot;河南省郑州市&quot;);
+        customer.setAddress("河南省郑州市");
         customer.setFocus(true);
 
         //创建实例
@@ -825,23 +845,23 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
         List&lt;Customer&gt; ls = dao.findAll(ex);
 
         //输出结果
-        System.out.println(&quot;数量：&quot;+ls.size());
+        System.out.println("数量："+ls.size());
         for (Customer bo:ls)
         {
             System.out.println(bo.getName());
         }</code></pre><p>2、通用情况<br>要求：根据姓名、地址、备注进行模糊查询，忽略大小写，地址要求开始匹配。<br>说明：这是通用情况，主要演示改变默认字符串匹配方式、改变默认大小写忽略方式、属性特定查询方式配置、忽略属性列表配置。</p>
 <pre><code>//创建查询条件数据对象
         Customer customer = new Customer();
-        customer.setName(&quot;zhang&quot;);
-        customer.setAddress(&quot;河南省&quot;);
-        customer.setRemark(&quot;BB&quot;);
+        customer.setName("zhang");
+        customer.setAddress("河南省");
+        customer.setRemark("BB");
 
         //创建匹配器，即如何使用查询条件
         ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
                 .withStringMatcher(StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
                 .withIgnoreCase(true) //改变默认大小写忽略方式：忽略大小写
-                .withMatcher(&quot;address&quot;, GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
-                .withIgnorePaths(&quot;focus&quot;);  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+                .withMatcher("address", GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
+                .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
 
         //创建实例
         Example&lt;Customer&gt; ex = Example.of(customer, matcher); 
@@ -850,7 +870,7 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
         List&lt;Customer&gt; ls = dao.findAll(ex);
 
         //输出结果
-        System.out.println(&quot;数量：&quot;+ls.size());
+        System.out.println("数量："+ls.size());
         for (Customer bo:ls)
         {
             System.out.println(bo.getName());
@@ -861,7 +881,7 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
         //创建匹配器，即如何使用查询条件
         ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
                 .withIncludeNullValues() //改变“Null值处理方式”：包括
-                .withIgnorePaths(&quot;id&quot;,&quot;name&quot;,&quot;sex&quot;,&quot;age&quot;,&quot;focus&quot;,&quot;addTime&quot;,&quot;remark&quot;,&quot;customerType&quot;); //忽略其他属性 
+                .withIgnorePaths("id","name","sex","age","focus","addTime","remark","customerType"); //忽略其他属性 
 
         //创建实例
         Example&lt;Customer&gt; ex = Example.of(customer, matcher); 
@@ -870,7 +890,7 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
         List&lt;Customer&gt; ls = dao.findAll(ex);
 
         //输出结果
-        System.out.println(&quot;数量：&quot;+ls.size());
+        System.out.println("数量："+ls.size());
         for (Customer bo:ls)
         {
             System.out.println(bo.getName());
@@ -889,7 +909,7 @@ Set&lt;String&gt; ignoredPaths; //忽略属性列表
     long count(@Nullable Specification&lt;T&gt; var1);
 }</code></pre><p>这个接口基本围绕<code>Specification</code>接口定义，<code>Specification</code>接口中的一个方法：</p>
 <pre><code>Predicate toPredicate(Root&lt;T&gt; var1, CriteriaQuery&lt;?&gt; var2, CriteriaBuilder var3);</code></pre><p>JpaSpecificationExecutor<code>是针对Criteria API进行了</code>predicate<code>标准封装，帮我们封装了通过</code>EntityManager`的查询和使用细节，操作Criteria 更加便利。</p>
-<h4 id="Criteria-的介绍："><a href="#Criteria-的介绍：" class="headerlink" title="Criteria 的介绍："></a>Criteria 的介绍：</h4><p><code>Root&lt;T&gt; root</code> :代表了可以查询和操作的实体对象的根。如果将实体对象比喻成表名，那root里面就是这张表里面的字段，只不过是JPQL的实体字段。通过里面的Path<Y>get(String attributeName)来获取我们操作的字段。</p>
+<h4 id="Criteria-的介绍："><a href="#Criteria-的介绍：" class="headerlink" title="Criteria 的介绍："></a>Criteria 的介绍：</h4><p><code>Root&lt;T&gt; root</code> :代表了可以查询和操作的实体对象的根。如果将实体对象比喻成表名，那root里面就是这张表里面的字段，只不过是JPQL的实体字段。通过里面的Path<y>get(String attributeName)来获取我们操作的字段。</y></p>
 <p><code>CriteriaQuery&lt;?&gt;query</code>：代表一个specific的顶层查询对象，它包含查询的各个部分，比如：select、from、where、group by、order by等。<code>CriteriaQuery</code>对象只对实体类型或嵌入式类型的Criteria查询起作用，它提供了查询ROOT的方法，常用方法有：</p>
 <pre><code>    CriteriaQuery&lt;T&gt; select(Selection&lt;? extends T&gt; var1);
     CriteriaQuery&lt;T&gt; where(Predicate... var1);
@@ -900,10 +920,10 @@ public List&lt;User&gt; findByCondition(User user){
     return userRepository.findAll(((root, criteriaQuery, criteriaBuilder) -&gt; {
         List&lt;Predicate&gt; predicates = new ArrayList&lt;&gt;();
         if (!StringUtils.isEmpty(user.getEmail())){
-            predicates.add(criteriaBuilder.like(root.get(&quot;email&quot;),&quot;%&quot;+user.getEmail()+&quot;%&quot;));
+            predicates.add(criteriaBuilder.like(root.get("email"),"%"+user.getEmail()+"%"));
         }
         if (!StringUtils.isEmpty(user.getName())){
-            predicates.add(criteriaBuilder.equal(root.get(&quot;name&quot;),user.getName()));
+            predicates.add(criteriaBuilder.equal(root.get("name"),user.getName()));
         }
         return criteriaQuery.where(predicates.toArray(new Predicate[0])).getGroupRestriction();
     }));
@@ -913,10 +933,10 @@ public List&lt;User&gt; findByCondition2(User user){
     return userRepository.findAll((Specification&lt;User&gt;) (root, criteriaQuery, criteriaBuilder) -&gt; {
         Predicate predicate=criteriaBuilder.conjunction();
         if (!StringUtils.isEmpty(user.getEmail())){
-       predicate.getExpressions().add(criteriaBuilder.like(root.get(&quot;email&quot;),&quot;%&quot;+user.getEmail()+&quot;%&quot;));
+       predicate.getExpressions().add(criteriaBuilder.like(root.get("email"),"%"+user.getEmail()+"%"));
         }
         if (!StringUtils.isEmpty(user.getName())){
-            predicate.getExpressions().add(criteriaBuilder.equal(root.get(&quot;name&quot;),user.getName()));
+            predicate.getExpressions().add(criteriaBuilder.equal(root.get("name"),user.getName()));
         }
         return predicate;
     });
@@ -925,7 +945,7 @@ public List&lt;User&gt; findByCondition2(User user){
     //模糊查询
     public static Specification containsLike(String attribute,String value){
         return (root, criteriaQuery, criteriaBuilder) -&gt;
-            criteriaBuilder.like(root.get(attribute),&quot;%&quot;+value+&quot;%&quot;);
+            criteriaBuilder.like(root.get(attribute),"%"+value+"%");
     }
 
      //相等查询
@@ -933,7 +953,25 @@ public List&lt;User&gt; findByCondition2(User user){
         return (root, criteriaQuery, criteriaBuilder) -&gt; 
                 criteriaBuilder.equal(root.get(attribute),value);
     }
-}</code></pre>
+}</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1400,6 +1438,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.5k</span>&nbsp;字
             
             
             
