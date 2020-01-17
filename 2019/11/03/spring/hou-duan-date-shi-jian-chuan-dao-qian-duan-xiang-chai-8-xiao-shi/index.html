@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Spring Boot中前端获取日期少8小时的原因 | Hexo</title>
+    <title>Spring Boot中前端获取日期少8小时的原因 | feichaoyu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,8 +26,9 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -39,7 +40,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Hexo</span>
+                    <span class="logo-span">feichaoyu</span>
                 </a>
             </div>
             
@@ -137,7 +138,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">feichaoyu</div>
         <div class="logo-desc">
             
             专注于IT互联网，包括但不限于Go、Java、项目管理、软件架构、分布式系统等
@@ -229,7 +230,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/FeiChaoyu/SpringBoot-Tutorials" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -285,7 +286,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/FeiChaoyu/SpringBoot-Tutorials" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -301,6 +302,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -487,11 +501,11 @@
                 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>Spring 中对于加上 <code>@RestController</code> 或者 <code>@Controller+@ResponseBody</code> 注解的方法，返回值默认是Json格式，所以当对于<code>Date</code>类型的数据，在返回浏览器端是会被 Spring Boot 默认的 Jackson 框架转换，而Jackson 框架默认的时区是 GMT（相对于中国是少了8小时）。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><strong>方法一：</strong></p>
 <p>在<code>application.properties</code>中配置如下：</p>
-<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">spring.jackson.time-zone</span><span class="token punctuation">=</span><span class="token attr-value">GMT+8</span></code></pre>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">spring.jackson.time-zone</span><span class="token punctuation">=</span><span class="token attr-value">GMT+8</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>方法二：</strong></p>
 <p>在实体类中， 使用<code>@JsonFormat</code>格式化：</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> timezone <span class="token operator">=</span> <span class="token string">"GMT+8"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> Date createTime<span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> timezone <span class="token operator">=</span> <span class="token string">"GMT+8"</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> Date createTime<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -766,31 +780,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/03/spring/default-servlet-handler-biao-qian-de-zuo-yong/">
+                <a href="/2019/11/19/docker/docker-rong-qi-zhi-jian-tong-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="<mvc:default-servlet-handler/>的作用">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="docker中容器之间通信的方式">
                         
-                        <span class="card-title"><mvc:default-servlet-handler/>的作用</span>
+                        <span class="card-title">docker中容器之间通信的方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍<mvc:default-servlet-handler/>的作用
+                            docker中容器之间通信的方式
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Spring-Framwork/" class="post-category">
-                                    Spring Framwork
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -807,40 +821,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/">
+                <a href="/2019/11/03/spring/default-servlet-handler-biao-qian-de-zuo-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Vue路由history模式刷新后退出现404或500的解决方案">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="<mvc:default-servlet-handler/>的作用">
                         
-                        <span class="card-title">Vue路由history模式刷新后退出现404或500的解决方案</span>
+                        <span class="card-title"><mvc:default-servlet-handler/>的作用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            nginx 的配置文件部分如下：
-server {
-        listen       80;
-        server_name  localhost;
-        root   html/dist;
-        #ch
+                            介绍<mvc:default-servlet-handler/>的作用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/nginx/" class="post-category">
-                                    nginx
-                                </a>
-                            
-                            <a href="/categories/nginx/vue/" class="post-category">
-                                    vue
+                            <a href="/categories/Spring-Framwork/" class="post-category">
+                                    Spring Framwork
                                 </a>
                             
                             
@@ -856,6 +861,43 @@ server {
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: feichaoyu<br />'
+            + '文章作者: feichaoyu<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1018,29 +1060,15 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/FeiChaoyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:979331856@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
 
 
 

@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Spring中Scope的陷阱 | Hexo</title>
+    <title>Spring中Scope的陷阱 | feichaoyu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -28,8 +28,9 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -41,7 +42,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Hexo</span>
+                    <span class="logo-span">feichaoyu</span>
                 </a>
             </div>
             
@@ -139,7 +140,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">feichaoyu</div>
         <div class="logo-desc">
             
             专注于IT互联网，包括但不限于Go、Java、项目管理、软件架构、分布式系统等
@@ -231,7 +232,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/FeiChaoyu/SpringBoot-Tutorials" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -287,7 +288,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/FeiChaoyu/SpringBoot-Tutorials" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -303,6 +304,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -492,7 +506,7 @@
 <p>假设单例 beanA 需要一个非单例 beanB，我们在 beanA 中注入 beanB，每次调用 beanA 中的方法时都会用到 beanB，我们知道 Spring Ioc 容器只在容器初始化时执行一次，也就是 beanA 中的依赖 beanB 只有一次注入的机会，但是实际上 beanB 我们需要的是每次调用方法时都获取一个新的对象。所以问题就是：我们需要的 beanB 是一个原型 bean，而事实上 beanB 的依赖只注入了一次，即变成了单例 bean。 </p>
 </blockquote>
 <p>先定义如下几个类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanA</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Autowired</span>
@@ -511,21 +525,21 @@
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBeanB</span><span class="token punctuation">(</span>BeanB beanB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>beanB <span class="token operator">=</span> beanB<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>SCOPE_PROTOTYPE<span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanB</span> <span class="token punctuation">{</span>
 
-<span class="token punctuation">}</span></code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"com.feichaoyu.beans"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanConfig</span> <span class="token punctuation">{</span>
 
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>为了解决上述问题，Spring 提供了以下两种方式来解决：</p>
 <p><strong>1. 利用<code>@Lookup</code>注解</strong></p>
 <p>修改 <code>BeanA</code> </p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanA</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Autowired</span>
@@ -545,11 +559,11 @@
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBeanB</span><span class="token punctuation">(</span>BeanB beanB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>beanB <span class="token operator">=</span> beanB<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在<code>getBeanB</code>方法上标注<code>@Lookup</code>注解，被其标注的方法会被重写，然后根据其返回值的类型，Spring 会调用 <code>BeanFactory</code> 的 <code>getBean()</code> 方法来返回一个新的 bean。</p>
 <p><strong>2. 通过<code>ApplicationContext</code>或者<code>BeanFactory</code>获取对象</strong></p>
 <p>方法1：</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanA</span> <span class="token keyword">implements</span> <span class="token class-name">BeanFactoryAware</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Autowired</span>
@@ -573,9 +587,9 @@
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBeanFactory</span><span class="token punctuation">(</span>BeanFactory beanFactory<span class="token punctuation">)</span> <span class="token keyword">throws</span> BeansException <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>beanFactory <span class="token operator">=</span> beanFactory<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>方法2：</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BeanA</span> <span class="token keyword">implements</span> <span class="token class-name">ApplicationContextAware</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Autowired</span>
@@ -599,7 +613,7 @@
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setApplicationContext</span><span class="token punctuation">(</span>ApplicationContext applicationContext<span class="token punctuation">)</span> <span class="token keyword">throws</span> BeansException <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>applicationContext <span class="token operator">=</span> applicationContext<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -874,24 +888,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/21/nginx-pei-zhi-proxy-pass-url-mo-wei-jia-yu-bu-jia-xie-xian-de-qu-bie/">
+                <a href="/2019/10/21/jie-jue-vue-lu-you-history-mo-shi-shua-xin-hou-404-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Vue路由history模式刷新后退出现404或500的解决方案">
                         
-                        <span class="card-title">nginx 配置 proxy_pass URL 末尾加与不加(斜线)的区别</span>
+                        <span class="card-title">Vue路由history模式刷新后退出现404或500的解决方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            假设访问路径是 /test/a.html 
-请看以下两种情况：
-1. proxy_pass 加 / 斜线的情况
-location /test/ {
-    proxy_pass http://127.0.0.1:8080/;
-} 被代理的真
+                            nginx 的配置文件部分如下：
+server {
+        listen       80;
+        server_name  localhost;
+        root   html/dist;
+        #ch
                         
                     </div>
                     <div class="publish-info">
@@ -904,6 +918,10 @@ location /test/ {
                             
                             <a href="/categories/nginx/" class="post-category">
                                     nginx
+                                </a>
+                            
+                            <a href="/categories/nginx/vue/" class="post-category">
+                                    vue
                                 </a>
                             
                             
@@ -964,6 +982,43 @@ location /test/ {
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: feichaoyu<br />'
+            + '文章作者: feichaoyu<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1126,29 +1181,15 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/FeiChaoyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:979331856@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
 
 
 
