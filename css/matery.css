@@ -4,6 +4,16 @@
     .container {
         width: 95%;
     }
+    header .brand-logo .logo-span {
+        font-size: 1rem;
+    }
+    .bg-cover .title {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
+    }
 }
 
 /*中等屏幕下(平板类)的样式*/
@@ -11,25 +21,41 @@
     .container {
         width: 90%;
     }
+    header .brand-logo .logo-span {
+        font-size: 2rem;
+    }
+    .bg-cover .title {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
+    }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
-    .container {
-        width: 90%;
+     .container {
+        width: 85%;
         max-width: 1125px;
-    }
-
-    .head-container {
-        position: absolute;
-        padding: 0px 30px;
-        width: 100%;
     }
 
     .post-container {
         width: 90%;
         margin: 0 auto;
         max-width: 1250px;
+    }
+
+    header .brand-logo .logo-span {
+        font-size: 2rem;
+    }
+
+    .bg-cover .title {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
     }
 }
 
@@ -112,7 +138,8 @@ blockquote {
 }
 
 pre {
-    padding: 2.5rem 1.5rem 1.5rem 1.5rem !important;
+     /* padding: 3.3rem !important; */
+    padding: 1.5rem 1.5rem 1.5rem 3.3rem !important;
     margin: 1rem 0 !important;
     background: #272822;
     overflow: auto;
@@ -136,9 +163,8 @@ pre {
 
 code {
     padding: 1px 5px;
-    top: 13px !important;
     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
-    font-size: 0.91rem;
+    /* font-size: 0.91rem; */
     color: #e96900;
     background-color: #f8f8f8;
     border-radius: 2px;
@@ -248,7 +274,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #623AA2 0%, #F97794 100%);
 }
 
 .text-color {
