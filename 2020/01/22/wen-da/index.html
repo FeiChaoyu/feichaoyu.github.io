@@ -1,0 +1,1852 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面试笔试问答汇总, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="[TOC]
+Java面向对象基础switch 语句可以用于哪些数据类型
+switch 语句可以用于 char, byte, short, int 这些数据基本类型，以及它们的包装类。
+在 switch 里不能用 long, double, ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>面试笔试问答汇总 | feichaoyu</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">feichaoyu</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">feichaoyu</div>
+        <div class="logo-desc">
+            
+            专注于IT互联网，包括但不限于Go、Java、项目管理、软件架构、分布式系统等
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面试笔试问答汇总</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                面试
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-22
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    15k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    53 分
+                </div>
+                
+
+                
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>[TOC]</p>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>面向对象基础</h2><h3 id="switch-语句可以用于哪些数据类型"><a href="#switch-语句可以用于哪些数据类型" class="headerlink" title="switch 语句可以用于哪些数据类型"></a>switch 语句可以用于哪些数据类型</h3><blockquote>
+<p>switch 语句可以用于 char, byte, short, int 这些数据基本类型，以及它们的包装类。</p>
+<p>在 switch 里不能用 long, double, float, boolean 包括它们的包装类。</p>
+<p>jdk1.7以上可以用字符串类型。</p>
+<p>switch 中可以用枚举类型。</p>
+</blockquote>
+<h3 id="String-知识点总结"><a href="#String-知识点总结" class="headerlink" title="String 知识点总结"></a>String 知识点总结</h3><p><strong>什么是 String，它是什么数据类型，能否被继承</strong></p>
+<blockquote>
+<p>String 是定义在 java.lang 包下的一个类。它不是基本数据类型。</p>
+<p>String 是不可变的，JVM 使用字符串池来存储所有的字符串对象。</p>
+<p>String 不能被继承，因为被 final 修饰的类不能被继承。</p>
+</blockquote>
+<p><strong>创建 String 对象的不同方式有哪些</strong></p>
+<blockquote>
+<ul>
+<li>使用 new 关键字创建</li>
+</ul>
+<p>使用这种方式时，JVM 创建字符串对象但不存储于字符串池。可以通过调用<code>intern()</code>方法将该字符串对象存储在字符串池，如果字符串池已经有了同样值的字符串，则返回引用。</p>
+<ul>
+<li>使用双引号创建</li>
+</ul>
+<p>使用这种方式时，JVM 去字符串池找有没有值相等字符串，如果有，则返回找到的字符串引用。否则创建一个新的字符串对象并存储在字符串池。</p>
+<p>例如：</p>
+<pre class="line-numbers language-java"><code class="language-java">String s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String s2 <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+
+String s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String s2 <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p><strong>String，StringBuffer，StringBuilder 的区别</strong></p>
+<blockquote>
+<p>String 是不可变类，每当我们对 String 进行操作的时候，总是会创建新的字符串。操作 String 很耗资源，所以 Java 提供了两个工具类来操作StringBuffer 和 StringBuilder。</p>
+<p>StringBuffer 和 StringBuilder 是可变类，StringBuffer 是线程安全的，StringBuilder 则不是线程安全的。所以在多线程对同一个字符串操作的时候，我们应该选择用 StringBuffer。在单线程的情况下，StringBuilder 的效率比 StringBuffer 高。</p>
+</blockquote>
+<p><strong>String 不可变的优点</strong></p>
+<blockquote>
+<ul>
+<li><strong>便于实现 String 常量池</strong></li>
+</ul>
+<p>只有当字符串是不可变的，字符串池才有可能实现。字符串池的实现可以在运行时<strong>节约堆空间</strong>，因为不同的字符串变量都指向池中的同一个字符串。但如果字符串是可变的，那么String interning将不能实现(String interning是指对不同的字符串仅仅只保存一个，即不会保存多个相同的字符串，叫<strong>字符串驻留</strong>)。</p>
+<ul>
+<li><strong>使多线程安全</strong></li>
+</ul>
+<p>因为字符串是不可变的，所以是多线程安全的，同一个字符串实例可以被多个线程共享。这样便不用因为线程安全问题而使用同步。字符串自己便是线程安全的。</p>
+<ul>
+<li><strong>避免网络安全问题</strong></li>
+</ul>
+<p>如果字符串是可变的，那么会引起很严重的安全问题。譬如，数据库的用户名、密码都是以字符串的形式传入来获得数据库的连接，或者在 socket 编程中，主机名和端口都是以字符串的形式传入。因为字符串是不可变的，所以它的值是不可改变的，否则黑客们可以钻到空子，改变字符串指向的对象的值，造成安全漏洞。</p>
+<ul>
+<li><strong>加快字符串处理速度</strong></li>
+</ul>
+<p>因为字符串是不可变的，所以在它创建的时候 hashCode 就被缓存了，不需要重新计算。这就使得<strong>字符串很适合作为 Map 中的键</strong>，字符串的处理速度要快过其它的键对象。这就是 <strong>HashMap 中的键往往都使用字符串</strong>。</p>
+</blockquote>
+<p><strong>为什么我们在使用 HashMap 的时候总是用 String 做key</strong></p>
+<blockquote>
+<p>我们来看下String#hashCode的源码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">String</span> <span class="token punctuation">{</span>
+　　<span class="token comment" spellcheck="true">// 默认值是0</span>
+　　<span class="token keyword">private</span> <span class="token keyword">int</span> hash<span class="token punctuation">;</span>
+
+　　<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 将成员变量hash缓存到局部变量</span>
+  <span class="token keyword">int</span> h <span class="token operator">=</span> hash<span class="token punctuation">;</span>
+　　　　 <span class="token comment" spellcheck="true">// 这里使用的是局部变量，没有多线程修改的风险</span>
+　　　　 <span class="token comment" spellcheck="true">// 如果之前没有缓存过，那么h为0，计算hash值并进行缓存</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>h <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> value<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">char</span> val<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> value<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          h <span class="token operator">=</span> <span class="token number">31</span> <span class="token operator">*</span> h <span class="token operator">+</span> val<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      hash <span class="token operator">=</span> h<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck="true">// 如果之前缓存过，直接返回hash值</span>
+  <span class="token keyword">return</span> h<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由此可见，因为字符串是不可变的，当创建字符串时，它的 <strong>hashCode 被缓存</strong>下来，不需要再次计算。因为 HashMap 内部实现是通过 key 的 hashCode 来确定 value 的存储位置，所以相比于其他对象更快。</p>
+</blockquote>
+<h3 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h3><blockquote>
+<p><strong>抽象类的特点</strong>：</p>
+<ul>
+<li>抽象方法只作声明，而不包含实现，可以看成是没有实现体的虚方法</li>
+<li>抽象类不能被实例化</li>
+<li>抽象类可以但不是必须有抽象属性和抽象方法，但是一旦有了抽象方法，就一定要把这个类声明为抽象类</li>
+<li>具体派生类必须覆盖基类的抽象方法</li>
+<li>抽象派生类可以覆盖基类的抽象方法，也可以不覆盖。如果不覆盖，则其具体派生类必须覆盖它们</li>
+<li>抽象方法不能用 private, static 修饰</li>
+</ul>
+<p><strong>接口的特点</strong>：</p>
+<ul>
+<li><p>接口不能被实例化</p>
+</li>
+<li><p>接口只能包含方法声明</p>
+</li>
+<li><p>接口中成员变量默认修饰符是 public static final，方法的默认修饰符是 public abstract</p>
+</li>
+<li><p>接口中可以包含的内容：</p>
+</li>
+</ul>
+<p>Java7：常量、抽象方法</p>
+<p>Java8：新增默认方法、静态方法</p>
+<p>Java9：新增私有方法</p>
+<p><strong>接口和抽象类的区别</strong>：</p>
+<ul>
+<li>抽象类可以有构造方法，接口中不能有构造方法</li>
+<li>抽象类中可以有普通成员变量，接口中没有普通成员变量</li>
+<li>抽象类中可以包含静态方法，接口中不能包含静态方法（jdk8之前）</li>
+<li>抽象类是对类的抽象，对逻辑的归纳，比如人类是中国人和美国人的抽象。接口是对功能或行为的抽象</li>
+</ul>
+</blockquote>
+<h3 id="this-和-super"><a href="#this-和-super" class="headerlink" title="this 和 super"></a>this 和 super</h3><blockquote>
+<p>this 关键字的三种用法：</p>
+<ul>
+<li>在本类的成员方法中，访问本类的成员变量</li>
+<li>在本类的成员方法中，访问本类的另一个成员方法</li>
+<li>在本类的构造方法中，访问本类的另一个构造方法</li>
+</ul>
+<p>super 关键字的三种用法：</p>
+<ul>
+<li>在子类的成员方法中，访问父类的成员变量</li>
+<li>在子类的成员方法中，访问父类的成员方法</li>
+<li>在子类的构造方法中，访问父类的构造方法</li>
+</ul>
+</blockquote>
+<h3 id="静态变量和实例变量的区别"><a href="#静态变量和实例变量的区别" class="headerlink" title="静态变量和实例变量的区别"></a>静态变量和实例变量的区别</h3><blockquote>
+<p><strong>语法定义角度</strong>：</p>
+<p>静态变量前要加 static 关键字，而实例变量前则不加</p>
+<p><strong>程序运行角度</strong>：</p>
+<p>静态变量则可以直接使用类名来引用。静态变量不属于某个实例对象，而是属于类，所以也称为类变量，只要程序加载了类的字节码，不用创建任何实例对象，静态变量就会被分配空间，静态变量就可以被使用了。且一个类不管创建多少个对象，静态变量在内存中有且仅有一个拷贝。</p>
+<p>实例变量属于某个对象的属性，必须创建了实例对象，其中的实例变量才会被分配空间，才能使用这个实例变量。</p>
+</blockquote>
+<h3 id="值传递和引用传递"><a href="#值传递和引用传递" class="headerlink" title="值传递和引用传递"></a>值传递和引用传递</h3><blockquote>
+<p><strong>值传递</strong>：在方法被调用时，实参通过形参把它的内容副本传入方法内部，此时形参接收到的内容是实参值的一个拷贝，因此在方法内对形参的任何操作，都仅仅是对这个副本的操作，不影响原始值的内容。值传递传递的是真实内容的一个副本，对副本的操作不影响原内容，也就是形参怎么变化，不会影响实参对应的内容。<br><strong>引用传递</strong>：“引用”也就是指向真实内容的地址值，在方法调用时，实参的地址通过方法调用被传递给相应的形参，在方法体内，形参和实参指向同一块内存地址，对形参的操作会影响的真实内容。</p>
+<p><strong>Java中只有值传递</strong></p>
+</blockquote>
+<h3 id="方法参数需要被内部类使用时，这个参数必须被-final-修饰的原因"><a href="#方法参数需要被内部类使用时，这个参数必须被-final-修饰的原因" class="headerlink" title="方法参数需要被内部类使用时，这个参数必须被 final 修饰的原因"></a>方法参数需要被内部类使用时，这个参数必须被 final 修饰的原因</h3><blockquote>
+<p>外部类和内部类是平行的，内部类不从属于外部类，因此外部类有可能在内部类之前被回收。如果不加 final，一旦外部类在内部类之前被回收，那么外部类中所包含的对象也会被回收，这时内部类还未使用该对象，一旦使用就会报 NPE。</p>
+<p>如果在此参数前加上 final，那么这个参数就是常量了，存储位置就由堆区转移到常量池中，从而不会被Minor GC。</p>
+</blockquote>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="分代管理和垃圾回收流程"><a href="#分代管理和垃圾回收流程" class="headerlink" title="分代管理和垃圾回收流程"></a>分代管理和垃圾回收流程</h3><blockquote>
+<p>虚拟机的堆内存可以划分为3个区域：年轻代、年老代、永久代。</p>
+<p>在年轻代中，一般划分为 Eden 区和两个 Survivor 区。</p>
+<p><strong>垃圾回收的一般流程：</strong></p>
+<ol>
+<li>new 出来的对象一般先到 Eden 区中申请空间，如果 Eden 区满了，那么会把 Eden 区中还存活的对象复制到其中一个 Survivor 区中。这里包含一次隐含回收，即当我们把 Eden 区存活的对象复制到 Survivor 区时，就已经把无用的对象回收了。</li>
+<li>当 Eden 区和其中一个 Survivor 区都满了时，会把 Eden 区和其中一个 Survivor 区的存活对象再复制到另外一个 Survivor 区中，这里也包含一次隐含回收。</li>
+<li>如果年轻代的空间都满了（Eden 和两个 Survivor 都满了），那么虚拟机会把年轻代中还存活的对象复制到年老代中。</li>
+<li>当年老代也满了，会启动 Full GC，对年轻代、年老代、持久代进行全面回收，这时需要耗费比较长的时间。</li>
+</ol>
+<p><strong>两类回收机制：</strong></p>
+<ul>
+<li><strong>轻量级回收 Minor GC</strong></li>
+</ul>
+<p>在年轻代中的回收流程都属于这种。</p>
+<ul>
+<li><strong>重量级回收 Full GC</strong></li>
+</ul>
+<p>以下4种情况会触发 Full GC：</p>
+<ol>
+<li>年老代满了</li>
+<li>持久代满了</li>
+<li>显式调用 <code>System.gc()</code>（调用这个方法后，虚拟机并不会直接启动垃圾回收，而是找个合适的时间点启动垃圾回收）</li>
+<li>修改堆内存的策略，当虚拟机监控到策略的变化，也会触发 Full GC</li>
+</ol>
+</blockquote>
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><blockquote>
+<p>析构函数(destructor) 与构造函数相反，当对象结束其生命周期，如对象所在的函数已调用完毕时，系统自动执行析构函数。析构函数往往用来做“清理善后” 的工作（例如在建立对象时用 new 开辟了一片内存空间，垃圾回收时会自动调用析构函数后释放内存）。</p>
+</blockquote>
+<h3 id="如何写出高性能代码"><a href="#如何写出高性能代码" class="headerlink" title="如何写出高性能代码"></a>如何写出高性能代码</h3><blockquote>
+<ul>
+<li>物理对象（如 Connection 或 IO）用好之后要及时 close</li>
+<li>大对象用完后及时设为 null</li>
+<li>集合对象用完后及时 clear</li>
+<li>不要频繁使用 String 对象</li>
+<li>尽可能使用软引用和弱引用</li>
+<li>不建议重写 finalize 方法</li>
+<li>可以通过调整命令行参数来调整堆内存的性能</li>
+</ul>
+</blockquote>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="流与集合的区别"><a href="#流与集合的区别" class="headerlink" title="流与集合的区别"></a>流与集合的区别</h3><blockquote>
+<ul>
+<li>流用于计算，集合用于存储</li>
+<li>流表现在时间上，集合表现在空间上。比如生成所有质数，这在空间上是无穷的，无法实现，但是在时间上是可以通过流生成的</li>
+<li>流只能遍历一次</li>
+<li>流是内部迭代，集合是外部迭代</li>
+</ul>
+</blockquote>
+<h3 id="集合中的浅拷贝和深拷贝"><a href="#集合中的浅拷贝和深拷贝" class="headerlink" title="集合中的浅拷贝和深拷贝"></a>集合中的浅拷贝和深拷贝</h3><blockquote>
+<p>当需要对一个集合中的内容做备份，另一个集合中的内容做修改。那么这个内容对象必须实现<code>Cloneable</code>接口，调用父类的<code>clone</code>方法完成对象的深拷贝，那么之后再需要备份时，使用对象的 clone 方法获取一个新对象用于修改，这样就不会在修改的同时影响原有的对象，因为默认集合时浅拷贝。</p>
+</blockquote>
+<h3 id="HashSet-和-TreeSet-如何保证元素不重复"><a href="#HashSet-和-TreeSet-如何保证元素不重复" class="headerlink" title="HashSet 和 TreeSet 如何保证元素不重复"></a>HashSet 和 TreeSet 如何保证元素不重复</h3><blockquote>
+<p>HashSet 基于哈希表，需要重写 hashCode 和 equals 方法。</p>
+<p>TreeSet 基于二叉树，需要实现 Comparable 接口，重写 compareTo 方法。</p>
+</blockquote>
+<h3 id="HashMap-汇总"><a href="#HashMap-汇总" class="headerlink" title="HashMap 汇总"></a>HashMap 汇总</h3><h4 id="为什么使用数组-链表或红黑树？"><a href="#为什么使用数组-链表或红黑树？" class="headerlink" title="为什么使用数组+链表或红黑树？"></a>为什么使用数组+链表或红黑树？</h4><blockquote>
+<p>数组是用来确定哈希桶的位置，利用元素的 key 的 hash 值对数组长度取模得到。链表或红黑树是用来解决 hash 冲突问题，当出现 hash 值一样的情形，就在数组上的对应位置形成一条链表或一棵树。</p>
+<p><strong>PS：</strong>这里的 hash 值并不是指 hashcode，而是将 hashcode 高低十六位异或过的。</p>
+</blockquote>
+<h4 id="HashMap-的-get-过程"><a href="#HashMap-的-get-过程" class="headerlink" title="HashMap 的 get 过程"></a>HashMap 的 get 过程</h4><blockquote>
+<p>对 key 的 hashCode 进行 hash 运算，计算在哈希数组中的下标获取 bucket 位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历寻找。</p>
+</blockquote>
+<h4 id="HashMap-的-put-过程"><a href="#HashMap-的-put-过程" class="headerlink" title="HashMap 的 put 过程"></a>HashMap 的 put 过程</h4><blockquote>
+<p><strong>putVal添加元素的过程：</strong></p>
+<ol>
+<li>如果哈希数组没有初始化，那么调用resize方法初始化哈希数组</li>
+<li>获取添加元素在哈希数组中的索引，判断该位置是否有元素，如果没有，那么直接添加即可</li>
+<li>如果已经有元素占用，那么判断该位置存放的是链表还是红黑树。如果是链表，判断当前位置的第一个元素的 hashcode 和 key 是否和自己的相同，相同则由 onlyIfAbsent 确定是否需要覆盖（或者本身是null直接覆盖）；如果是红黑树，则直接调用 putTreeVal 方法存放。</li>
+<li>首元素判断完后，如果不满足条件，那么开始遍历后面的节点，如果到了链表末尾还是没有找到相同的元素，那么直接在尾部添加当前元素。如果在这期间遍历的元素数量达到树化的条件，那么需要将原来的链表转换为红黑树。</li>
+<li>如果遍历期间找到和自己 hashcode 和 key 相同的元素，那么由 onlyIfAbsent 确定是否需要覆盖（或者本身是null直接覆盖）</li>
+<li>如果添加了新元素而不是覆盖原有值，需要 modCount 加1，表示发生了一次结构性变化。如果size大于threshold，则需要扩容resize</li>
+</ol>
+</blockquote>
+<h4 id="为什么用-n-1-amp-hash-而不是-hash-n"><a href="#为什么用-n-1-amp-hash-而不是-hash-n" class="headerlink" title="为什么用 (n-1)&amp;hash 而不是 hash%n"></a>为什么用 (n-1)&amp;hash 而不是 hash%n</h4><blockquote>
+<p>这个问题也就是<strong>为什么 HashMap 扩容需要是2的次幂</strong>。</p>
+<p>这里的 n 代表哈希表的长度，哈希表习惯将长度设置为 2 的 n 次方，这样恰好可以保证 (n - 1) &amp; hash 的计算得到的索引值总是位于 table 数组的索引之内。例如：hash=15，n=16 时，结果为 15；hash=17，n=16 时，结果为 1。</p>
+<p>但如果用 hash%n，那么如果hash是负数就会出现结果也是负数，并且%运算的效率低。</p>
+</blockquote>
+<h4 id="为什么-JDK1-8-不直接使用红黑树，而是保留了链表？"><a href="#为什么-JDK1-8-不直接使用红黑树，而是保留了链表？" class="headerlink" title="为什么 JDK1.8 不直接使用红黑树，而是保留了链表？"></a>为什么 JDK1.8 不直接使用红黑树，而是保留了链表？</h4><blockquote>
+<p>HashMap 在 JDK1.8 及以后的版本中引入了红黑树结构，若桶中链表元素个数大于等于 <strong>8</strong> 时，<strong>链表转换成树结构</strong>；若桶中链表元素个数小于等于 <strong>6</strong> 时，<strong>树结构还原成链表</strong>。因为红黑树的平均查找长度是 <strong>log(n)</strong>，长度为 8 的时候，平均查找长度为 3，如果继续使用链表，平均查找长度为 8/2=4，这才有转换为树的必要。链表长度如果是小于等于 6，6/2=3，虽然速度也很快的，但是转化为树结构和生成树的时间并不会太短。</p>
+<p>选择 6 和 8，中间有个差值 7 可以有效防止链表和树频繁转换（类似于复杂度震荡）。假设一下，如果设计成链表个数超过 8 则链表转换成树结构，链表个数小于 8 则树结构转换成链表，如果一个 HashMap 不停的插入、删除元素，链表个数在 8 左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低。</p>
+<p>第二种回答：</p>
+<p>因为红黑树需要进行左旋，右旋，变色这些操作来保持平衡，而单链表不需要。 当元素小于8个的时候，此时做查询操作，链表结构已经能保证查询性能。当元素大于8个的时候，此时需要红黑树来加快查询速度，但是新增节点的效率变慢了。所有才选取 8 这个数字作为链表转为红黑树的阈值，因为发生哈希冲突的概率满足泊松分布，当发生8次哈希碰撞的概率几乎为千万分之六，即以后很少会有元素再次添加到这个桶中，这样即使红黑树的新增元素效率低，也不会有多大影响了，因为几乎没有哈希桶中元素会超过8个。</p>
+<p>当然这都得益于哈希函数设计的好，如果自己设计的哈希函数分布不均匀，比如我们把对象的hashcode都统一返回一个常量，最终的结果就是 HashMap 会退化为一个链表，get 方法的性能降为 O(n)，使用红黑树可以将性能提升到 O(log(n))，所以应该避免这种情况的发生。</p>
+</blockquote>
+<h4 id="谈一下-HashMap-中-hash-函数是怎么实现的"><a href="#谈一下-HashMap-中-hash-函数是怎么实现的" class="headerlink" title="谈一下 HashMap 中 hash 函数是怎么实现的"></a>谈一下 HashMap 中 hash 函数是怎么实现的</h4><blockquote>
+<p><strong>用高16位与低16位进行异或</strong></p>
+<p>1、至于为什么要这样呢？</p>
+<p>hashcode是一个32位的值，用高16位与低16位进行异或，原因在于求index是是用 （n-1） &amp; hash ，如果hashmap的capcity很小的话，那么对于两个高位不同，低位相同的hashcode，可能最终会装入同一个桶中。那么会造成hash冲突，好的散列函数，应该尽量在计算hash时，把所有的位的信息都用上，这样才能尽可能避免冲突。</p>
+<p>2、为什么使用异或运算？</p>
+<p>通过写出真值表可以看出：异或运算为 50％的0和 50％的1，因此对于合并均匀的概率分布非常有用。</p>
+<p>a | b | a AND b</p>
+<p>—+—+——–</p>
+<p>0 | 0 |  0</p>
+<p>0 | 1 |  0</p>
+<p>1 | 0 |  0</p>
+<p>1 | 1 |  1</p>
+<p>a | b | a OR b</p>
+<p>—+—+——–</p>
+<p>0 | 0 |  0</p>
+<p>0 | 1 |  1</p>
+<p>1 | 0 |  1</p>
+<p>1 | 1 |  1</p>
+<p>a | b | a XOR b</p>
+<p>—+—+——–</p>
+<p>0 | 0 |  0</p>
+<p>0 | 1 |  1</p>
+<p>1 | 0 |  1</p>
+<p>1 | 1 |  0</p>
+</blockquote>
+<h4 id="hash-冲突有哪些解决办法？"><a href="#hash-冲突有哪些解决办法？" class="headerlink" title="hash 冲突有哪些解决办法？"></a>hash 冲突有哪些解决办法？</h4><blockquote>
+<p><strong>链地址法</strong></p>
+<p><strong>开放地址法</strong></p>
+<ul>
+<li>线性探测。遇到哈希冲突 +1 到下一个判断</li>
+<li>平方探测。遇到哈希冲突 +1 +4 +9 +16</li>
+<li>二次哈希。遇到哈希冲突 + hash2(key)</li>
+</ul>
+<p><strong>再哈希法</strong></p>
+<p><strong>公共溢出区域法</strong></p>
+</blockquote>
+<h4 id="HashMap在什么条件下扩容"><a href="#HashMap在什么条件下扩容" class="headerlink" title="HashMap在什么条件下扩容?"></a>HashMap在什么条件下扩容?</h4><blockquote>
+<p>JDK1.7</p>
+<p>存放新值的时候当前已有元素的个数必须大于等于阈值，且当前加入的数据发生了 hash 冲突</p>
+<p>JDK1.8</p>
+<p>1、初始化哈希数组时会调用 resize 方法</p>
+<p>2、put 时如果哈希数组的容量已超过阈值，则需要对哈希数组扩容</p>
+<p>3、在树化前，会先检查哈希数组长度，如果哈希数组的长度小于64，则进行扩容，而不是进行树化</p>
+</blockquote>
+<h4 id="HashMap扩容优化"><a href="#HashMap扩容优化" class="headerlink" title="HashMap扩容优化"></a>HashMap扩容优化</h4><blockquote>
+<p>在 JDK1.7 中，HashMap 整个扩容过程就是分别取出数组元素，一般该元素是最后一个放入链表中的元素，然后遍历以<strong>该元素为头</strong>（头插法）的单向链表元素，依据每个被遍历元素的 hash 值计算其在新数组中的下标，然后进行交换。这样的扩容方式会将<strong>原来哈希冲突的单向链表尾部变成扩容后单向链表的头部</strong>。</p>
+<p>而在 JDK 1.8 中，HashMap 对扩容操作做了优化。由于扩容数组的长度是 2 倍关系，所以对于假设初始 tableSize = 4 要扩容到 8 来说就是 0100 到 1000 的变化（左移一位就是 2 倍），在扩容中只用判断原来的 hash 值和左移动的一位（newtable 的值）按位与操作是 0 或 1 就行，0 的话索引不变，1 的话索引变成原索引加上扩容前数组。</p>
+<p>之所以能通过这种“与运算“来重新分配索引，是因为 hash 值本来就是随机的，而 hash 按位与上 newTable 得到的 0（扩容前的索引位置）和 1（扩容前索引位置加上扩容前数组长度的数值索引处）就是随机的，所以扩容的过程就能把之前哈希冲突的元素再随机分布到不同的索引中去。</p>
+</blockquote>
+<h4 id="一般使用什么作为HashMap的键？"><a href="#一般使用什么作为HashMap的键？" class="headerlink" title="一般使用什么作为HashMap的键？"></a>一般使用什么作为HashMap的键？</h4><blockquote>
+<p>一般用 Integer、String 这种不可变类作为 HashMap 的 key。</p>
+<p>String 最为常用，因为：</p>
+<ul>
+<li>因为字符串是不可变的，所以在它创建的时候 hashcode 就被缓存了，不需要重新计算。这就使得字符串很适合作为 Map 中的键，字符串的处理速度要快过其它的键对象。这就是 HashMap中 的键往往都使用字符串。</li>
+<li>因为获取对象的时候要用到 equals() 和 hashCode() 方法，那么键对象正确的重写这两个方法是非常重要的，这些类已经很规范的覆写了 hashCode() 以及 equals() 方法。</li>
+</ul>
+</blockquote>
+<h4 id="LoadFactor-负载因子的设计"><a href="#LoadFactor-负载因子的设计" class="headerlink" title="LoadFactor 负载因子的设计"></a>LoadFactor 负载因子的设计</h4><blockquote>
+<p>默认 LoadFactor 值为 0.75。<strong>为什么是 0.75 这个值呢？</strong></p>
+<p>这是因为对于使用链表法的哈希表来说，查找一个元素的平均时间是 O(n)，这里的 n 指的是遍历链表的长度，因此加载因子越大，对空间的利用就越充分，这就意味着链表的长度越长，查找效率也就越低。如果设置的加载因子太小，那么哈希表的数据将过于稀疏，对空间造成严重浪费。</p>
+</blockquote>
+<h4 id="HashMap与HashTable区别"><a href="#HashMap与HashTable区别" class="headerlink" title="HashMap与HashTable区别"></a>HashMap与HashTable区别</h4><blockquote>
+<p>Hashtable可以看做是线程安全版的HashMap，两者几乎“等价”（当然还是有很多不同）。</p>
+<p>Hashtable几乎在每个方法上都加上synchronized（同步锁），实现线程安全。</p>
+<p>HashMap可以通过 Collections.synchronizeMap(hashMap) 进行同步。</p>
+<p>区别：</p>
+<ul>
+<li>HashMap继承于AbstractMap，而Hashtable继承于Dictionary；</li>
+<li>线程安全不同。Hashtable的几乎所有函数都是同步的，即它是线程安全的，支持多线程。而HashMap的函数则是非同步的，它不是线程安全的。若要在多线程中使用HashMap，需要我们额外的进行同步处理；</li>
+<li>null值。HashMap的key、value都可以为null。Hashtable的key、value都不可以为null；</li>
+<li>迭代器(Iterator)。HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException。</li>
+<li>容量的初始值和增加方式都不一样：HashMap默认的容量大小是16；增加容量时，每次将容量变为“原始容量x2”。Hashtable默认的容量大小是11；增加容量时，每次将容量变为“原始容量x2 + 1”；</li>
+<li>添加key-value时的hash值算法不同：HashMap添加元素时，是使用自定义的哈希算法。Hashtable没有自定义哈希算法，而直接采用的key的hashCode()。</li>
+<li>速度。由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。</li>
+</ul>
+</blockquote>
+<h4 id="红黑树中为什么新加入的节点总是红色的"><a href="#红黑树中为什么新加入的节点总是红色的" class="headerlink" title="红黑树中为什么新加入的节点总是红色的?"></a>红黑树中为什么新加入的节点总是红色的?</h4><blockquote>
+<p>因为被插入前的树结构是构建好的，一旦我们进行添加黑色的节点，无论添加在哪里都会破坏原有路径上的黑色节点的数量平等关系，所以插入红色节点是正确的选择。</p>
+</blockquote>
+<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><h3 id="解析XML文件的方式"><a href="#解析XML文件的方式" class="headerlink" title="解析XML文件的方式"></a>解析XML文件的方式</h3><blockquote>
+<p><strong>DOM</strong>：先把XML文档读取到内存中，并整理出DOM树的形式再读取。用户可以边解析边修改，而且还能再次解析已经被解析过的内容。</p>
+<p><strong>SAX</strong>：不同于DOM的文档驱动，它是事件驱动的，也就是说，是一种基于回调函数的解析方式。不需要把文档载入内存，因此可以节省内存。</p>
+<p>如何选择：</p>
+<ul>
+<li>如果解析时还要更新XML中的数据，那么使用DOM方式。</li>
+<li>如果解析文件过大，那么使用SAX方式。</li>
+<li>如果对解析速度有要求，那么使用SAX方式，因为它比DOM方式快。</li>
+</ul>
+</blockquote>
+<h3 id="flush方法和close方法的区别"><a href="#flush方法和close方法的区别" class="headerlink" title="flush方法和close方法的区别"></a>flush方法和close方法的区别</h3><blockquote>
+<p>flush：刷新缓冲区，流对象可以继续使用</p>
+<p>close：先刷新缓冲区，然后通知系统释放资源，流对象不可继续使用</p>
+</blockquote>
+<h2 id="SPI-机制"><a href="#SPI-机制" class="headerlink" title="SPI 机制"></a>SPI 机制</h2><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="Statement-与-PreparedStatement-比较"><a href="#Statement-与-PreparedStatement-比较" class="headerlink" title="Statement 与 PreparedStatement 比较"></a>Statement 与 PreparedStatement 比较</h2><blockquote>
+<p>Statement 的弊端：</p>
+<ul>
+<li>存在拼串操作，繁琐</li>
+<li>存在 SQL 注入问题</li>
+</ul>
+<p>PreparedStatement 的优势：</p>
+<ul>
+<li>防止 SQL 注入</li>
+<li>对 SQL 进行预编译，对于批量处理可以大大提高效率</li>
+<li>提高代码的可读性和可维护性</li>
+</ul>
+</blockquote>
+<h2 id="count-和count-字段名-的比较"><a href="#count-和count-字段名-的比较" class="headerlink" title="count(*)和count(字段名)的比较"></a>count(*)和count(字段名)的比较</h2><blockquote>
+<p>假设员工有100条数据，该表的主键是学好，其中有个可以为空的“爱好”字段，在这100条数据中，只有30个员工的“爱好”字段不为空。</p>
+<p>case1：</p>
+<p><code>select count(*) from 员工表</code></p>
+<p>结果返回100没毛病。</p>
+<p>case2：</p>
+<p><code>select count(爱好) from 员工表</code></p>
+<p>结果返回30，因为只有30个员工的“爱好”字段不为空。</p>
+<p>case3：</p>
+<p><code>select count(学号) from 员工表</code></p>
+<p>结果返回100，因为学号是主键非空，并且由于主键有索引，因此性能比<code>count(*)</code>好。</p>
+</blockquote>
+<blockquote>
+<p><strong>结论</strong>：</p>
+<ol>
+<li>如果在表中某字段名允许为空，那么通过 <code>count(字段名)</code> 形式得到的结果不是表中的总记录数，而是表中该字段不为空的记录数。</li>
+<li>推荐使用 <code>count(主键)</code> 的方式来得到总记录数，这样性能会好些。</li>
+<li>通常情况下，使用 <code>count(1)</code> 和使用 <code>count(主键)</code> 是一样的，因为默认取得就是第一个字段，我们通常第一个字段就是 id，但是有些情况如果不是 id，那么不要使用 <code>count(1)</code>。</li>
+</ol>
+</blockquote>
+<h2 id="存储过程的优点和缺点"><a href="#存储过程的优点和缺点" class="headerlink" title="存储过程的优点和缺点"></a>存储过程的优点和缺点</h2><blockquote>
+<p><strong>优点：</strong></p>
+<ol>
+<li>如果针对某个业务逻辑，要对多个表进行多次insert、delete、update、select操作，那么可以把这些操作汇集成一个存储过程。这样以后每次执行业务逻辑时，只需要调用存储过程即可，提高了代码的可重用性。</li>
+<li>存储过程只在创建时编译，以后每次执行都不需要重新编译，提高数据库执行速度。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>移植性差，针对MySQL的存储过程无法在Oracle上执行。</li>
+<li>难以调试，如果存储过程中某一条SQL语句出错，只会提示你这个存储过程出错，不会定位到具体哪条SQL出错了。</li>
+<li>存储过程处理大批量数据没有批处理方式的性能好。</li>
+</ol>
+</blockquote>
+<h1 id="Spring-技术栈"><a href="#Spring-技术栈" class="headerlink" title="Spring 技术栈"></a>Spring 技术栈</h1><h2 id="Spring-Framework"><a href="#Spring-Framework" class="headerlink" title="Spring Framework"></a>Spring Framework</h2><h3 id="循环引用（循环依赖）和循环调用的区别"><a href="#循环引用（循环依赖）和循环调用的区别" class="headerlink" title="循环引用（循环依赖）和循环调用的区别"></a>循环引用（循环依赖）和循环调用的区别</h3><blockquote>
+<p>循环引用是两个或多个bean相互之间的持有对方，比如CircleA引用CircleB，CircleB引用CircleC，CircleC引用CircleA，则它们最终反映为一个环。</p>
+<p>循环调用是方法之间的环调用。循环调用是无法解决的，除非有终结条件，否则就是死循环，最终导致内存溢出错误。</p>
+</blockquote>
+<h3 id="Spring-事务注解的实现原理"><a href="#Spring-事务注解的实现原理" class="headerlink" title="Spring 事务注解的实现原理"></a>Spring 事务注解的实现原理</h3><h3 id="Spring-bean-的生命周期"><a href="#Spring-bean-的生命周期" class="headerlink" title="Spring bean 的生命周期"></a>Spring bean 的生命周期</h3><h3 id="Spring-如何解决循环依赖（为什么用三级缓存？能否用二级缓存？）"><a href="#Spring-如何解决循环依赖（为什么用三级缓存？能否用二级缓存？）" class="headerlink" title="Spring 如何解决循环依赖（为什么用三级缓存？能否用二级缓存？）"></a>Spring 如何解决循环依赖（为什么用三级缓存？能否用二级缓存？）</h3><h3 id="Spring-AOP-切面是何时解析的"><a href="#Spring-AOP-切面是何时解析的" class="headerlink" title="Spring AOP 切面是何时解析的"></a>Spring AOP 切面是何时解析的</h3><h3 id="在解析切面的过程中，Spring-AOP-为什么加缓存"><a href="#在解析切面的过程中，Spring-AOP-为什么加缓存" class="headerlink" title="在解析切面的过程中，Spring AOP 为什么加缓存"></a>在解析切面的过程中，Spring AOP 为什么加缓存</h3><h3 id="AOP-中代理对象是何时产生的"><a href="#AOP-中代理对象是何时产生的" class="headerlink" title="AOP 中代理对象是何时产生的"></a>AOP 中代理对象是何时产生的</h3><h3 id="代理对象调用目标方法是如何织入调用的"><a href="#代理对象调用目标方法是如何织入调用的" class="headerlink" title="代理对象调用目标方法是如何织入调用的"></a>代理对象调用目标方法是如何织入调用的</h3><h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><h3 id="什么是Spring-MVC-？简单介绍下你对-Spring-MVC-的理解"><a href="#什么是Spring-MVC-？简单介绍下你对-Spring-MVC-的理解" class="headerlink" title="什么是Spring MVC ？简单介绍下你对 Spring MVC 的理解?"></a>什么是Spring MVC ？简单介绍下你对 Spring MVC 的理解?</h3><blockquote>
+<p>Spring MVC 是一个基于 Java 的实现了 MVC 设计模式的请求驱动类型的轻量级 Web 框架，通过把 Model，View，Controller 分离，将 web 层进行职责解耦，把复杂的 web 应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。 </p>
+</blockquote>
+<h3 id="Spring-MVC-请求的整个流程"><a href="#Spring-MVC-请求的整个流程" class="headerlink" title="Spring MVC 请求的整个流程"></a>Spring MVC 请求的整个流程</h3><blockquote>
+<ol>
+<li>用户发送请求至前端控制器 DispatcherServlet；</li>
+<li>DispatcherServlet 收到请求后，调用 HandlerMapping 处理器映射器，请求获取 Handler；</li>
+<li>处理器映射器根据请求 url 找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给 DispatcherServlet；</li>
+<li>DispatcherServlet 调用 HandlerAdapter 处理器适配器；</li>
+<li>HandlerAdapter 经过适配调用具体处理器(Handler，也叫后端控制器)；</li>
+<li>Handler 执行完成返回 ModelAndView；</li>
+<li>HandlerAdapter 将 Handler 执行结果 ModelAndView 返回给 DispatcherServlet；</li>
+<li>DispatcherServlet 将 ModelAndView 传给 ViewResolver 视图解析器进行解析；</li>
+<li>ViewResolver 会根据用户传入的 ViewName 创建一个 View 对象；</li>
+<li>DispatcherServlet 调用 View 对象的 render 方法渲染页面（即将模型数据填充至视图中）；</li>
+<li>DispatcherServlet 响应用户。</li>
+</ol>
+</blockquote>
+<p><img src="https://i.loli.net/2020/01/10/nusCOoWmykhfzxL.png" alt="image-20191102111431487.png"></p>
+<p>下面这张图更为详细，包含拦截器和异常处理流程。</p>
+<p><img src="https://i.loli.net/2020/01/10/CaIHmkujLXz7M8x.png" alt="image-20191103101835114.png"></p>
+<h3 id="Spring-MVC-的主要组件和作用"><a href="#Spring-MVC-的主要组件和作用" class="headerlink" title="Spring MVC 的主要组件和作用"></a>Spring MVC 的主要组件和作用</h3><blockquote>
+<ul>
+<li><strong>前端控制器 DispatcherServlet</strong></li>
+</ul>
+<p>Spring MVC 在单一 Servlet 的基础上，对原先过于耦合的各种控制器逻辑进行逐步分离。由原来单一 Servlet 作为整个应用的 Front Controller，当它接收到具体的 Web 请求后，会转发给次级 Page Controller。</p>
+<p>作用：接收请求、响应结果，相当于转发器，有了 DispatcherServlet 就减少了其它组件之间的耦合度。</p>
+<ul>
+<li><strong>处理器映射器 HandlerMapping</strong> </li>
+</ul>
+<p>作用：根据请求的 url 来查找 Handler。</p>
+<ul>
+<li><strong>处理器适配器 HandlerAdapter</strong> </li>
+</ul>
+<p>作用：按照特定规则（HandlerAdapter 要求的规则）去执行 Handler。调用具体的方法对用户发来的请求来进行处理。当 HandlerMapping 获取到执行请求的 controller 时，DispatcherServlet 会根据 controller 对应的类型来调用相应的 HandlerAdapter 来进行处理。通过 HandlerAdapter 对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。 </p>
+<p>处理器适配器 HandlerAdapter 有四种默认实现类：</p>
+<p>① <strong>HttpRequestHandlerAdapter</strong> ：适配静态资源处理器。</p>
+<p>② <strong>SimpleControllerHandlerAdapter</strong> ：适配实现了 Controller 接口的处理器 。</p>
+<p>③ *<em>SimpleServletHandlerAdapter *</em>：适配实现了 Servlet 接口的处理器。</p>
+<p>④ <strong>RequestMappingHandlerAdapter</strong> ：适配注解类处理器。</p>
+<ul>
+<li><strong>处理器 Handler</strong></li>
+</ul>
+<p>作用： Handler 是继 DispatcherServlet 前端控制器的后端控制器，在 DispatcherServlet 的控制下 Handler对具体的用户请求进行处理。 </p>
+<ul>
+<li><strong>视图解析器 ViewResolver</strong> </li>
+</ul>
+<p>与 HandlerMapping 帮助 DispatcherServlet 查找具体的 Controller 一样，ViewResolver 会根据 ModelAndView 中的逻辑视图名查找相应的 View 实现类，然后将查找的结果返回给 DispatcherServlet。 </p>
+<p>作用：进行视图的解析，根据视图逻辑名解析成真正的视图（View）。</p>
+<ul>
+<li><strong>视图 View</strong> </li>
+</ul>
+<p>作用：将模型填充到视图进行渲染。</p>
+</blockquote>
+<p>其中， <strong>处理器映射器</strong>、 <strong>处理器适配器</strong>、<strong>视图解析器</strong> 称为 Spring MVC 的三大组件。</p>
+<h3 id="Spring-MVC-各个组件的初始化过程"><a href="#Spring-MVC-各个组件的初始化过程" class="headerlink" title="Spring MVC 各个组件的初始化过程"></a>Spring MVC 各个组件的初始化过程</h3><p><strong>HandlerMapping 的初始化</strong></p>
+<blockquote>
+<p>以 SimpleUrlHandlerMapping 类初始化时为例进行分析：</p>
+<ol>
+<li>调用 ApplicationObjectSupport 的 setApplicationContext 方法</li>
+<li>调用 SimpleUrlHandlerMapping 的 initApplicationContext 方法</li>
+<li>调用 SimpleUrlHandlerMapping 的父类 AbstractHandlerMapping 的 initInterceptors 方法，将SimpleUrlHandlerMapping 中定义的 interceptors 包装成 HandlerInterceptor 对象保存在 adaptedInterceptors 数组中</li>
+<li>调用 SimpleUrlHandlerMapping 的 registerHandlers 方法</li>
+<li>调用 AbstractUrlHandlerMapping 的 registerHandler 方法，将 SimpleUrlHandlerMapping 中定义的 mappings 注册到 handlerMap 集合中</li>
+<li>调用 ApplicationContext 的 getBean 方法</li>
+</ol>
+</blockquote>
+<p><strong>HandlerAdapter 的初始化</strong></p>
+<blockquote>
+<p>创建一个 HandlerAdapter 对象，将这个 HandlerAdapter 对象保存在 DispatcherServlet 的 handlerAdapters 集合中。</p>
+<p>当 Spring MVC 将某个 URL 对应到某个 Handler 时，在 handlerAdapters 集合中查询哪个 handlerAdapter 对象支持这个 Handler，支持的 handlerAdapter 将会被返回，然后调用这个 handlerAdapter 接口对应的方法。</p>
+<p>如果这个 handlerAdapter 对象是 SimpleControllerHandlerAdapter，将调用 Controller 接口的 handle 方法。</p>
+</blockquote>
+<p><strong>整个 Controller 的调用逻辑</strong></p>
+<blockquote>
+<p>整个 Spring MVC 的调用是从 DispatcherServlet 的 <strong>doService</strong> 方法开始的，在 doService 方法中会将 ApplicationContext、localeResolver、themeResolver 等对象添加到 request 中便于在后面使用。接着就是调用<strong>doDispatch</strong> 方法，这个方法是主要的处理用户请求的地方。</p>
+<p>Controller 的处理逻辑关键就是在 DispatcherServlet 的 handlerMappings 集合中根据请求的 URL 匹配每个 HandlerMapping 对象中的某个 Handler，匹配成功后将会返回这个 Handler 的处理链 HandlerExecutionChain 对象，而这个 HandlerExecutionChain 对象中将会包含用户自定义的多个 HandlerInterceptor 对象。</p>
+<p>HandlerInterceptor 接口中定义的三个方法中，preHandle 和 postHandle 分别在 Handler 的执行前和执行后执行，afterCompletion 在 View 渲染完成、在 DispatcherServlet 返回之前执行。这里需要注意的地方是，当 preHandle 返回 false 时，当前的请求将在执行完 afterCompletion 后直接返回，Handler 也将不再执行。</p>
+<p>查看 HandlerExecutionChain 的 getHandler 方法你会发现返回的是 Object 对象，所以在这里 Handler 对象是没有类型的，<strong>Handler 的类型是由 HandlerAdapter 决定的</strong>。</p>
+<p>DispatcherServlet 会根据 Handler 对象在其 handlerAdapters 集合中匹配哪个 HandlerAdapter 实例支持该Handler 对象。接下去执行 Handler 对象的相应方法了，如该 Handler 对象的相应方法返回一个 ModelAndView 对象接下是就去执行 View 渲染。</p>
+</blockquote>
+<p>下面是 Controller 的调用逻辑时序图：</p>
+<p><img src="https://i.loli.net/2020/01/10/K1apMN2brtnSJoA.png" alt="image-20191104212329224.png"></p>
+<p>下面是解析 View 的时序图：</p>
+<p><img src="https://i.loli.net/2020/01/10/9YH5gNM1TWyItdZ.png" alt="image-20191104214225705.png"></p>
+<h3 id="Spring-MVC-的异常处理流程"><a href="#Spring-MVC-的异常处理流程" class="headerlink" title="Spring MVC 的异常处理流程"></a>Spring MVC 的异常处理流程</h3><h3 id="如何把-ModelMap-里面的数据放入-Session-里面"><a href="#如何把-ModelMap-里面的数据放入-Session-里面" class="headerlink" title="如何把 ModelMap 里面的数据放入 Session 里面"></a>如何把 ModelMap 里面的数据放入 Session 里面</h3><blockquote>
+<p>可以在类上面加上 <code>@SessionAttributes</code> 注解,里面包含的字符串就是要放入 session 里面的 key。 </p>
+</blockquote>
+<h3 id="Spring-MVC-如何使用拦截器"><a href="#Spring-MVC-如何使用拦截器" class="headerlink" title="Spring MVC 如何使用拦截器"></a>Spring MVC 如何使用拦截器</h3><blockquote>
+<p>首先需要定义拦截器，这里提供两种方式：</p>
+<p>① 实现 HandlerInterceptor 接口 </p>
+<p>② 继承 HandlerInterceptorAdapter 类 </p>
+<p>然后需要定义一个配置类，实现 WebMvcConfigurer 接口，重写  addInterceptors 方法注册拦截器。</p>
+</blockquote>
+<h3 id="Spring-MVC-启动流程"><a href="#Spring-MVC-启动流程" class="headerlink" title="Spring MVC 启动流程"></a>Spring MVC 启动流程</h3><h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2><h3 id="Spring-Boot-是如何自动装配的，怎么体现自动？装配的什么？"><a href="#Spring-Boot-是如何自动装配的，怎么体现自动？装配的什么？" class="headerlink" title="Spring Boot 是如何自动装配的，怎么体现自动？装配的什么？"></a>Spring Boot 是如何自动装配的，怎么体现自动？装配的什么？</h3><h3 id="Spring-Boot-是如何启动的（分-jar-包启动和-war-包启动）"><a href="#Spring-Boot-是如何启动的（分-jar-包启动和-war-包启动）" class="headerlink" title="Spring Boot 是如何启动的（分 jar 包启动和 war 包启动）"></a>Spring Boot 是如何启动的（分 jar 包启动和 war 包启动）</h3><h3 id="Spring-Boot-中如何使用-SPI-机制进行配置的（参考-SpringServletContainerInitializer）"><a href="#Spring-Boot-中如何使用-SPI-机制进行配置的（参考-SpringServletContainerInitializer）" class="headerlink" title="Spring Boot 中如何使用 SPI 机制进行配置的（参考 SpringServletContainerInitializer）"></a>Spring Boot 中如何使用 SPI 机制进行配置的（参考 SpringServletContainerInitializer）</h3><h3 id="Spring-Boot-内嵌-Tomcat-的原理"><a href="#Spring-Boot-内嵌-Tomcat-的原理" class="headerlink" title="Spring Boot 内嵌 Tomcat 的原理"></a>Spring Boot 内嵌 Tomcat 的原理</h3><h2 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h2><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="JSP-和-Servlet-的区别"><a href="#JSP-和-Servlet-的区别" class="headerlink" title="JSP 和 Servlet 的区别"></a>JSP 和 Servlet 的区别</h2><blockquote>
+<p>JSP 侧重于视图，Servlet 用于控制逻辑。</p>
+</blockquote>
+<h2 id="Servlet-的生命周期"><a href="#Servlet-的生命周期" class="headerlink" title="Servlet 的生命周期"></a>Servlet 的生命周期</h2><blockquote>
+<p>由于 Servlet 运行在容器中，没有 main 方法，因此，整个生命周期都是由容器来管理的。</p>
+<p>Servlet 的生命周期可以分为<strong>五个阶段</strong>：</p>
+<blockquote>
+<p>当 Servlet 容器启动或客户端发送一个请求时，Servlet 容器会查找内存中是否存在该 Servlet 实例，若存在，则直接读取该实例响应请求；如果不存在，再去加载创建初始化 Servlet 实例。</p>
+</blockquote>
+<ul>
+<li><strong>加载</strong> </li>
+</ul>
+<p>Servlet 容器通过类加载器使用 Servlet 的 class 文件来加载 Servlet。</p>
+<ul>
+<li><strong>创建</strong></li>
+</ul>
+<p>Servlet 容器通过调用 Servlet 的构造函数来创建一个 Servlet 实例。</p>
+<ul>
+<li><strong>初始化</strong> </li>
+</ul>
+<p>Servlet 容器将调用 Servlet 的 init() 方法进行初始化。这个方法在 Servlet 已被创建但向客户端提供服务之前调用，并且只会被调用一次。</p>
+<ul>
+<li><strong>服务（处理请求）</strong> </li>
+</ul>
+<p>初始化后，Servlet 处于能响应请求的就绪状态。当接收到客户端请求时，Servlet 容器会创建一个新的线程来处理该请求，接着调用 service() 方法完成客户端请求，HttpServlet 的 service() 方法会根据不同的请求转调不同的 doXxx() 方法。 </p>
+<ul>
+<li><strong>卸载（销毁）</strong> </li>
+</ul>
+<p>Servlet 容器在卸载 Servlet 之前需要调用 destory() 方法，让 Servlet 自己释放其占用的系统资源，一旦调用 destory() 方法，容器就不会向这个 Servlet 发送任何请求消息了。如果容器需要这个 Servlet，那么就必须重新创建并初始化一个实例。注意到 destory() 方法也只会被调用一次。</p>
+</blockquote>
+<h2 id="Servlet-与-CGI-的区别"><a href="#Servlet-与-CGI-的区别" class="headerlink" title="Servlet 与 CGI 的区别"></a>Servlet 与 CGI 的区别</h2><blockquote>
+<p>Servlet 处于服务器进程中，通过多线程的方式运行，每个请求都创建一个<strong>线程</strong>来执行，一个实例可以服务于多个请求，并且其实例一般不会销毁。</p>
+<p>CGI 对每个请求都产生新的<strong>进程</strong>，服务完成后就销毁，因此效率低于 Servlet。</p>
+</blockquote>
+<h2 id="filter-的作用"><a href="#filter-的作用" class="headerlink" title="filter 的作用"></a>filter 的作用</h2><blockquote>
+<p>filter 使用户可以改变一个 request 并且修改一个 response。</p>
+<p>filter 不是一个 Servlet，它不能产生一个 response，但它能在一个 request 到达 Servlet 之前预处理 request，也可以在离开 Servlet 时处理 response。</p>
+<p>filter其实是一个 Servlet 链。</p>
+<p>一个 filter 的作用包括以下几个方面：</p>
+<ul>
+<li>在 Servlet 被调用之前截获</li>
+<li>在 Servlet 被调用之前检查 ServletRequest</li>
+<li>根据需要修改 Request 头和 Request 数据</li>
+<li>根据需要修改 Response头和 Response 数据</li>
+<li>在 Servlet 被调用之后截获</li>
+</ul>
+</blockquote>
+<h2 id="Cookie-和-Session-的特点"><a href="#Cookie-和-Session-的特点" class="headerlink" title="Cookie 和 Session 的特点"></a>Cookie 和 Session 的特点</h2><blockquote>
+<p>Cookie 的特点：</p>
+<ul>
+<li>存储的数据在客户端</li>
+<li>单个 cookie 的大小有限制</li>
+<li>同一个域名下的 cookie 数量有限制</li>
+</ul>
+<p>Session 的特点：</p>
+<ul>
+<li>session 用于存储一次会话的多次请求的数据，存在服务端</li>
+<li>session 可以存储任意类型，任意大小的数据</li>
+<li>session 没有数据大小限制</li>
+</ul>
+</blockquote>
+<h2 id="客户端不关闭，服务端重启后，两次获取的-Session-是否是同一个？"><a href="#客户端不关闭，服务端重启后，两次获取的-Session-是否是同一个？" class="headerlink" title="客户端不关闭，服务端重启后，两次获取的 Session 是否是同一个？"></a>客户端不关闭，服务端重启后，两次获取的 Session 是否是同一个？</h2><blockquote>
+<p>不是同一个，重启后由于 Session 不同，数据会丢失，因此需要确保数据不丢失，Tomcat 帮我们完成了这个工作。</p>
+<p><strong>Session 钝化</strong>：服务器正常关闭之前，将 Session 对象序列化到硬盘上。</p>
+<p><strong>Session 活化</strong>：服务器启动后，将磁盘上的 Session 文件反序列化到 Session 对象。</p>
+</blockquote>
+<h2 id="会话跟踪方式"><a href="#会话跟踪方式" class="headerlink" title="会话跟踪方式"></a>会话跟踪方式</h2><blockquote>
+<ul>
+<li><strong>Cookie</strong></li>
+</ul>
+<p>客户端第一次请求服务端时，服务端会生成一个 cookie，然后使用 Set-Cookie 头将它作为 HTTP 响应的一部分传送到客户端，客户端一旦收到 Set-Cookie 头，那么就会把 Set-Cookie 头中的数据保存下来。</p>
+<p>客户端第二次请求服务端时，会把之前保存的数据放入请求头 cookie 中，服务端获取到 cookie 后，知道了客户端已经操作过，那么直接返回信息。</p>
+<ul>
+<li><strong>Session</strong> </li>
+</ul>
+<p>由于每次客户端的访问都必须回传 cookie，如果 cookie 很多，则无形增加了客户端与服务端的数据传输量，而 session 的出现正是为了解决这个问题。</p>
+<p>客户端第一次请求时，服务端会在内存中创建一个新的 session 对象，并且这个 session 对象有一个唯一的 id 称为 JSESSIONID。当服务端响应客户端时，服务端会使用 Set-Cookie 头将 JSESSIONID 作为 HTTP 响应的一部分传送到客户端，客户端一旦收到 Set-Cookie 头，那么就会把 Set-Cookie 头中的数据保存下来。 </p>
+<p>客户端下一次访问时，会把 JSESSIONID 发送到服务端，服务端获取到 cookie 信息后，会查找内存中是否有这个 session 对象，找到了就返回这个 session 对象。因此<strong>服务端的一次会话范围内，多次获取的 session 对象是同一个。</strong></p>
+<p><strong>Session 是依赖 Cookie 的，如果 Cookie 被禁用，那么 Session 也将失效。</strong></p>
+<ul>
+<li><strong>URL 重写</strong> </li>
+</ul>
+<p>在 URL 结尾添加会话 ID（通常是 JESSIONID），通过 URL 的信息传递到服务端，当 cookie 禁用时可以采用此种方式。</p>
+<ul>
+<li><strong>隐藏表单域</strong></li>
+</ul>
+<p>将会话 ID（通常是 JESSIONID）添加到 HTML 表单元素中提交到服务端，此表单在页面上隐藏。</p>
+</blockquote>
+<h2 id="设计一个测试，验证Nginx有10万以上的并发"><a href="#设计一个测试，验证Nginx有10万以上的并发" class="headerlink" title="设计一个测试，验证Nginx有10万以上的并发"></a>设计一个测试，验证Nginx有10万以上的并发</h2><blockquote>
+<p>回答1：</p>
+<p>写一个Java单元测试类，启动10万个线程，同时访问Nginx提供的服务，看看它的处理情况。</p>
+</blockquote>
+<blockquote>
+<p>回答2：</p>
+<ol>
+<li>部署Nginx服务到一台服务器上</li>
+<li>在多台虚拟机上部署Jmeter程序，使用分布式测试，每台进行一部分请求</li>
+<li>配置好meter的访问Http的URL和采样器</li>
+<li>进行并发测试，并统计相关结果</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>回答3：</p>
+<ol>
+<li>不同配置的服务处理能力不一样，准备不同配置的服务器，部署Nginx服务到这些服务器上，比如1核2G、2核2G、4核2G三种配置的服务器</li>
+<li>10万并发单台机器难以模拟，使用Jmeter分布式测试，多台机器一起并发请求，机器数量满足10万并发为止</li>
+<li>配置meter不同的测试用例和采样器，比如不同的用户数、请求数、接口参数</li>
+<li>对读场景接口进行并发测试</li>
+<li>对写场景接口进行并发测试</li>
+<li>统计对比读、写相关场景结果</li>
+<li>统计的结果和官方结果进行一个对比，不同场景对Nginx调优后再测一次</li>
+<li>同时对Tomcat也进行同样的部署和压测</li>
+<li>同样的配置和并发下，对比Nginx和Tomcat两个服务的统计数据</li>
+</ol>
+</blockquote>
+<h2 id="解释负载均衡是什么"><a href="#解释负载均衡是什么" class="headerlink" title="解释负载均衡是什么"></a>解释负载均衡是什么</h2><blockquote>
+<p>回答1：</p>
+<p>就是弄多台服务器分担处理业务</p>
+</blockquote>
+<blockquote>
+<p>回答2：</p>
+<p>负载均衡，英文名称为Load Balance，指由多台服务器以对称的方式组成一个服务器集合，每台服务器都具有等价的地位，都可以单独对外提供服务而无须其他服务器的辅助。通过某种负载分担技术，将外部发送来的请求均匀分配到对称结构中的某一台服务器上，而接收到请求的服务器独立地回应客户的请求。负载均衡能够平均分配客户请求到服务器阵列，借此提供快速获取重要数据，解决大量并发访问服务问题，这种集群技术可以用最少的投资获得接近于大型主机的性能。</p>
+</blockquote>
+<blockquote>
+<p>回答3：</p>
+<p>在互联网环境下，用户请求量越来越大，大型服务器硬件设备非常昂贵，单台服务器的处理能力总是有限的。我们可以使用多台服务器联合组成一组服务来替代单台服务器，解决单台处理不过来的问题，而且单台还存在单点故障。利用服务组一起来分担处理这些请求，如何均匀的分担这些请求给服务组提高可用性，涉及的技术就是负载均衡。</p>
+<p>负载均衡分为硬件负载均衡和软件负载均衡，硬件均衡服务器比如F5、Array，软件负载均衡有LVS、Nginx、HAproxy。</p>
+</blockquote>
+<h2 id="负载均衡有哪些手段"><a href="#负载均衡有哪些手段" class="headerlink" title="负载均衡有哪些手段"></a>负载均衡有哪些手段</h2><p>软件负载均衡的手段有：DNS负载均衡、数据链路层负载均衡、IP负载均衡、反向代理负载均衡</p>
+<p>。。。。</p>
+<h3 id="怎样保证Nginx可用性"><a href="#怎样保证Nginx可用性" class="headerlink" title="怎样保证Nginx可用性"></a>怎样保证Nginx可用性</h3><blockquote>
+<p>回答1：</p>
+<p>通过LVS+Keepalived进行主备切换</p>
+</blockquote>
+<blockquote>
+<p>回答2：</p>
+<p>Keepalived+nginx实现nginx的高可用。通过keepalived来实现同一个虚拟lP映射到两台Nginx代理服务器，如果主服务器挂掉或者主服务器的keepalived挂掉又或者主服务器的Nginx挂掉（Nginx挂掉后会杀死keepalived的进程，在脚本中有控制）那从服务器的keepalived会检测到并会接管原先MASTER的网络功能，这种方式来实现Nginx的高可用性。</p>
+</blockquote>
+<blockquote>
+<p>回答3：</p>
+<p>通过keepalived来实现同一个虚拟IP映射到两台Nginx代理服务器，操作步骤如下：</p>
+<ol>
+<li>需要两台的主机</li>
+<li>在这两台主机上分别安装Nginx和Keepalived</li>
+<li>Keepalived配置好VIP，其中一台为主，另一台为备</li>
+<li>修改Nginx配置，修改Keepalived配置，重启</li>
+<li>通过VIP进行访问测试</li>
+</ol>
+</blockquote>
+<h2 id="Nginx-的进程模型"><a href="#Nginx-的进程模型" class="headerlink" title="Nginx 的进程模型"></a>Nginx 的进程模型</h2><blockquote>
+<p>Nginx 默认采用多进程工作方式，Nginx 启动后，会运行一个 master 进程和多个 worker 进程。其中 master 充当整个进程组与用户的交互接口，同时对进程进行监护，管理 worker 进程来实现重启服务、平滑升级、更换日志文件、配置文件实时生效等功能。worker 用来处理基本的网络事件，worker 之间是平等的，它们共同竞争来处理来自客户端的请求。</p>
+</blockquote>
+<p><strong>master-worker 机制</strong></p>
+<p><img src="https://i.loli.net/2020/01/10/sMUdOk6vTm5BaoN.png" alt="1570784420521.png"></p>
+<p><img src="https://i.loli.net/2020/01/10/X8eDY2psyGAnxN7.png" alt="1570784779883.png"></p>
+<p><strong>master-worker 机制的好处</strong></p>
+<blockquote>
+<p>首先，对于每个 worker 进程来说，独立的进程，不需要加锁，所以省掉了锁带来的开销，同时在编程以及问题查找时，也会方便很多。其次，采用独立的进程，可以让互相之间不会影响，一个进程退出后，其它进程继续争抢工作，服务不会中断，master 进程则很快启动新的 worker 进程。当然，worker 进程的异常退出，肯定是程序有 bug 了，异常退出，会导致当前 worker 上的所有请求失败，不过不会影响到所有请求，所以降低了风险。</p>
+</blockquote>
+<p><strong>需要设置多少个 worker</strong></p>
+<blockquote>
+<p>Nginx 同 Redis 类似都采用了 <strong>IO 多路复用机制</strong>，每个 worker 都是一个独立的进程，但每个进程里只有一个主线程，通过异步非阻塞的方式来处理请求，即使是千上万个请求也不在话下。每个 worker 的线程可以把一个cpu 的性能发挥到极致。所以 worker 数和服务器的 cpu 数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
+</blockquote>
+<p><strong>Nginx 有一个master，有四个 worker，每个 worker 支持的最大连接数为 1024，请问支持的最大并发数是多少？</strong></p>
+<blockquote>
+<p>普通的静态访问最大并发数是：<code>worker_connections * worker_processes/2</code>，在这里也就是 1024 * 4 / 2 = 2048</p>
+<p>作为反向代理来说，最大并发数量应该是 <code>worker_connections * worker_processes/4</code>，在这里也就是 1024 * 4 / 4 = 1024</p>
+</blockquote>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="RPC和RMI的理解和区别"><a href="#RPC和RMI的理解和区别" class="headerlink" title="RPC和RMI的理解和区别"></a>RPC和RMI的理解和区别</h2><blockquote>
+<p><strong>RPC远程过程调用：</strong></p>
+<p>RPC(Remote Procedure Call Protocol)远程过程调用协议，通过网络从远程计算机上请求调用某种服务。</p>
+<p>一次RPC调用的过程大概有10步：</p>
+<ol>
+<li>执行客户端调用语句，传送参数</li>
+<li>调用本地系统发送网络消息</li>
+<li>消息传送到远程主机</li>
+<li>服务器得到消息并取得参数 </li>
+<li>根据调用请求以及参数执行远程过程（服务）</li>
+<li>执行过程完毕，将结果返回服务器句柄</li>
+<li>服务器句柄返回结果，调用远程主机的系统网络服务发送结果</li>
+<li>消息传回本地主机 </li>
+<li>客户端句柄由本地主机的网络服务接收消息</li>
+<li>客户端接收到调用语句返回的结果数据</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>RMI远程方法调用：</strong></p>
+<p>RMI(Remote Method Invocation)远程方法调用，能够让在客户端<strong>Java</strong>虚拟机上的对象像调用本地对象一样调用服务端java 虚拟机中的对象上的方法。</p>
+<p>一次RMI远程调用步骤：</p>
+<ol>
+<li>客户调用客户端辅助对象stub上的方法</li>
+<li>客户端辅助对象stub打包调用信息（变量，方法名），通过网络发送给服务端辅助对象skeleton</li>
+<li>服务端辅助对象skeleton将客户端辅助对象发送来的信息解包，找出真正被调用的方法以及该方法所在对象</li>
+<li>调用真正服务对象上的真正方法，并将结果返回给服务端辅助对象skeleton</li>
+<li>服务端辅助对象将结果打包，发送给客户端辅助对象stub</li>
+<li>客户端辅助对象将返回值解包，返回给调用者</li>
+<li>客户获得返回值</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>RPC与RMI的区别</strong>：</p>
+<ol>
+<li>方法调用方式不同</li>
+</ol>
+<p>RMI中是通过在客户端的Stub对象作为远程接口进行远程方法的调用<strong>。</strong>每个远程方法都具有方法签名。如果一个方法在服务器上执行，但是没有相匹配的签名被添加到这个远程接口(stub)上，那么这个新方法就不能被RMI客户方所调用。</p>
+<p>RPC中是通过网络服务协议向远程主机发送请求，请求包含了一个参数集和一个文本值，通常形成“classname.methodname(参数集)”的形式。RPC远程主机就去搜索与之相匹配的类和方法，找到后就执行方法并把结果编码，通过网络协议发回。</p>
+<ol start="2">
+<li>适用语言范围不同</li>
+</ol>
+<p>RMI只用于Java；</p>
+<p>RPC是网络服务协议，与操作系统和语言无关。</p>
+<ol start="3">
+<li>调用结果的返回形式不同</li>
+</ol>
+<p>Java是面向对象的，所以RMI的调用结果可以是对象类型或者基本数据类型；</p>
+<p>RMI的结果统一由外部数据表示 (External Data Representation, XDR)语言表示，这种语言抽象了字节序类和数据类型结构之间的差异。</p>
+</blockquote>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><blockquote>
+<p>在ISO7498-2标准中，数字签名的定义如下：“附加在数据单元上的一些数据，或者对数据单元所做的密码变换，这种数据和变换允许数据单元的接收者用以确认数据单元来源和数据单元的完整性，并保护数据，防止被人（例如接收者）进行伪造”。它是不对称加密算法的典型应用，依靠公钥加密技术来实现在公钥加密技术里，每一个使用者都有一对密钥：一把公钥和一把私钥，公钥可以自由发布，但私钥则秘密保存。</p>
+<p>具体而言，数字签名的应用过程如下：数据源发送方<strong>使用自己的私钥</strong>对数据校验和或其他与数据内容有关的变量进行加密处理，完成对数据的合法“签名”，数据接收方则利用对方的公钥来解读收到的“数字签名”，并将解读结果用于对数据完整性的检验，以确认签名的合法性。数字签名技术是在网络系统虚拟环境中确认身份的重要技术，完全可以代替现实过程中的“亲笔签字”，在技术和法律上有保证。</p>
+<p>在公钥与私钥管理方面，数字签名应用与加密邮件PGP（Pretty Good Privacy）技术正好相反。在数字签名应用中，发送者的公钥可以很方便地得到，但他/她的私钥则需要严格保密。</p>
+<p><strong>公钥加密私钥解密用于发送私有消息。</strong></p>
+<p><strong>私钥加密公钥解密用于数字签名。</strong></p>
+<p>为了更好地说明数字签名，引用一个较为通俗易懂的方法。</p>
+<p>1）A有两把钥匙，一把是公钥，另一把是私钥。</p>
+<p>2）A把公钥送给B、C、D，每人一把。</p>
+<p>3）D要给A写一封保密的信。他写完后用A的公钥加密，就可以达到保密的效果。</p>
+<p>4）A收到信后，用自己的私钥解密，就看到了信件内容。注意，只要私钥不泄露，这封信就是安全的，即使落在别人手里，它也是无法被解密的。</p>
+<p>5）A给D回信，决定采用“数字签名”。他写完后先用Hash函数，生成信件的摘要（Digest）。</p>
+<p>6）然后，A使用自己的私钥，对这个摘要加密，生成“数字签名”（Signature）。</p>
+<p>7）A将这个签名和自己需要发送的消息利用D的公钥进行加密，然后发送给D。</p>
+<p>8）D收到信后，先用自己的私钥解密得到明文消息和数字签名，然后取下数字签名，用A的公钥解密，得到信件的摘要。由此证明，这封信确实是A发出的。</p>
+<p>9）D再对信件本身使用Hash函数，将得到的结果与上一步得到的摘要进行对比。如果两者一致，就证明这封信未被修改过。</p>
+<p>10）复杂的情况出现了。C想欺骗D，他偷偷使用了D的电脑，用自己的公钥换走了A的公钥。此时，D实际拥有的是C的公钥，但是还以为这是A的公钥。因此，C就可以冒充A，用自己的私钥做“数字签名”，写信给D，让D用假的公钥进行解密。</p>
+<p>11）后来，D感觉不对劲，发现自己无法确定公钥是否真的属于A。她想到了一个办法，要求去找“证书中心”（Certificate Authority，CA）为公钥做认证。证书中心用自己的私钥，对A的公钥和一些相关信息一起加密，生成“数字证书”（Digital Certificate）。</p>
+<p>12）A拿到数字证书以后，就可以放心了。以后再给D写信，只要在签名的同时，再附上数字证书就行了。</p>
+<p>13）D收信后，用CA的公钥解开数字证书，就可以拿到真实的公钥了，然后就能证明“数字签名”是否真的是A签的。</p>
+</blockquote>
+<p>对加密/解密和签名/验签完整过程详细理解：</p>
+<blockquote>
+<p>A-&gt;B:</p>
+<ol>
+<li>A提取消息m的消息摘要h(m),并使用自己的私钥对摘要h(m)进行加密,生成签名s</li>
+<li>A将签名s和消息m一起,使用B的公钥进行加密,生成密文c,发送给B</li>
+</ol>
+<p>B:</p>
+<ol>
+<li>B接收到密文c,使用自己的私钥解密c得到明文m和数字签名s</li>
+<li>B使用A的公钥解密数字签名s解密得到H(m)</li>
+<li>B使用相同的方法提取消息m的消息摘要h(m)</li>
+<li>B比较两个消息摘要。相同则验证成功;不同则验证失败</li>
+</ol>
+</blockquote>
+<h2 id="TCP的三次握手和四次挥手"><a href="#TCP的三次握手和四次挥手" class="headerlink" title="TCP的三次握手和四次挥手"></a>TCP的三次握手和四次挥手</h2><blockquote>
+<p>至于为什么是三次握手，不是两次或者四次的原因很简单：一句话，三次刚好是两个闭环，发送方一个闭环，接收方一个闭环，每个闭环保证双方可以正常通信。</p>
+</blockquote>
+<p>TCP三次握手过程：</p>
+<p><img src="https://i.loli.net/2020/01/10/DfhW1ZxsN2LCpIi.png" alt="Snipaste_2019-09-03_09-43-24.png"></p>
+<p>最初两端的TCP进程都处于CLOSED关闭状态，A主动打开连接，而B被动打开连接。（<strong>A、B关闭状态CLOSED</strong>——<strong>B收听状态LISTEN——A同步已发送状态SYN-SENT——B同步收到状态SYN-RCVD——A、B连接已建立状态ESTABLISHED</strong>）</p>
+<p><strong>第一次握手</strong>：起初两端都处于CLOSED关闭状态，Client将标志位SYN置为1，随机产生一个值seq=x，并将该数据包发送给Server，Client进入SYN-SENT状态，等待Server确认；</p>
+<p><strong>第二次握手</strong>：Server收到数据包后由标志位SYN=1得知Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=x+1，随机产生一个值seq=y，并将该数据包发送给Client以确认连接请求，Server进入SYN-RCVD状态，此时操作系统为该TCP连接分配TCP缓存和变量；</p>
+<p><strong>第三次握手</strong>：Client收到确认后，检查ack是否为x+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=y+1，并且此时操作系统为该TCP连接分配TCP缓存和变量，并将该数据包发送给Server，Server检查ack是否为y+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client和Server就可以开始传输数据。</p>
+<blockquote>
+<p><strong>为什么不是二次握手？</strong></p>
+<p>主要为了防止已失效的连接请求报文段突然又传送到了B，因而产生错误。如A发出连接请求，但因连接请求报文丢失而未收到确认，于是A再重传一次连接请求。后来收到了确认，建立了连接。数据传输完毕后，就释放了连接，A工发出了两个连接请求报文段，其中第一个丢失，第二个到达了B，但是第一个丢失的报文段只是在某些网络结点长时间滞留了，延误到连接释放以后的某个时间才到达B，此时B误认为A又发出一次新的连接请求，于是就向A发出确认报文段，同意建立连接，不采用三次握手，只要B发出确认，就建立新的连接了，此时A不理睬B的确认且不发送数据，则B一致等待A发送数据，浪费资源。</p>
+</blockquote>
+<blockquote>
+<p><strong>Server端易受到SYN攻击？</strong></p>
+<p>服务器端的资源分配是在二次握手时分配的，而客户端的资源是在完成三次握手时分配的，所以服务器容易受到SYN洪泛攻击，SYN攻击就是Client在短时间内伪造大量不存在的IP地址，并向Server不断地发送SYN包，Server则回复确认包，并等待Client确认，由于源地址不存在，因此Server需要不断重发直至超时，这些伪造的SYN包将长时间占用未连接队列，导致正常的SYN请求因为队列满而被丢弃，从而引起网络拥塞甚至系统瘫痪。</p>
+<p>防范SYN攻击措施：降低主机的等待时间使主机尽快的释放半连接的占用，短时间受到某IP的重复SYN则丢弃后续请求。</p>
+</blockquote>
+<p>TCP四次挥手过程：</p>
+<p><img src="https://i.loli.net/2020/01/10/YR16GQlPCVah2In.png" alt="Snipaste_2019-09-03_10-10-53.png"></p>
+<p>起初A和B处于<strong>ESTABLISHED状态</strong></p>
+<p><strong>第一次挥手</strong>：A发出连接释放报文段并处于<strong>FIN-WAIT-1状态</strong>。</p>
+<p><strong>第二次挥手</strong>：B发出确认报文段且进入<strong>CLOSE-WAIT状态</strong>。A收到确认后，进入<strong>FIN-WAIT-2状态</strong>，等待B的连接释放报文段。</p>
+<p><strong>第三次挥手</strong>：B没有要向A发出的数据，B发出连接释放报文段且进入<strong>LAST-ACK状态</strong>。</p>
+<p><strong>第四次挥手</strong>：A发出确认报文段且进入<strong>TIME-WAIT状态</strong>。B收到确认报文段后进入<strong>CLOSED状态</strong>。A经过等待计时器时间2MSL后，进入<strong>CLOSED状态</strong>。</p>
+<p>大白话描述：</p>
+<p>假设Client端发起中断连接请求，也就是发送FIN报文。Server端接到FIN报文后，意思是说”我Client端没有数据要发给你了”，但是如果你还有数据没有发送完成，则不必急着关闭Socket，可以继续发送数据。所以你先发送ACK，”告诉Client端，你的请求我收到了，但是我还没准备好，请继续你等我的消息”。这个时候Client端就进入FIN_WAIT状态，继续等待Server端的FIN报文。当Server端确定数据已发送完成，则向Client端发送FIN报文，”告诉Client端，好了，我这边数据发完了，准备好关闭连接了”。Client端收到FIN报文后，”就知道可以关闭连接了，但是他还是不相信网络，怕Server端不知道要关闭，所以发送ACK后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。“，Server端收到ACK后，”就知道可以断开连接了”。Client端等待了2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，我Client端也可以关闭连接了。Ok，TCP连接就这样关闭了！</p>
+<blockquote>
+<p><strong>为什么A在TIME-WAIT状态必须等待2MSL的时间？（MSL最长报文段寿命Maximum Segment Lifetime，MSL=2）</strong></p>
+<ol>
+<li>保证A发送的最后一个ACK报文段能够到达B</li>
+<li>防止已失效的连接请求报文段出现在本连接中</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>为什么连接的时候是三步握手，关闭的时候却是四步“握手”？</strong></p>
+<p>因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.feichaoyu.com" rel="external nofollow noreferrer">feichaoyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.feichaoyu.com/2020/01/22/wen-da/">https://blog.feichaoyu.com/2020/01/22/wen-da/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.feichaoyu.com" target="_blank">feichaoyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '5d532a15ac3d0c7b3a64',
+        clientSecret: '572d78e2f0d397d21bb65eddd0ffcc740197553d',
+        repo: 'feichaoyu.github.io',
+        owner: 'feichaoyu',
+        admin: ["feichaoyu"],
+        id: '2020-01-22T15-35-56',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/22/wen-da/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="面试笔试问答汇总">
+                        
+                        <span class="card-title">面试笔试问答汇总</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            [TOC]
+Java面向对象基础switch 语句可以用于哪些数据类型
+switch 语句可以用于 char, byte, short, int 这些数据基本类型，以及它们的包装类。
+在 switch 里不能用 long, double, 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/21/java/collection/jie-du-hashmap/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="post">
+                        
+                        <span class="card-title">post</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言HashMap 算是我们日常学习工作中遇到的比较多的一个类，它用于存储 Key-Value 键值对。HashMap 允许使用 null 键和 null 值，在计算 hash 值时，null 键的 hash 值就是 0，HashMap 并
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HashMap/">
+                        <span class="chip bg-color">HashMap</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%86%E5%90%88/">
+                        <span class="chip bg-color">集合</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: feichaoyu<br />'
+            + '文章作者: feichaoyu<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://blog.feichaoyu.com" target="_blank">feichaoyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/FeiChaoyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:979331856@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.feichaoyu.com/"/>
-  <updated>2020-01-17T14:56:30.324Z</updated>
+  <updated>2020-01-22T07:42:39.519Z</updated>
   <id>https://blog.feichaoyu.com/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试笔试问答汇总</title>
+    <link href="https://blog.feichaoyu.com/2020/01/22/wen-da/"/>
+    <id>https://blog.feichaoyu.com/2020/01/22/wen-da/</id>
+    <published>2020-01-22T07:35:56.000Z</published>
+    <updated>2020-01-22T07:42:39.519Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Java&quot;&gt;&lt;a href=&quot;#Java&quot; class=&quot;headerlink&quot; title=&quot;Java&quot;&gt;&lt;/a&gt;Java&lt;/h1&gt;&lt;h2 id=&quot;面向对象基础&quot;&gt;&lt;a href=&quot;#面向对象基础&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="https://blog.feichaoyu.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>post</title>
+    <link href="https://blog.feichaoyu.com/2020/01/21/java/collection/jie-du-hashmap/"/>
+    <id>https://blog.feichaoyu.com/2020/01/21/java/collection/jie-du-hashmap/</id>
+    <published>2020-01-21T06:33:56.000Z</published>
+    <updated>2020-01-22T07:49:38.793Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;HashMap 算是我们日常学习工作中遇到的比较多的一个类，它用于存储 Key-Value 键值对。HashMap
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://blog.feichaoyu.com/categories/Java/"/>
+    
+    
+      <category term="HashMap" scheme="https://blog.feichaoyu.com/tags/HashMap/"/>
+    
+      <category term="集合" scheme="https://blog.feichaoyu.com/tags/%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>《原则》感悟</title>
