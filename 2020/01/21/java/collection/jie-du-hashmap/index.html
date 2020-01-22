@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="post, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="前言HashMap 算是我们日常学习工作中遇到的比较多的一个类，它用于存储 Key-Value 键值对。HashMap 允许使用 null 键和 null 值，在计算 hash 值时，null 键的 hash 值就是 0，HashMap 并">
+    <meta name="keywords" content="解读HashMap, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="对HashMap的源码分析，以及整理一些相关知识点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>post | feichaoyu</title>
+    <title>解读HashMap | feichaoyu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">post</h1>
+                    <h1 class="description center-align post-title">解读HashMap</h1>
                 </div>
             </div>
         </div>
@@ -437,8 +437,14 @@
 <p>在 JDK1.8 之前，<strong>HashMap 底层采用数组+链表</strong>实现，即用链表处理冲突，同一 hash 值的元素都存储在一个链表里。但是当位于一个桶中的元素较多，即 hash 值相等的元素较多时，通过 key 值依次查找的效率较低。在 JDK1.8 中，<strong>HashMap 存储采用数组+链表+红黑树</strong>实现，当链表长度超过阈值 8 且数组长度超过 64 时，将链表转换为红黑树，这样大大减少了查找时间。</p>
 <p>在本文中，我会通过对 JDK1.7 和 JDk1.8 的比较，为你介绍如下内容：</p>
 <ul>
-<li>增删改查方法分析</li>
-<li>resize 方法在不同实现</li>
+<li><p>增删改查方法分析</p>
+</li>
+<li><p>resize 方法分析</p>
+</li>
+<li><p>树的实现（后续有时间再写，主要是图需要画更多）</p>
+</li>
+<li><p>问答题（必看）</p>
+</li>
 </ul>
 <blockquote>
 <p>一些没有提到的细节，我会在最后以问答题的方式呈现。</p>
@@ -1583,18 +1589,15 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="面试笔试问答汇总">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java程序员问答汇总">
                         
-                        <span class="card-title">面试笔试问答汇总</span>
+                        <span class="card-title">Java程序员问答汇总</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            [TOC]
-Java面向对象基础switch 语句可以用于哪些数据类型
-switch 语句可以用于 char, byte, short, int 这些数据基本类型，以及它们的包装类。
-在 switch 里不能用 long, double, 
+                            不定期更新一些问答知识点
                         
                     </div>
                     <div class="publish-info">
