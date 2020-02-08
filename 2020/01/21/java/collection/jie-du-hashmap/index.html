@@ -523,7 +523,7 @@
 <pre class="line-numbers language-java"><code class="language-java">threshold <span class="token operator">=</span> initialCapacity<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">this</span><span class="token punctuation">.</span>threshold <span class="token operator">=</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span>initialCapacity<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这两行代码都是把初始容量赋值给了<code>threshold</code>变量。我们知道，<code>threshold</code>指的是 HashMap 存储元素的阈值，超过了这个阈值就会对其进行扩容操作。难道这里和我们想的还不一样？是的，这里的<code>threshlod</code>只是用于暂存 HashMap 的容量，因为在 HashMap 中并不存在 <code>capacity</code> 这个成员变量。</p>
-<p>所不同的是，在 JDK1.7 中，<code>threshold</code>是传入的初始容量，而在 JDK1.8 中，<code>threshold</code>是传入的初始容量经过<code>tableSizeFor</code>方法进行向上取最近的 2 的次幂之后的容量值。举个:chestnut:，如果传入的容量是 12，那么在 JDK1.7 中，在构造方法调用后，<code>threshold</code>值为 12，在 JDK1.8 中，<code>threshold</code>值为 16。</p>
+<p>所不同的是，在 JDK1.7 中，<code>threshold</code>是传入的初始容量，而在 JDK1.8 中，<code>threshold</code>是传入的初始容量经过<code>tableSizeFor</code>方法进行向上取最近的 2 的次幂之后的容量值。举个例子，如果传入的容量是 12，那么在 JDK1.7 中，在构造方法调用后，<code>threshold</code>值为 12，在 JDK1.8 中，<code>threshold</code>值为 16。</p>
 <p><code>tableSizeFor</code>方法的源码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">tableSizeFor</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n <span class="token operator">=</span> cap <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -981,7 +981,7 @@
 </li>
 <li><p>对于链表结构节点的重新分配，不同于 JDK1.7 中需要重新进行 index 的计算，在 JDK1.8 中，是通过分组的方式存储在低位和高位链表中。</p>
 <blockquote>
-<p>举个:chestnut:</p>
+<p>举个例子：</p>
 <p>有一个哈希表的容量为16，其中一个元素的 hash 值为：1001 1111，那么经过计算，最后这个元素在哈希表中的位置是 15</p>
 <p>​                                 n - 1： 0000 1111</p>
 <p>​                                         hash：1001 1111</p>

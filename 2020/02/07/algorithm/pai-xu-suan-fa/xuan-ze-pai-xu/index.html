@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="选择排序, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="图解选择排序">
+    <meta name="keywords" content="简单选择排序, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="图解简单选择排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>选择排序 | feichaoyu</title>
+    <title>简单选择排序 | feichaoyu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">选择排序</h1>
+                    <h1 class="description center-align post-title">简单选择排序</h1>
                 </div>
             </div>
         </div>
@@ -381,6 +381,10 @@
                                 <span class="chip bg-color">排序算法</span>
                             </a>
                         
+                            <a href="/tags/%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">简单选择排序</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -411,7 +415,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    605
+                    607
                 </div>
                 
 
@@ -429,7 +433,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>有如下数组，我们需要对它从小到大排序，步骤如下：</p>
+                <h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2><p>有如下数组，我们需要对它从小到大排序，步骤如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/Snipaste_2020-02-07_15-08-15.png" alt=""></p>
 <ol>
 <li>在数组中找到最小值，然后与第一个位置交换。</li>
@@ -467,7 +471,7 @@
 <li>一轮循环结束，让最小值和<code>left</code>指向的元素交换，让最大值和<code>right</code>指向的元素交换。</li>
 <li>让<code>left</code>指针和<code>right</code>指针所构成的区间减小，即<code>left++, right--</code>。</li>
 </ol>
-<p>下面展示了整个交换的过程：</p>
+<p>下图展示了整个交换的过程：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/SelectionSort-2.png" alt=""></p>
 <p>优化的选择排序代码：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 在每一轮中, 可以同时找到当前未处理元素的最大值和最小值</span>
@@ -587,6 +591,10 @@
                             
                                 <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">排序算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">简单选择排序</span>
                                 </a>
                             
                         </div>
@@ -782,19 +790,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/07/algorithm/pai-xu-suan-fa/cha-ru-pai-xu/">
+                <a href="/2020/02/07/algorithm/pai-xu-suan-fa/dui-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="插入排序">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="堆及堆排序">
                         
-                        <span class="card-title">插入排序</span>
+                        <span class="card-title">堆及堆排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            图解插入排序
+                            图解堆排序及其优化，举例说明堆的应用
                         
                     </div>
                     <div class="publish-info">
@@ -818,6 +826,14 @@
                     
                     <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">排序算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/">
+                        <span class="chip bg-color">二叉堆</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">堆排序</span>
                     </a>
                     
                 </div>
