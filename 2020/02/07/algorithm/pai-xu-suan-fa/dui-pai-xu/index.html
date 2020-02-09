@@ -461,9 +461,12 @@
 <p>可见，堆中某个节点的值总是小于等于其父节点的值。</p>
 <p>由于堆是一棵完全二叉树，因此我们可以对每一层进行编号，如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/HeapSort-2.png" alt=""></p>
-<p>我们完全可以使用数组存放这些元素，那如何确定存放的位置呢？利用如下公式：<br>$$<br>父节点：parent(i)=(i-1)/2<br>$$</p>
-<p>$$<br>左孩子：leftChild(i)=2*i+1<br>$$</p>
-<p>$$<br>右孩子：rightChild(i)=2*i+2<br>$$</p>
+<p>我们完全可以使用数组存放这些元素，那如何确定存放的位置呢？利用如下公式：</p>
+<blockquote>
+<p><strong>父节点：parent(i) = (i-1)/2</strong></p>
+<p><strong>左孩子：leftChild(i) = 2*i+1</strong></p>
+<p><strong>右孩子：rightChild(i) = 2*i+2</strong></p>
+</blockquote>
 <p>相关代码如下：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">parent</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>index <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
@@ -718,7 +721,7 @@
 </ol>
 <p>假设有数组<code>[20, 30, 40, 50, 2, 4, 3, 5, 7, 8, 10]</code>。</p>
 <p>下图展示了整个操作的过程：</p>
-<p>![](<a href="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn@master/img/利用堆求解中位数" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn@master/img/利用堆求解中位数</a> .png)</p>
+<p>![](<a href="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-2-9" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-2-9</a> 131730.png)</p>
 <p>求解中位数的代码：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Median</span><span class="token operator">&lt;</span>E <span class="token keyword">extends</span> <span class="token class-name">Comparable</span><span class="token operator">&lt;</span>E<span class="token operator">>></span> <span class="token punctuation">{</span>
 
