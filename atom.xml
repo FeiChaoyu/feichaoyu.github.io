@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.feichaoyu.com/"/>
-  <updated>2020-02-09T05:23:39.694Z</updated>
+  <updated>2020-02-10T04:09:31.238Z</updated>
   <id>https://blog.feichaoyu.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>堆及堆排序</title>
+    <title>图解直接插入排序和希尔排序</title>
+    <link href="https://blog.feichaoyu.com/2020/02/09/algorithm/pai-xu-suan-fa/zhi-jie-cha-ru-pai-xu-he-xi-er-pai-xu/"/>
+    <id>https://blog.feichaoyu.com/2020/02/09/algorithm/pai-xu-suan-fa/zhi-jie-cha-ru-pai-xu-he-xi-er-pai-xu/</id>
+    <published>2020-02-09T05:24:25.000Z</published>
+    <updated>2020-02-10T04:09:31.238Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法与数据结构" scheme="https://blog.feichaoyu.com/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="排序算法" scheme="https://blog.feichaoyu.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="直接插入排序" scheme="https://blog.feichaoyu.com/tags/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="希尔排序" scheme="https://blog.feichaoyu.com/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图解堆结构、堆排序及堆的应用</title>
     <link href="https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/dui-pai-xu/"/>
     <id>https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/dui-pai-xu/</id>
     <published>2020-02-07T12:49:33.000Z</published>
-    <updated>2020-02-09T05:23:39.694Z</updated>
+    <updated>2020-02-10T04:01:49.434Z</updated>
     
     <summary type="html">
     
@@ -48,11 +79,11 @@
   </entry>
   
   <entry>
-    <title>简单选择排序</title>
-    <link href="https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/xuan-ze-pai-xu/"/>
-    <id>https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/xuan-ze-pai-xu/</id>
+    <title>图解简单选择排序</title>
+    <link href="https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/jian-dan-xuan-ze-pai-xu/"/>
+    <id>https://blog.feichaoyu.com/2020/02/07/algorithm/pai-xu-suan-fa/jian-dan-xuan-ze-pai-xu/</id>
     <published>2020-02-07T05:52:33.000Z</published>
-    <updated>2020-02-08T14:22:27.775Z</updated>
+    <updated>2020-02-10T04:02:23.743Z</updated>
     
     <summary type="html">
     
