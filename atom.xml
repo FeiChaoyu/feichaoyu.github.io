@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.feichaoyu.com/"/>
-  <updated>2020-02-10T04:09:31.238Z</updated>
+  <updated>2020-02-13T07:44:00.102Z</updated>
   <id>https://blog.feichaoyu.com/</id>
   
   <author>
@@ -15,6 +15,118 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>云计算的前世今生</title>
+    <link href="https://blog.feichaoyu.com/2020/02/13/cloud-computing/yun-ji-suan-de-qian-shi-jin-sheng/"/>
+    <id>https://blog.feichaoyu.com/2020/02/13/cloud-computing/yun-ji-suan-de-qian-shi-jin-sheng/</id>
+    <published>2020-02-13T06:35:01.000Z</published>
+    <updated>2020-02-13T07:44:00.102Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;云计算的由来&quot;&gt;&lt;a href=&quot;#云计算的由来&quot; class=&quot;headerlink&quot; title=&quot;云计算的由来&quot;&gt;&lt;/a&gt;云计算的由来&lt;/h2&gt;&lt;h3 id=&quot;历史&quot;&gt;&lt;a href=&quot;#历史&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="云计算" scheme="https://blog.feichaoyu.com/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图解归并排序</title>
+    <link href="https://blog.feichaoyu.com/2020/02/12/algorithm/pai-xu-suan-fa/gui-bing-pai-xu/"/>
+    <id>https://blog.feichaoyu.com/2020/02/12/algorithm/pai-xu-suan-fa/gui-bing-pai-xu/</id>
+    <published>2020-02-12T06:20:22.000Z</published>
+    <updated>2020-02-12T12:23:10.013Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法与数据结构" scheme="https://blog.feichaoyu.com/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="排序算法" scheme="https://blog.feichaoyu.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="归并排序" scheme="https://blog.feichaoyu.com/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图解快速排序及双路三路快速排序</title>
+    <link href="https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/kuai-su-pai-xu/"/>
+    <id>https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/kuai-su-pai-xu/</id>
+    <published>2020-02-10T13:16:19.000Z</published>
+    <updated>2020-02-11T12:21:06.314Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法与数据结构" scheme="https://blog.feichaoyu.com/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="排序算法" scheme="https://blog.feichaoyu.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="快速排序" scheme="https://blog.feichaoyu.com/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithm/排序算法/冒泡排序</title>
+    <link href="https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/mou-pao-pai-xu/"/>
+    <id>https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/mou-pao-pai-xu/</id>
+    <published>2020-02-10T07:22:01.000Z</published>
+    <updated>2020-02-10T10:04:26.695Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法与数据结构" scheme="https://blog.feichaoyu.com/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="排序算法" scheme="https://blog.feichaoyu.com/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="冒泡排序" scheme="https://blog.feichaoyu.com/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>图解直接插入排序和希尔排序</title>
