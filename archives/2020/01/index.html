@@ -238,7 +238,143 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
+    <style>
+    /*归档页自定义样式*/
+    .archive-container{
+      padding: 20px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .archive:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+    
+    .archive .articles {
+      border-left: 1px solid #dbdbdb;
+    }
+    
+    .archive .article {
+      border-top: none;
+      margin-left: -1px;
+      padding: 0.4rem 1.5rem;
+      border-left: 3px solid transparent;
+    }
+    
+    .archive .article:hover {
+      transition: all .6s;
+      -webkit-transition: all .6s;
+      -o-transition: all .6s;
+      -moz-transition: all .6s;
+      border-left-color: #0f9d58 ;
+    }
+    
+    .archive .article time {
+      font-size: 1rem;
+      color: deeppink;
+      /* color: darkgray; */
+    }
+    article-sort-item_title{
+      display: -webkit-box;
+      overflow: hidden;
+      height: 60px;
+      color: #4c4948;
+      font-size: .75rem;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -o-transition: all .3s;
+      -ms-transition: all .3s;
+      transition: all .3s;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    
+    .archive .article h6 {
+      margin: 0;
+    }
+    
+    .archive .article h6 a {
+      line-height: 2.5;
+      color: inherit;
+      border-bottom: 1px dashed transparent;
+    }
+    
+    .archive .article h6 a:hover {
+      border-bottom-color: #0f9d58;
+      padding-left: 16px;
+      transition: all .5s;
+      -webkit-transition: all .5s;
+      -o-transition: all .5s;
+      -moz-transition: all .5s;
+    }
+    
+    .archive .articles .imgcontent{
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+    }
+    
+    .archive .articles .imgcontent .postimg{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .archive .articles .imgcontent .postimg:hover{
+      transform: scale(1.3);
+      transition: all .6s;
+      -webkit-transition: all .6s;
+      -o-transition: all .6s;
+      -moz-transition: all .6s;
+    }
+    .article-sort-post{
+      display: inline-block;
+      position: relative;
+      top: -16px;
+      left: 10px;
+    }
+    
+    .hbe-input-container{
+      width: 80%;
+      max-width: 800px;
+      position: relative;
+      margin: 100px auto;
+    }
+    
+    .hbe-input-container  .btn-decrypt{
+      display: inline-block;
+      vertical-align: top;
+      width: 120px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #3f90ff;
+      text-align: center;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+    }
+    .about-cover {
+      height: 50vh;
+    }
+    .desc-content{
+      padding: 0 50px;
+    }
+    @media only screen and (max-width: 601px) {
+      .desc-content {
+        padding: 0 15px;
+      }
+    }
+    
+    .v .vlist .vcard {
+      padding-top: 2.5em !important;
+    }
+    
+ </style>
+
+<div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -282,7 +418,7 @@
 <main class="content">
 
     
-    <div class="container archive-calendar">
+        <div class="container archive-calendar">
     <div class="card">
         <div id="post-calendar" class="card-content"></div>
     </div>
@@ -366,198 +502,312 @@
 </script>
     
 
+    <div class="container archive-container ">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-chips">
+                    <span onclick="showTable()" id="sp-table" class="chip center-align waves-effect waves-light default"
+                          data-tagname="时间列表"
+                          style="background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); color:#fff">时间列表
+                    </span>
+                    <span onclick="showTime()" id="sp-timeline"
+                          class="chip center-align waves-effect waves-light default"
+                          data-tagname="时间轴" style="background-color: #F9EBEA;">时间轴
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cd-table" class="container archive-container">
+        <div class="card">
+            <div class="card-content">
+                
+                
+                    <div class="archive">
+                        <h4 class="archive-year" id="2020">2020年</h4>
+                        <div class="articles">
+                            
+                                <div class="article content>">
+                                <!--  <a href="/2020/01/22/wen-da/">
+                                    <div class="imgcontent"><img class="postimg" src="" alt="Java程序员问答汇总"></div>  
+                                  </a> -->
+                                  <div class="article-sort-post">
+                                    <div class="article-sort-item_title">
+                                      <a href="/2020/01/22/wen-da/">
+                                        <h5>
+                                          <i class="fa fa-clock" style="font-size: 1rem;cursor: pointer;"></i>
+                                          <time class="is-text-small" datetime="2020-01-22T07:35:56.000Z" itemprop="datePublished" >
+                                            2020-01-22 
+                                          </time>
+                                        </h5>
+                                        <h6 class="is-6"><a href="/2020/01/22/wen-da/">Java程序员问答汇总</a></h6>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+                                <div class="article content>">
+                                <!--  <a href="/2020/01/21/java/collection/jie-du-hashmap/">
+                                    <div class="imgcontent"><img class="postimg" src="" alt="解读HashMap"></div>  
+                                  </a> -->
+                                  <div class="article-sort-post">
+                                    <div class="article-sort-item_title">
+                                      <a href="/2020/01/21/java/collection/jie-du-hashmap/">
+                                        <h5>
+                                          <i class="fa fa-clock" style="font-size: 1rem;cursor: pointer;"></i>
+                                          <time class="is-text-small" datetime="2020-01-21T06:33:56.000Z" itemprop="datePublished" >
+                                            2020-01-21 
+                                          </time>
+                                        </h5>
+                                        <h6 class="is-6"><a href="/2020/01/21/java/collection/jie-du-hashmap/">解读HashMap</a></h6>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+                                <div class="article content>">
+                                <!--  <a href="/2020/01/17/life/yuan-ze-gan-wu/">
+                                    <div class="imgcontent"><img class="postimg" src="https://i.loli.net/2020/01/17/pHXGlyntCafVeqb.jpg" alt="《原则》感悟"></div>  
+                                  </a> -->
+                                  <div class="article-sort-post">
+                                    <div class="article-sort-item_title">
+                                      <a href="/2020/01/17/life/yuan-ze-gan-wu/">
+                                        <h5>
+                                          <i class="fa fa-clock" style="font-size: 1rem;cursor: pointer;"></i>
+                                          <time class="is-text-small" datetime="2020-01-17T14:32:48.000Z" itemprop="datePublished" >
+                                            2020-01-17 
+                                          </time>
+                                        </h5>
+                                        <h6 class="is-6"><a href="/2020/01/17/life/yuan-ze-gan-wu/">《原则》感悟</a></h6>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
     
 
-    <div id="cd-timeline" class="container">
+    <div id="cd-timeline" class="container" style="display: none">
         
-        <div class="cd-timeline-block">
+            <div class="cd-timeline-block">
 
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2020">2020</a>
-            </div>
-            
+                
+                
+                    
+                    <div class="cd-timeline-img year" data-aos="zoom-in-up">
+                        <a href="/archives/2020">2020</a>
+                    </div>
+                
 
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2020/01">01</a>
-            </div>
-            
+                
+                
+                    
+                    <div class="cd-timeline-img month" data-aos="zoom-in-up">
+                        <a href="/archives/2020/01">01</a>
+                    </div>
+                
 
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>22</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2020/01/22/wen-da/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java程序员问答汇总">
-                                
-                                <span class="card-title">Java程序员问答汇总</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    不定期更新一些问答知识点
-                                
-                            </div>
-                            <div class="publish-info">
+                
+                <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                    <span>22</span>
+                </div>
+                <article class="cd-timeline-content" data-aos="fade-up">
+                    <div class="article col s12 m6">
+                        <div class="card">
+                            <a href="/2020/01/22/wen-da/">
+                                <div class="card-image">
+                                    
+                                        
+                                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java程序员问答汇总">
+                                    
+                                    <span class="card-title">Java程序员问答汇总</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        不定期更新一些问答知识点
+                                    
+                                </div>
+                                <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
                                 </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    <span class="publish-author">
+                                        
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            
+                                                <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category"
+                                                   target="_blank">
                                     面试
                                     </a>
-                                    
-                                    
-                                </span>
+                                            
+                                        
+                                    </span>
+                                </div>
                             </div>
+
+                            
                         </div>
-
-                        
                     </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>21</span>
+                </article>
             </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2020/01/21/java/collection/jie-du-hashmap/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="解读HashMap">
-                                
-                                <span class="card-title">解读HashMap</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    对HashMap的源码分析，以及整理一些相关知识点
-                                
-                            </div>
-                            <div class="publish-info">
+        
+            <div class="cd-timeline-block">
+
+                
+                
+
+                
+                
+
+                
+                <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                    <span>21</span>
+                </div>
+                <article class="cd-timeline-content" data-aos="fade-up">
+                    <div class="article col s12 m6">
+                        <div class="card">
+                            <a href="/2020/01/21/java/collection/jie-du-hashmap/">
+                                <div class="card-image">
+                                    
+                                        
+                                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="解读HashMap">
+                                    
+                                    <span class="card-title">解读HashMap</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        对HashMap的源码分析，以及整理一些相关知识点
+                                    
+                                </div>
+                                <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
                                 </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Java/" class="post-category">
+                                    <span class="publish-author">
+                                        
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            
+                                                <a href="/categories/Java/" class="post-category"
+                                                   target="_blank">
                                     Java
                                     </a>
-                                    
-                                    
-                                </span>
+                                            
+                                        
+                                    </span>
+                                </div>
                             </div>
-                        </div>
 
-                        
-                        <div class="card-action article-tags">
                             
-                            <a href="/tags/HashMap%E6%BA%90%E7%A0%81/"><span class="chip bg-color">HashMap源码</span></a>
-                            
-                            <a href="/tags/%E9%9B%86%E5%90%88%E6%98%A0%E5%B0%84/"><span class="chip bg-color">集合映射</span></a>
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/HashMap%E6%BA%90%E7%A0%81/"><span
+                                                    class="chip bg-color">HashMap源码</span></a>
+                                    
+                                        <a href="/tags/%E9%9B%86%E5%90%88%E6%98%A0%E5%B0%84/"><span
+                                                    class="chip bg-color">集合映射</span></a>
+                                    
+                                </div>
                             
                         </div>
-                        
                     </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>17</span>
+                </article>
             </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2020/01/17/life/yuan-ze-gan-wu/">
-                            <div class="card-image">
-                                
-                                <img src="https://i.loli.net/2020/01/17/pHXGlyntCafVeqb.jpg" class="responsive-img" alt="《原则》感悟">
-                                
-                                <span class="card-title">《原则》感悟</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    Ray Dalio《原则》
-                                
-                            </div>
-                            <div class="publish-info">
+        
+            <div class="cd-timeline-block">
+
+                
+                
+
+                
+                
+
+                
+                <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                    <span>17</span>
+                </div>
+                <article class="cd-timeline-content" data-aos="fade-up">
+                    <div class="article col s12 m6">
+                        <div class="card">
+                            <a href="/2020/01/17/life/yuan-ze-gan-wu/">
+                                <div class="card-image">
+                                    
+                                        <img src="https://i.loli.net/2020/01/17/pHXGlyntCafVeqb.jpg" class="responsive-img" alt="《原则》感悟">
+                                    
+                                    <span class="card-title">《原则》感悟</span>
+                                </div>
+                            </a>
+                            <div class="card-content article-content">
+                                <div class="summary block-with-text">
+                                    
+                                        Ray Dalio《原则》
+                                    
+                                </div>
+                                <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
                                 </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    <span class="publish-author">
+                                        
+                                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                            
+                                                <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category"
+                                                   target="_blank">
                                     生活
                                     </a>
-                                    
-                                    
-                                </span>
+                                            
+                                        
+                                    </span>
+                                </div>
                             </div>
-                        </div>
 
-                        
-                        <div class="card-action article-tags">
                             
-                            <a href="/tags/%E6%84%9F%E6%82%9F/"><span class="chip bg-color">感悟</span></a>
+                                <div class="card-action article-tags">
+                                    
+                                        <a href="/tags/%E6%84%9F%E6%82%9F/"><span
+                                                    class="chip bg-color">感悟</span></a>
+                                    
+                                </div>
                             
                         </div>
-                        
                     </div>
-                </div>
-            </article>
-        </div>
+                </article>
+            </div>
         
     </div>
 
 </main>
 
 
+<script>
+    function showTime() {
+        $("#cd-timeline").show();
+        $("#cd-table").hide();
+        $("#sp-timeline").css('background', 'linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)');
+        $("#sp-timeline").css('color', '#fff');
+        $("#sp-table").css('background', '#F9EBEA')
+        $("#sp-table").css('color', 'rgba(0,0,0,0.6)');
+    }
 
+    function showTable() {
+        $("#cd-timeline").hide();
+        $("#cd-table").show();
+        $("#sp-table").css('background', 'linear-gradient(to right, #4cbf30 0%, #0f9d58 100%)');
+        $("#sp-table").css('color', '#fff');
+        $("#sp-timeline").css('background', '#F9EBEA')
+        $("#sp-timeline").css('color', 'rgba(0,0,0,0.6)');
+    }
+
+</script>
 
     <footer class="page-footer bg-color">
     <div class="container row center-align" style="margin-bottom: 0px !important;">
