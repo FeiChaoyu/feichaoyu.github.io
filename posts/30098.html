@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="反转链表, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="通过迭代和递归两种方法反转链表">
+    <meta name="keywords" content="图解直接插入排序和希尔排序, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="介绍直接插入排序及其优化方法、希尔排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>反转链表 | feichaoyu</title>
+    <title>图解直接插入排序和希尔排序 | feichaoyu</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/awesome/css/all.css">
@@ -26,9 +26,9 @@
     
     <script src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">反转链表</h1>
+                    <h1 class="description center-align post-title">图解直接插入排序和希尔排序</h1>
                 </div>
             </div>
         </div>
@@ -377,8 +377,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                <span class="chip bg-color">链表</span>
+                            <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">排序算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">直接插入排序</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">希尔排序</span>
                             </a>
                         
                     </div>
@@ -402,7 +410,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-14
+                    2020-02-09
                 </div>
                 
 
@@ -411,14 +419,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    223
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -429,43 +437,92 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>保存当前指针<code>cur</code>的前一个指针<code>prev</code>和后一个指针<code>next</code>，<code>prev</code>初始化指向<code>null</code>。当反转时，让<code>cur</code>的下一个指针指向<code>prev</code>，接着让<code>prev</code>指向<code>cur</code>，<code>cur</code>指向<code>next</code>，<code>next</code>指向自身下一个指针。以此循环直到<code>cur</code>为<code>null</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_14-32-05.jpg" alt=""></p>
-<p>代码：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ListNode</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
-    ListNode next<span class="token punctuation">;</span>
-    <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        val <span class="token operator">=</span> x<span class="token punctuation">;</span>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前我们曾经介绍了选择类排序中的<strong>简单选择排序</strong>，它的时间复杂度是<code>O(n^2)</code>。这次我们介绍插入类排序中的<strong>直接插入排序</strong>和<strong>希尔排序</strong>。</p>
+<p>对于直接插入排序，虽然它的时间复杂度也是<code>O(n^2)</code>，但是在元素<strong>有序或近乎有序</strong>的情况下，时间复杂度可以降为<code>O(n)</code>，效率比<code>O(nlogn)</code>的算法还要高。</p>
+<p>然而对于大规模的乱序数组，使用直接插入排序的效率是非常低的。此时我们需要使用希尔排序，希尔排序在直接插入排序的基础上，弥补了直接插入排序只能比较相邻元素的不足，使得可以按照指定步长比较元素，充分发挥了直接插入排序对于小规模有序数组排序的优势。</p>
+<p>下面我们分别介绍<strong>直接插入排序</strong>和<strong>希尔排序</strong>两类插入排序。</p>
+<h2 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h2><p>有如下数组，我们需要对它从小到大排序，利用直接插入排序步骤如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/Snipaste_2020-02-07_15-08-15.png" alt=""></p>
+<ol>
+<li>将第二个元素和第一个元素比较，小于第一个元素的话交换位置，这样第二个元素作为最小的元素排在了最前面，大于的话不交换。</li>
+<li>然后将第三个元素和第二个元素比较，小于第二个元素的话交换位置，然后再和第一个元素比较，小于第一个元素的话再次交换位置，这样第三个元素作为最小的元素排在了最前面，大于的话不交换。</li>
+<li>以此类推，直到最后一个元素插入到合适位置。</li>
+</ol>
+<p>下图展示了整个排序的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-09_14-59-49.png" alt=""></p>
+<p>直接插入排序的代码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 0位置不需要比，从1到最后一个位置n-1</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> j<span class="token punctuation">,</span> j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    ListNode pre <span class="token operator">=</span> null<span class="token punctuation">;</span>
-    ListNode cur <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode next <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
-        pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
-        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object t <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>优化的思路就是将内循环中每次<code>swap</code>交换操作修改为<strong>让较大的元素后移，最后再进行一次交换</strong>，这样一来访问数组的次数就减少了（交换需要三行，赋值只需要一行）。</p>
+<p>优化步骤如下：</p>
+<ol>
+<li>每次先保存当前插入的元素。</li>
+<li>将当前保存的元素（第二个元素）和第一个元素比较，小于第一个元素的话，将第一个元素移动到第二个元素位置，然后当前保存的元素移动到第一个元素位置，这样第二个元素作为最小的元素排在了最前面。</li>
+<li>将当前保存的元素（第三个元素）和第二个元素比较，小于第二个元素的话，将第二个元素移动到第三个元素位置，然后当前保存的元素移动到第二个元素位置，接着小于第一个元素的话再次执行以上操作，这样第三个元素作为最小的元素排在了最前面。</li>
+<li>以此类推，直到最后一个元素插入到合适位置。</li>
+</ol>
+<p>下图展示了优化思路的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-09_15-58-10.png" alt=""></p>
+<p>优化的直接插入排序代码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 0位置不需要比，从1到最后一个位置n-1</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 保存当前插入的元素</span>
+        Comparable e <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> j<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_18-25-50.jpg" alt=""></p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">// 递归终止条件</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    ListNode newHead <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// head->next此刻指向head后面的链表的尾节点</span>
-    <span class="token comment" spellcheck="true">// head->next->next = head把head节点放在了尾部</span>
-    head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>上面我们介绍了直接插入排序，它对于大规模乱序数组的排序效率比较低，因为只能交换相邻的元素，所以元素只能一点一点地从数组的一端移动到另一端。此外，如果最小的元素在数组的末尾，那么将它插入到正确位置需要移动 N-1 次。</p>
+<p>希尔排序的出现，解决了上述问题。它能够交换不相邻的元素以对数组的局部进行排序，并最终用直接插入排序将局部有序的数组排序。 </p>
+<p>希尔排序的思想是使数组中任意间隔为 h 的元素都是有序的。这样的数组也叫作 <strong>h 有序数组</strong>。我们不研究 h 是如何得来的，这里直接使用了《算法》书中的 h 步长序列。</p>
+<blockquote>
+<p><strong>h = 3*h+1</strong>，根据 h 的取值分别为1、4、13 …</p>
+</blockquote>
+<p>实际上只需要把直接插入排序代码中移动元素的距离由 <strong>1</strong> 改为 <strong>h</strong> 即可。这样，希尔排序就转换为了一个类似于直接插入排序但使用不同增量的过程。</p>
+<p>下图展示了希尔排序的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-09_20-49-21.png" alt=""></p>
+<p>如果你仔细观察，会发现在 h=1 时，相比直接插入排序，比较的次数大大减少了，这是因为希尔排序使得部分子数组有序，而直接插入排序对于近乎有序的数组，效率是非常高的。</p>
+<p>希尔排序代码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 步长序列: 1, 4, 13...</span>
+    <span class="token keyword">int</span> h <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>h <span class="token operator">&lt;</span> n <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        h <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> h <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>h <span class="token operator">>=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 将 arr[i] 插入到 arr[i-h], arr[i-2*h], arr[i-3*h]... 中</span>
+            Comparable e <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> j<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 优化的插入排序</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">>=</span> h <span class="token operator">&amp;&amp;</span> e<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j <span class="token operator">-</span> h<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">-=</span> h<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> h<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        h <span class="token operator">/=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -510,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.feichaoyu.com/2020/02/14/algorithm/lian-biao/fan-zhuan-lian-biao/">https://blog.feichaoyu.com/2020/02/14/algorithm/lian-biao/fan-zhuan-lian-biao/</a>
+                    <a href="https://blog.feichaoyu.com/posts/30098.html">https://blog.feichaoyu.com/posts/30098.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,8 +605,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                    <span class="chip bg-color">链表</span>
+                                <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">排序算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">直接插入排序</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">希尔排序</span>
                                 </a>
                             
                         </div>
@@ -720,7 +785,7 @@
         repo: 'feichaoyu.github.io',
         owner: 'feichaoyu',
         admin: ["feichaoyu"],
-        id: '2020-02-14T13-57-36',
+        id: '2020-02-09T13-24-25',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -745,31 +810,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/16/java/concurrency/duo-xian-cheng-bing-fa-ji-chu-zhi-shi/">
+                <a href="/posts/60912.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="多线程并发基础知识">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="图解冒泡排序">
                         
-                        <span class="card-title">多线程并发基础知识</span>
+                        <span class="card-title">图解冒泡排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍多线程并发相关的基础概念、synchronized及volatile关键字的语义、Java内存模型、锁机制等
+                            介绍了冒泡排序及其优化方法
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Concurrency/" class="post-category">
-                                    Concurrency
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    算法与数据结构
                                 </a>
                             
                             
@@ -779,36 +844,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%94%81/">
-                        <span class="chip bg-color">锁</span>
+                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">排序算法</span>
                     </a>
                     
-                    <a href="/tags/%E9%87%8D%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">重排序</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BC%AA%E5%85%B1%E4%BA%AB/">
-                        <span class="chip bg-color">伪共享</span>
-                    </a>
-                    
-                    <a href="/tags/CAS/">
-                        <span class="chip bg-color">CAS</span>
-                    </a>
-                    
-                    <a href="/tags/JMM/">
-                        <span class="chip bg-color">JMM</span>
-                    </a>
-                    
-                    <a href="/tags/synchronized/">
-                        <span class="chip bg-color">synchronized</span>
-                    </a>
-                    
-                    <a href="/tags/volatile/">
-                        <span class="chip bg-color">volatile</span>
-                    </a>
-                    
-                    <a href="/tags/happen-before/">
-                        <span class="chip bg-color">happen-before</span>
+                    <a href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">冒泡排序</span>
                     </a>
                     
                 </div>
@@ -822,36 +863,52 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/13/cloud-computing/yun-ji-suan-de-qian-shi-jin-sheng/">
+                <a href="/posts/16200.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="云计算的前世今生">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="图解堆结构、堆排序及堆的应用">
                         
-                        <span class="card-title">云计算的前世今生</span>
+                        <span class="card-title">图解堆结构、堆排序及堆的应用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            了解云计算的前世今生
+                            图解堆排序及其优化，举例说明堆的应用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    云计算
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    算法与数据结构
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">排序算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/">
+                        <span class="chip bg-color">二叉堆</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">堆排序</span>
+                    </a>
+                    
                 </div>
                 
             </div>

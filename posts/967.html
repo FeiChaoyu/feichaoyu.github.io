@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="云计算的前世今生, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="了解云计算的前世今生">
+    <meta name="keywords" content="反转链表, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="通过迭代和递归两种方法反转链表">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>云计算的前世今生 | feichaoyu</title>
+    <title>反转链表 | feichaoyu</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/awesome/css/all.css">
@@ -26,9 +26,9 @@
     
     <script src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">云计算的前世今生</h1>
+                    <h1 class="description center-align post-title">反转链表</h1>
                 </div>
             </div>
         </div>
@@ -375,9 +375,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -385,8 +389,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                云计算
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                算法与数据结构
                             </a>
                         
                     </div>
@@ -398,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-13
+                    2020-02-14
                 </div>
                 
 
@@ -407,14 +411,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    775
+                    223
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -425,49 +429,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="云计算的由来"><a href="#云计算的由来" class="headerlink" title="云计算的由来"></a>云计算的由来</h2><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p><img src="https://i.loli.net/2020/02/13/fQdNH5vm4FXoAVe.png" alt="Snipaste_2020-02-13_14-39-49.png"></p>
-<h3 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h3><p><img src="https://i.loli.net/2020/02/13/y6DsuJWgVxFAz4Y.png" alt="Snipaste_2020-02-13_14-42-10.png"></p>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>云计算（Cloud Computing）的一个核心理念就是通过不断提高“云”的处理能力，进而减少用户终端的处理负担，最终使用户终端简化成一个单纯的输入输出设备，并能按需享受“云”的强大计算处理能力。</p>
-<p>云计算（Cloud Computing）的核心思想，是将大量用网络连接的计算资源统一管理和调度，构成一个计算资源池向用户按需服务。</p>
-<p>可能大家都听说过 <strong>IaaS</strong>、<strong>PaaS</strong>、<strong>SaaS</strong>，这是云计算的三种服务。</p>
-<p><code>IaaS</code>是<code>Infrastructure as a Service</code>的简称，即<strong>基础设施即服务</strong>。消费者通过 Internet 可以从完善的计算机基础设施获得服务。<code>IaaS</code>公司会提供场外服务器，存储和网络硬件，也可以选择租用，节省了维护成本和办公场地，公司可以在任何时候利用这些硬件来运行其应用。</p>
-<p><code>PaaS</code>是<code>Platform-as-a-Service</code>的缩写，意思是<strong>平台即服务</strong>。把服务器平台作为一种服务提供的商业模式。某些时候也被叫做中间件。所有的开发都可以在这一层进行，节省时间与资源。<code>PaaS</code>公司可以提供各种开发和分发应用的解决方案，比如虚拟服务器和操作系统等，可以节省硬件上的费用。</p>
-<p><code>SaaS</code>是<code>Software-as-a-Service</code>的简称，意思是<strong>软件即服务</strong>。也是我们目前普通用户接触最多的层面，在网络上任意一个远程服务器上的应用都是属于<code>SaaS</code>。</p>
-<p><img src="https://i.loli.net/2020/02/13/rNqIyFwnxebfhvD.png" alt="Snipaste_2020-02-13_15-14-35.png"></p>
-<h2 id="云计算的优势"><a href="#云计算的优势" class="headerlink" title="云计算的优势"></a>云计算的优势</h2><ul>
-<li>超大规模</li>
-<li>虚拟化</li>
-<li>高可靠性</li>
-<li>通用性</li>
-<li>高可扩展性</li>
-<li>按需服务</li>
-<li>极其廉价</li>
-</ul>
-<h2 id="企业使用云计算的好处"><a href="#企业使用云计算的好处" class="headerlink" title="企业使用云计算的好处"></a>企业使用云计算的好处</h2><p><img src="https://i.loli.net/2020/02/13/BbQJzk642gIPtyu.png" alt="Snipaste_2020-02-13_15-17-39.png"></p>
-<h2 id="云计算颠覆未来"><a href="#云计算颠覆未来" class="headerlink" title="云计算颠覆未来"></a>云计算颠覆未来</h2><h3 id="未来生活"><a href="#未来生活" class="headerlink" title="未来生活"></a>未来生活</h3><p>智能传感器+云计算，关爱我们的家人。</p>
-<p><img src="https://i.loli.net/2020/02/13/pRvVmkq4PZ9oa3D.png" alt="Snipaste_2020-02-13_15-19-45.png"></p>
-<h3 id="未来娱乐"><a href="#未来娱乐" class="headerlink" title="未来娱乐"></a>未来娱乐</h3><p>云计算带来视觉体验。</p>
-<p><img src="https://i.loli.net/2020/02/13/vLoGtNgCruwRqD2.png" alt="Snipaste_2020-02-13_15-27-31.png"></p>
-<h3 id="未来城市"><a href="#未来城市" class="headerlink" title="未来城市"></a>未来城市</h3><h4 id="寻找亲人"><a href="#寻找亲人" class="headerlink" title="寻找亲人"></a>寻找亲人</h4><p>云计算帮助找回失散的亲人。</p>
-<p><img src="https://i.loli.net/2020/02/13/DzvxO3uaPtKp1Qc.png" alt="Snipaste_2020-02-13_15-29-25.png"></p>
-<p><img src="https://i.loli.net/2020/02/13/2h9q4VOsbj68dfg.png" alt="Snipaste_2020-02-13_15-29-32.png"></p>
-<h4 id="药品管理"><a href="#药品管理" class="headerlink" title="药品管理"></a>药品管理</h4><p>阿里健康“码上溯源”平台，收集了中国境内每盒药从生产、批发、零售环节的所有流通信息数据库规模大，查询要求快，高峰时期并发多。</p>
-<p><img src="https://i.loli.net/2020/02/13/hsxGyQNLU3MvSfW.png" alt="Snipaste_2020-02-13_15-32-25.png"></p>
-<p><img src="https://i.loli.net/2020/02/13/M3JQLK8pfV6NXW2.png" alt="Snipaste_2020-02-13_15-32-32.png"></p>
-<h4 id="保护环境"><a href="#保护环境" class="headerlink" title="保护环境"></a>保护环境</h4><p>生活中的典型案例—蔚蓝地图，全社会共同守护绿色环境。</p>
-<p><img src="https://i.loli.net/2020/02/13/sCtnigzaex2ljL1.png" alt="Snipaste_2020-02-13_15-34-18.png"></p>
-<h4 id="12306"><a href="#12306" class="headerlink" title="12306"></a>12306</h4><p><img src="https://i.loli.net/2020/02/13/Q7MKcdZnsr6AzJ2.png" alt="Snipaste_2020-02-13_15-35-38.png"></p>
-<h3 id="未来智能-万物互联IoT"><a href="#未来智能-万物互联IoT" class="headerlink" title="未来智能-万物互联IoT"></a>未来智能-万物互联IoT</h3><p><img src="https://i.loli.net/2020/02/13/vZghEYoR2x5DtaF.png" alt="Snipaste_2020-02-13_15-36-56.png"></p>
-<h3 id="未来已来"><a href="#未来已来" class="headerlink" title="未来已来"></a>未来已来</h3><p><img src="https://i.loli.net/2020/02/13/qrQe5VUgH9Ok8n3.png" alt="Snipaste_2020-02-13_15-38-11.png"></p>
-<ul>
-<li>云计算+民生：驾照审验在家就能做</li>
-<li>云计算+金融：贷款不必往银行跑</li>
-<li>云计算+交通：滴滴打车、曹操专车</li>
-<li>云计算+教育：人人可实现名校梦</li>
-<li>云计算+穿戴设备：智能手环变身健康教练</li>
-<li>云计算+医疗：三家一生在线问诊</li>
-</ul>
-<p>本文整理自<a href="https://developer.aliyun.com/course/1236" target="_blank" rel="noopener">阿里云在线课程-云计算的前世今生</a></p>
+                <h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>保存当前指针<code>cur</code>的前一个指针<code>prev</code>和后一个指针<code>next</code>，<code>prev</code>初始化指向<code>null</code>。当反转时，让<code>cur</code>的下一个指针指向<code>prev</code>，接着让<code>prev</code>指向<code>cur</code>，<code>cur</code>指向<code>next</code>，<code>next</code>指向自身下一个指针。以此循环直到<code>cur</code>为<code>null</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_14-32-05.jpg" alt=""></p>
+<p>代码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ListNode</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+    ListNode next<span class="token punctuation">;</span>
+    <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        val <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    ListNode pre <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    ListNode cur <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ListNode next <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_18-25-50.jpg" alt=""></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 递归终止条件</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ListNode newHead <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// head->next此刻指向head后面的链表的尾节点</span>
+    <span class="token comment" spellcheck="true">// head->next->next = head把head节点放在了尾部</span>
+    head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -511,7 +510,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.feichaoyu.com/2020/02/13/cloud-computing/yun-ji-suan-de-qian-shi-jin-sheng/">https://blog.feichaoyu.com/2020/02/13/cloud-computing/yun-ji-suan-de-qian-shi-jin-sheng/</a>
+                    <a href="https://blog.feichaoyu.com/posts/967.html">https://blog.feichaoyu.com/posts/967.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,7 +547,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -717,7 +720,7 @@
         repo: 'feichaoyu.github.io',
         owner: 'feichaoyu',
         admin: ["feichaoyu"],
-        id: '2020-02-13T14-35-01',
+        id: '2020-02-14T13-57-36',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -742,31 +745,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/14/algorithm/lian-biao/fan-zhuan-lian-biao/">
+                <a href="/posts/25228.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/17.jpg" class="responsive-img" alt="反转链表">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="多线程并发基础知识">
                         
-                        <span class="card-title">反转链表</span>
+                        <span class="card-title">多线程并发基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            通过迭代和递归两种方法反转链表
+                            介绍多线程并发相关的基础概念、synchronized及volatile关键字的语义、Java内存模型、锁机制等
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    算法与数据结构
+                            <a href="/categories/Concurrency/" class="post-category">
+                                    Concurrency
                                 </a>
                             
                             
@@ -776,8 +779,36 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
+                    <a href="/tags/%E9%94%81/">
+                        <span class="chip bg-color">锁</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%87%8D%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">重排序</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BC%AA%E5%85%B1%E4%BA%AB/">
+                        <span class="chip bg-color">伪共享</span>
+                    </a>
+                    
+                    <a href="/tags/CAS/">
+                        <span class="chip bg-color">CAS</span>
+                    </a>
+                    
+                    <a href="/tags/JMM/">
+                        <span class="chip bg-color">JMM</span>
+                    </a>
+                    
+                    <a href="/tags/synchronized/">
+                        <span class="chip bg-color">synchronized</span>
+                    </a>
+                    
+                    <a href="/tags/volatile/">
+                        <span class="chip bg-color">volatile</span>
+                    </a>
+                    
+                    <a href="/tags/happen-before/">
+                        <span class="chip bg-color">happen-before</span>
                     </a>
                     
                 </div>
@@ -791,48 +822,36 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/12/algorithm/pai-xu-suan-fa/gui-bing-pai-xu/">
+                <a href="/posts/51072.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="图解归并排序">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="云计算的前世今生">
                         
-                        <span class="card-title">图解归并排序</span>
+                        <span class="card-title">云计算的前世今生</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍自顶向下和自底向上的归并排序
+                            了解云计算的前世今生
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    算法与数据结构
+                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
+                                    云计算
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">排序算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">归并排序</span>
-                    </a>
-                    
                 </div>
                 
             </div>

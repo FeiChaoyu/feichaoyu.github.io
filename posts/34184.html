@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图解冒泡排序, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="介绍了冒泡排序及其优化方法">
+    <meta name="keywords" content="图解简单选择排序, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="图解简单选择排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>图解冒泡排序 | feichaoyu</title>
+    <title>图解简单选择排序 | feichaoyu</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/awesome/css/all.css">
@@ -26,9 +26,9 @@
     
     <script src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="feichaoyu" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">图解冒泡排序</h1>
+                    <h1 class="description center-align post-title">图解简单选择排序</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                                 <span class="chip bg-color">排序算法</span>
                             </a>
                         
-                            <a href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">冒泡排序</span>
+                            <a href="/tags/%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">简单选择排序</span>
                             </a>
                         
                     </div>
@@ -406,7 +406,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-10
+                    2020-02-07
                 </div>
                 
 
@@ -415,14 +415,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    862
+                    607
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -433,24 +433,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这次我们介绍交换类排序中的冒泡排序，和简单插入排序相似，冒泡排序虽然时间复杂度也是<code>O(n^2)</code>，但是对于有序数组的排序，时间复杂度也可以降为<code>O(n)</code>，效率是比较高的。</p>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>对数组<code>[1, 4, 3, 2, 5, 6, 7, 8]</code>从小到大排序，使用冒泡排序步骤如下：</p>
+                <h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2><p>有如下数组，我们需要对它从小到大排序，步骤如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/Snipaste_2020-02-07_15-08-15.png" alt=""></p>
 <ol>
-<li>依次比较相邻元素的大小。</li>
-<li>如果前面的数据大于后面的数据，就交换这两个数据，然后向右移动一步，接着比较。经过第一轮的多次比较交换后，最大的数据就移动到了最后。</li>
-<li>以此类推，经过 n 轮循环，数组就排序好了。</li>
+<li>在数组中找到最小值，然后与第一个位置交换。</li>
+<li>除去第一个位置在数组中继续找最小值，与第二个位置交换，以此类推，直到末尾。</li>
 </ol>
-<p>下图展示了冒泡排序的过程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-10_16-55-06.jpg" alt=""></p>
-<p>冒泡排序代码：</p>
+<p>下图展示了整个交换的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/SelectionSort.png" alt=""></p>
+<p>选择排序代码：</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 寻找[i, n)区间里的最小值的索引</span>
+        <span class="token keyword">int</span> minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                minIndex <span class="token operator">=</span> j<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 每一轮循环找到最小的元素交换</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i<span class="token punctuation">,</span> minIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -458,62 +461,53 @@
     Object t <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
     arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
     arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="优化1"><a href="#优化1" class="headerlink" title="优化1"></a>优化1</h2><p>如果对于一个有序的数组，使用上述冒泡排序的话，同样会执行<code>n(n-1)/2</code>次。实际上，在内循环中每一次比较只要没有发生逆序，即元素之间进行交换，那么就说明数组已经有序，这时已经可以退出程序了。</p>
-<p>优化思路就是设置一个交换标志<code>swapped</code>，只要发生了交换，就让<code>swapped = true</code>，外部循环判断<code>swapped</code>是否为<code>true</code>，不是就结束程序，说明排序完成。</p>
-<p>下面展示了优化思路的过程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-10_16-51-01.jpg" alt=""></p>
-<p>优化代码：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token keyword">boolean</span> swapped <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token punctuation">{</span>
-        swapped <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                swapped <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>我们通过类似对撞指针的思路，维护两个指针，这两个指针分别指向最大值和最小值。</p>
+<p>步骤如下：</p>
+<ol>
+<li>我们让<code>left</code>指针指向数组的起始位置（最小值），<code>right</code>指针指向数组的末尾位置（最大值）。</li>
+<li>在<code>left &lt; right</code>的前提下，保证<code>left指向的元素 &lt; right指向的元素</code>，不满足则交换。</li>
+<li>在每一轮循环<code>(left+1, right)</code>中，遍历所有元素，如果有元素小于最小值，则更新最小值的位置；否则如果有元素大于最大值，则更新最大值的位置。</li>
+<li>一轮循环结束，让最小值和<code>left</code>指向的元素交换，让最大值和<code>right</code>指向的元素交换。</li>
+<li>让<code>left</code>指针和<code>right</code>指针所构成的区间减小，即<code>left++, right--</code>。</li>
+</ol>
+<p>下图展示了整个交换的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/SelectionSort-2.png" alt=""></p>
+<p>优化的选择排序代码：</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 在每一轮中, 可以同时找到当前未处理元素的最大值和最小值</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> minIndex <span class="token operator">=</span> left<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> maxIndex <span class="token operator">=</span> right<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 在每一轮查找时, 要保证arr[minIndex] &lt;= arr[maxIndex]</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> minIndex<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> right<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                maxIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">// 每一次for循环将最大的元素放在了最后的位置</span>
-        <span class="token comment" spellcheck="true">// 所以下一次排序, 最后的元素可以不再考虑，n--</span>
-        n<span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>swapped<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> left<span class="token punctuation">,</span> minIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> right<span class="token punctuation">,</span> maxIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        left<span class="token operator">++</span><span class="token punctuation">;</span>
+        right<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     Object t <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
     arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
     arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="优化2"><a href="#优化2" class="headerlink" title="优化2"></a>优化2</h2><p>在上述优化的基础上，我们还可以进一步优化。</p>
-<p>对于数组：<code>[1, 4, 3, 2, 5, 6, 7, 8]</code>，按照上面的优化思路，我们在第一轮比较时，需要让<code>5, 6, 7, 8</code>比较，第二轮比较时，需要让<code>5, 6, 7</code>比较，然而它们都是有序的排列，因此，我们是否能减少这些不必要的比较呢？答案是可以的。</p>
-<p>优化思路就是每一轮循环完后，更新<code>n</code>的值，更新为<strong>最后一次交换的位置</strong>，这样，在此之后的元素都已经是有序的了，那么下次循环中就不用再比较了。</p>
-<p>下图展示了优化思路的过程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-10_18-01-10.jpg" alt=""></p>
-<p>优化代码：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sort</span><span class="token punctuation">(</span>Comparable<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> newn<span class="token punctuation">;</span>
-    <span class="token keyword">do</span> <span class="token punctuation">{</span>
-        newn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 记录最后一次的交换位置，在此之后的元素都是已经有序的，因此下一轮扫描中不再考虑</span>
-                newn <span class="token operator">=</span> i<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        n <span class="token operator">=</span> newn<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>newn <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Object t <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -558,7 +552,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/mou-pao-pai-xu/">https://blog.feichaoyu.com/2020/02/10/algorithm/pai-xu-suan-fa/mou-pao-pai-xu/</a>
+                    <a href="https://blog.feichaoyu.com/posts/34184.html">https://blog.feichaoyu.com/posts/34184.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,8 +594,8 @@
                                     <span class="chip bg-color">排序算法</span>
                                 </a>
                             
-                                <a href="/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">冒泡排序</span>
+                                <a href="/tags/%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">简单选择排序</span>
                                 </a>
                             
                         </div>
@@ -772,7 +766,7 @@
         repo: 'feichaoyu.github.io',
         owner: 'feichaoyu',
         admin: ["feichaoyu"],
-        id: '2020-02-10T15-22-01',
+        id: '2020-02-07T13-52-33',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -797,24 +791,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/10/algorithm/pai-xu-suan-fa/kuai-su-pai-xu/">
+                <a href="/posts/16200.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="图解快速排序及双路三路快速排序">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="图解堆结构、堆排序及堆的应用">
                         
-                        <span class="card-title">图解快速排序及双路三路快速排序</span>
+                        <span class="card-title">图解堆结构、堆排序及堆的应用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍快速排序及其优化方法，双路快速排序及三路快速排序
+                            图解堆排序及其优化，举例说明堆的应用
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
                         </span>
                         <span class="publish-author">
                             
@@ -835,8 +829,12 @@
                         <span class="chip bg-color">排序算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">快速排序</span>
+                    <a href="/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/">
+                        <span class="chip bg-color">二叉堆</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">堆排序</span>
                     </a>
                     
                 </div>
@@ -850,52 +848,36 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/09/algorithm/pai-xu-suan-fa/zhi-jie-cha-ru-pai-xu-he-xi-er-pai-xu/">
+                <a href="/posts/25343.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="图解直接插入排序和希尔排序">
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="Java程序员问答汇总">
                         
-                        <span class="card-title">图解直接插入排序和希尔排序</span>
+                        <span class="card-title">Java程序员问答汇总</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍直接插入排序及其优化方法、希尔排序
+                            不定期更新一些问答知识点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    算法与数据结构
+                            <a href="/categories/%E9%9D%A2%E8%AF%95/" class="post-category">
+                                    面试
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">排序算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">直接插入排序</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">希尔排序</span>
-                    </a>
-                    
                 </div>
                 
             </div>
