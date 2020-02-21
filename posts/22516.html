@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="反转链表, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
-    <meta name="description" content="通过迭代和递归两种方法反转链表">
+    <meta name="keywords" content="如何桶nginx正确配置带www和不带www的https服务, golang,go语言,feichaoyu,java,Spring,Spring Boot,博客,软件架构">
+    <meta name="description" content="用nginx配置带www和不带www的https服务的方式">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>反转链表 | feichaoyu</title>
+    <title>如何桶nginx正确配置带www和不带www的https服务 | feichaoyu</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/libs/awesome/css/all.css">
@@ -255,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">反转链表</h1>
+                    <h1 class="description center-align post-title">如何桶nginx正确配置带www和不带www的https服务</h1>
                 </div>
             </div>
         </div>
@@ -377,8 +377,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                <span class="chip bg-color">链表</span>
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
                             </a>
                         
                     </div>
@@ -389,8 +389,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                算法与数据结构
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                网络
                             </a>
                         
                     </div>
@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-14
+                    2020-02-21
                 </div>
                 
 
@@ -411,7 +411,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    223
+                    196
                 </div>
                 
 
@@ -429,44 +429,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>保存当前指针<code>cur</code>的前一个指针<code>prev</code>和后一个指针<code>next</code>，<code>prev</code>初始化指向<code>null</code>。当反转时，让<code>cur</code>的下一个指针指向<code>prev</code>，接着让<code>prev</code>指向<code>cur</code>，<code>cur</code>指向<code>next</code>，<code>next</code>指向自身下一个指针。以此循环直到<code>cur</code>为<code>null</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_14-32-05.jpg" alt=""></p>
-<p>代码：</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ListNode</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
-    ListNode next<span class="token punctuation">;</span>
-    <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        val <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+                <p><strong>nginx配置如下</strong></p>
+<p>该配置能够让如下四种访问最终都指向<a href="https://www.feichaoyu.com" target="_blank" rel="noopener">https://www.feichaoyu.com</a></p>
+<ol>
+<li><a href="http://feichaoyu.com/" target="_blank" rel="noopener">http://feichaoyu.com/</a></li>
+<li><a href="http://feichaoyu.com/" target="_blank" rel="noopener">http://www.feichaoyu.com/</a></li>
+<li><a href="http://feichaoyu.com/" target="_blank" rel="noopener">https://feichaoyu.com/</a></li>
+<li><a href="http://feichaoyu.com/" target="_blank" rel="noopener">https://www.feichaoyu.com/</a></li>
+</ol>
+<p>它们最终都指向<a href="https://www.feichaoyu.com" target="_blank" rel="noopener">https://www.feichaoyu.com</a></p>
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">listen</span>       <span class="token number">443</span><span class="token punctuation">;</span>
+    <span class="token keyword">ssl_certificate</span>      <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>cert<span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com_bundle<span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_certificate_key</span>  <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>cert<span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  feichaoyu<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">301</span>   <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token variable">$request_uri</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">301</span>   <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token variable">$request_uri</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    ListNode pre <span class="token operator">=</span> null<span class="token punctuation">;</span>
-    ListNode cur <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode next <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
-        pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
-        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/2020-02-14_18-25-50.jpg" alt=""></p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_certificate</span>      <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>cert<span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com_bundle<span class="token punctuation">.</span>crt<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_certificate_key</span>  <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>cert<span class="token operator">/</span>www<span class="token punctuation">.</span>feichaoyu<span class="token punctuation">.</span>com<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">// 递归终止条件</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> null <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_session_cache</span>    shared<span class="token punctuation">:</span><span class="token keyword">SSL</span><span class="token punctuation">:</span>1m<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_session_timeout</span>  5m<span class="token punctuation">;</span>
+
+    <span class="token keyword">ssl_ciphers</span>  HIGH<span class="token punctuation">:</span><span class="token operator">!</span>aNULL<span class="token punctuation">:</span><span class="token operator">!</span>MD5<span class="token punctuation">;</span>
+    <span class="token keyword">ssl_prefer_server_ciphers</span>  on<span class="token punctuation">;</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   html<span class="token punctuation">;</span>
+        <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    ListNode newHead <span class="token operator">=</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// head->next此刻指向head后面的链表的尾节点</span>
-    <span class="token comment" spellcheck="true">// head->next->next = head把head节点放在了尾部</span>
-    head<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    head<span class="token punctuation">.</span>next <span class="token operator">=</span> null<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/cdn/img/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt=""></p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -510,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.feichaoyu.com/posts/967.html">https://blog.feichaoyu.com/posts/967.html</a>
+                    <a href="https://blog.feichaoyu.com/posts/22516.html">https://blog.feichaoyu.com/posts/22516.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,8 +551,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                    <span class="chip bg-color">链表</span>
+                                <a href="/tags/nginx/">
+                                    <span class="chip bg-color">nginx</span>
                                 </a>
                             
                         </div>
@@ -720,7 +723,7 @@
         repo: 'feichaoyu.github.io',
         owner: 'feichaoyu',
         admin: ["feichaoyu"],
-        id: '2020-02-14T13-57-36',
+        id: '2020-02-21T12-57-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -741,9 +744,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/22516.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="如何桶nginx正确配置带www和不带www的https服务">
+                        
+                        <span class="card-title">如何桶nginx正确配置带www和不带www的https服务</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            用nginx配置带www和不带www的https服务的方式
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    网络
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/25228.html">
                     <div class="card-image">
@@ -761,9 +815,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -811,47 +865,6 @@
                         <span class="chip bg-color">happen-before</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/51072.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/FeiChaoyu/feichaoyu.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="云计算的前世今生">
-                        
-                        <span class="card-title">云计算的前世今生</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            了解云计算的前世今生
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-13
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    云计算
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.feichaoyu.com/"/>
-  <updated>2020-02-18T11:47:06.727Z</updated>
+  <updated>2020-02-21T05:01:55.814Z</updated>
   <id>https://blog.feichaoyu.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>多线程并发基础知识</title>
+    <title>如何桶nginx正确配置带www和不带www的https服务</title>
+    <link href="https://blog.feichaoyu.com/posts/22516.html"/>
+    <id>https://blog.feichaoyu.com/posts/22516.html</id>
+    <published>2020-02-21T04:57:15.000Z</published>
+    <updated>2020-02-21T05:01:55.814Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;nginx配置如下&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;该配置能够让如下四种访问最终都指向&lt;a href=&quot;https://www.feichaoyu.com&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="网络" scheme="https://blog.feichaoyu.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="nginx" scheme="https://blog.feichaoyu.com/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发基础知识</title>
     <link href="https://blog.feichaoyu.com/posts/25228.html"/>
     <id>https://blog.feichaoyu.com/posts/25228.html</id>
     <published>2020-02-16T05:43:38.000Z</published>
-    <updated>2020-02-18T11:47:06.727Z</updated>
+    <updated>2020-02-19T02:22:25.319Z</updated>
     
     <summary type="html">
     
