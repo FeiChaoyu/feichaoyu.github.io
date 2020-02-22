@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.feichaoyu.com/"/>
-  <updated>2020-02-21T05:02:28.534Z</updated>
+  <updated>2020-02-22T03:11:38.477Z</updated>
   <id>https://blog.feichaoyu.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何桶nginx正确配置带www和不带www的https服务</title>
+    <title>如何用nginx正确配置带www和不带www的https服务</title>
     <link href="https://blog.feichaoyu.com/posts/22516.html"/>
     <id>https://blog.feichaoyu.com/posts/22516.html</id>
     <published>2020-02-21T04:57:15.000Z</published>
-    <updated>2020-02-21T05:02:28.534Z</updated>
+    <updated>2020-02-22T03:11:38.477Z</updated>
     
     <summary type="html">
     
